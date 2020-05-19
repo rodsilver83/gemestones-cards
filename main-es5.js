@@ -984,7 +984,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
       path: 'monopoly-cards',
       component: _deck_deck_component__WEBPACK_IMPORTED_MODULE_3__["DeckComponent"]
     }, {
-      path: '**',
+      path: '',
       component: _deck_deck_component__WEBPACK_IMPORTED_MODULE_3__["DeckComponent"]
     }];
 
