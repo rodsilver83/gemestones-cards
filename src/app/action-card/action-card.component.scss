@@ -1,0 +1,36 @@
+.action-card__action {
+	border: 5px solid #333;
+	width: 130px;
+	height: 130px;
+	border-radius: 50%;
+	background-color: #eee;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.action-card__main {
+	font-weight: bold;
+	margin: 5px;
+}
+
+.action-card__title {
+	width: 85%;
+	text-align: center;
+	font-weight: bold;
+	text-transform: uppercase;
+	font-size: 1.2rem;
+}
+
+.action-card__icon {
+	margin-bottom: 10px;
+	font-size: 2em;
+}
+
+.action-card__desc {
+	font-size: 0.7rem;
+	padding-right: 25px;
+	margin: 5px 0 10px;
+	text-align: center;
+}

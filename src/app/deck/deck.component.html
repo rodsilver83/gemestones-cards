@@ -1,0 +1,6 @@
+<div class="deck">
+	<ng-container *ngFor="let card of deckCards" [ngSwitch]="card.type">
+		<app-action-card *ngSwitchCase="'ACTION'" [config]="card"></app-action-card>
+		<app-property-card *ngSwitchCase="'PROPERTY'" [config]="card"></app-property-card>
+	</ng-container>
+</div>

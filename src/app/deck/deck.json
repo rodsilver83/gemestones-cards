@@ -1,0 +1,67 @@
+{
+	"Deck": [
+		{
+			"type": "PROPERTY",
+			"quantity": 1,
+			"config": {
+				"color": "#000000",
+				"textColor": "#FFFFFF",
+				"bgColor": "#FFFFFF",
+				"value": 2,
+				"icon": "fa-tint",
+				"iconColor": "#000000",
+				"name": "Short Line",
+				"rents": [
+					{
+						"houses": 1,
+						"rent": 1
+					},
+					{
+						"houses": 2,
+						"rent": 2
+					},
+					{
+						"houses": 3,
+						"rent": 3
+					},
+					{
+						"houses": 4,
+						"rent": 4
+					}
+				]
+			}
+		},
+		{
+			"type": "ACTION",
+			"quantity": 1,
+			"config": {
+				"bgColor": "#C3CFCC",
+				"title": "Cobra Deudas",
+				"value": 3,
+				"desc": "Obliga a un jugador a pagarte $5. Juega al centro."
+			}
+		},
+		{
+			"type": "ACTION",
+			"quantity": 1,
+			"config": {
+				"bgColor": "#7b7ab2",
+				"title": "Roba Negocios",
+				"value": 5,
+				"desc": "Robe un set completo de propiedades de cualquier jugador (incluyendo edificios). Juega al centro."
+			}
+		},
+		{
+			"type": "ACTION",
+			"quantity": 1,
+			"config": {
+				"bgColor": "#C2D8EC",
+				"title": "Hotel",
+				"icon": "fa-hotel",
+				"iconColor": "#D71921",
+				"value": 4,
+				"desc": "Para jugarse con una tarjeta de renta. Juega al centro."
+			}
+		}
+	]
+}

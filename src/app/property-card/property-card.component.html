@@ -1,0 +1,30 @@
+
+<app-card [value]="config?.value" [color]="config?.bgColor">
+
+	<div class="property-card__main"
+		[style.background-color]="config?.color"
+		[style.color]="config?.textColor">
+		{{config.name}}
+	</div>
+	<div class="property-card__rent">
+		<div class="property-card__rent-row">
+			<span class="property-card__rent-no">(No. de propiedades en el grupo)</span>
+			<span class="property-card__rent-title">RENT</span>
+		</div>
+
+		<div class="property-card__rent-row" *ngFor="let rent of config?.rents">
+			<span class="property-card__card">{{rent.houses}}
+				<i class="fas fa-home"></i>
+				<!-- <i class="fas fa-home" *ngIf="rent.houses> 1"></i>
+				<i class="fas fa-home" *ngIf="rent.houses> 2"></i>
+				<i class="fas fa-home" *ngIf="rent.houses> 3"></i> -->
+			</span>
+			<span><i class="fa fa-dollar-sign"
+					[style.color]="config?.iconColor"></i>{{rent.rent}}
+			</span>
+		</div>
+
+		<div class="property-card__title">{{config?.title}}</div>
+		<p class="property-card__desc">{{config?.desc}}</p>
+	</div>
+</app-card>

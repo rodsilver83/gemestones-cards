@@ -1,0 +1,42 @@
+.property-card__main {
+	border: 1px solid #333;
+	font-weight: bold;
+	width: 100%;
+	text-align: center;
+	height: 40px;
+	line-height: 40px;
+}
+
+.property-card__icon {
+	align-self: flex-end;
+	padding: 8px;
+}
+
+.property-card__rent {
+	flex-grow: 1;
+	width: 100%;
+	padding-top: 10px;
+}
+
+.property-card__rent-row {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0 15px;
+
+	&:first-child {
+		padding: 5px 0;
+	}
+}
+
+.property-card__rent-no {
+	font-size: 0.1rem;
+	text-align: center;
+}
+
+.property-card__card {
+	// border: 1px solid #333;
+	border-radius: 5px;
+	padding: 5px;
+	position: relative;
+}
