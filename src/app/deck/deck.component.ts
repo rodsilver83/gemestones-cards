@@ -11,7 +11,7 @@ import { PropertyCard } from '../property-card/property-card.component';
 })
 export class DeckComponent implements OnInit {
 
-  private deckCards = Array<Card>();
+  public deckCards = Array<Card>();
 
   constructor() { }
 

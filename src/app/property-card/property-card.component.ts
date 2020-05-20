@@ -12,7 +12,7 @@ export class PropertyCard extends Card {
   public iconColor = '';
   public color = '';
   public textColor = '';
-  public rent = Array<Rent>();
+  public rents = Array<Rent>();
 
   constructor(...args: {
     color: string,

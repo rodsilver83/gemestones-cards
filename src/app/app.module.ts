@@ -10,7 +10,9 @@ import { PropertyCardComponent } from './property-card/property-card.component';
 import { WildCardComponent } from './wild-card/wild-card.component';
 import { RentCardComponent } from './rent-card/rent-card.component';
 import { MoneyCardComponent } from './money-card/money-card.component';
-
+import { LobbyComponent } from './lobby/lobby.component';
+import { TableComponent } from './table/table.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,11 +22,15 @@ import { MoneyCardComponent } from './money-card/money-card.component';
     PropertyCardComponent,
     WildCardComponent,
     RentCardComponent,
-    MoneyCardComponent
+    MoneyCardComponent,
+    LobbyComponent,
+    TableComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
