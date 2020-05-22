@@ -341,7 +341,7 @@
 		},
 		{
 			"type": "ACTION",
-			"quantity": 1,
+			"quantity": 3,
 			"config": {
 				"bgColor": "#C3CFCC",
 				"title": "Cobra Deudas",
@@ -351,7 +351,7 @@
 		},
 		{
 			"type": "ACTION",
-			"quantity": 1,
+			"quantity": 2,
 			"config": {
 				"bgColor": "#7b7ab2",
 				"title": "Roba Negocios",
@@ -361,45 +361,185 @@
 		},
 		{
 			"type": "ACTION",
-			"quantity": 1,
+			"quantity": 3,
 			"config": {
 				"bgColor": "#C2D8EC",
 				"title": "Hotel",
 				"icon": "fa-hotel",
 				"iconColor": "#D71921",
 				"value": 4,
-				"desc": "Para jugarse con una tarjeta de renta. Juega al centro."
+				"desc": "Añádela a cualquier grupo completo que poseas para sumar a $4 al valor del alquiler. (Excepto a Aerolineas y Energia.)."
+			}
+		},
+		{
+			"type": "ACTION",
+			"quantity": 3,
+			"config": {
+				"bgColor": "#C2D8EC",
+				"title": "CASA",
+				"icon": "fa-home",
+				"iconColor": "#009006",
+				"value": 3,
+				"desc": "Añádela a cualquier grupo completo que poseas para sumar a $3 al valor del alquiler. (Excepto a Aerolineas y Energia.)."
+			}
+		},
+		{
+			"type": "ACTION",
+			"quantity": 3,
+			"config": {
+				"bgColor": "#d5ecba",
+				"title": "CUMPLEAñOS",
+				"icon": "fa-birthday-cake",
+				"iconColor": "#d27bba",
+				"value": 2,
+				"small": true,
+				"desc": "Todos los Jugadores te dan $2 de regalo. Juegala al centro."
+			}
+		},
+		{
+			"type": "ACTION",
+			"quantity": 2,
+			"config": {
+				"bgColor": "#d2ebef",
+				"title": "DOBLE RENTA",
+				"value": 1,
+				"desc": "Para jugarse con una carta de renta. Juegala al centro."
+			}
+		},
+		{
+			"type": "ACTION",
+			"quantity": 3,
+			"config": {
+				"bgColor": "#d2ebef",
+				"title": "TRATO FORZOSO",
+				"value": 3,
+				"desc": "Intercambia cualquier propiedad con otro jugador. (No puede ser parte de un grupo completo.). Juegala al centro."
+			}
+		},
+		{
+			"type": "MONEY",
+			"quantity": 6,
+			"config": {
+				"bgColor": "#fddb75",
+				"value": 1,
+				"desc": "Pon cartas de dinero en tu montón de banca y úsalas para pagar a otros jugadores."
+			}
+		},
+		{
+			"type": "MONEY",
+			"quantity": 5,
+			"config": {
+				"bgColor": "#c4ce69",
+				"value": 2,
+				"desc": "Pon cartas de dinero en tu montón de banca y úsalas para pagar a otros jugadores."
+			}
+		},
+		{
+			"type": "MONEY",
+			"quantity": 3,
+			"config": {
+				"bgColor": "#a6c59f",
+				"value": 3,
+				"desc": "Pon cartas de dinero en tu montón de banca y úsalas para pagar a otros jugadores."
+			}
+		},
+		{
+			"type": "MONEY",
+			"quantity": 3,
+			"config": {
+				"bgColor": "#e8a3a9",
+				"value": 4,
+				"desc": "Pon cartas de dinero en tu montón de banca y úsalas para pagar a otros jugadores."
+			}
+		},
+		{
+			"type": "MONEY",
+			"quantity": 2,
+			"config": {
+				"bgColor": "#8fa9cc",
+				"value": 5,
+				"desc": "Pon cartas de dinero en tu montón de banca y úsalas para pagar a otros jugadores."
 			}
 		},
 		{
 			"type": "MONEY",
 			"quantity": 1,
 			"config": {
-				"bgColor": "#B09246",
+				"bgColor": "#79a791",
 				"value": 10,
 				"desc": "Pon cartas de dinero en tu montón de banca y úsalas para pagar a otros jugadores."
 			}
 		},
 		{
 			"type": "RENT",
-			"quantity": 1,
+			"quantity": 2,
 			"config": {
-				"bgColor": "#ACAB95",
-				"value": 2,
+				"bgColor": "#a6a6a7",
+				"value": 1,
 				"title": "RENTA",
 				"wild": false,
-				"rentColors": [
-					"#09C400",
-					"#0016EE"
-				],
+				"rentSet1": 7,
+				"rentSet2": 8,
 				"desc": "Cobra alquiler a otros jugadores por tus propiedades que coincida con el color de la tarjeta."
 			}
 		},
 		{
 			"type": "RENT",
-			"quantity": 1,
+			"quantity": 2,
 			"config": {
-				"bgColor": "#ACAB95",
+				"bgColor": "#a6a6a7",
+				"value": 1,
+				"title": "RENTA",
+				"wild": false,
+				"rentSet1": 1,
+				"rentSet2": 2,
+				"desc": "Cobra alquiler a otros jugadores por tus propiedades que coincida con el color de la tarjeta."
+			}
+		},
+		{
+			"type": "RENT",
+			"quantity": 2,
+			"config": {
+				"bgColor": "#a6a6a7",
+				"value": 1,
+				"title": "RENTA",
+				"wild": false,
+				"rentSet1": 3,
+				"rentSet2": 4,
+				"desc": "Cobra alquiler a otros jugadores por tus propiedades que coincida con el color de la tarjeta."
+			}
+		},
+		{
+			"type": "RENT",
+			"quantity": 2,
+			"config": {
+				"bgColor": "#a6a6a7",
+				"value": 1,
+				"title": "RENTA",
+				"wild": false,
+				"rentSet1": 5,
+				"rentSet2": 6,
+				"desc": "Cobra alquiler a otros jugadores por tus propiedades que coincida con el color de la tarjeta."
+			}
+		},
+		{
+			"type": "RENT",
+			"quantity": 2,
+			"config": {
+				"bgColor": "#a6a6a7",
+				"value": 1,
+				"title": "RENTA",
+				"wild": false,
+				"rentSet1": 9,
+				"rentSet2": 10,
+				"desc": "Cobra alquiler a otros jugadores por tus propiedades que coincida con el color de la tarjeta."
+			}
+		},
+		{
+			"type": "RENT",
+			"quantity": 3,
+			"config": {
+				"bgColor": "#a6a6a7",
 				"value": 3,
 				"wild": true,
 				"title": "RENTA",

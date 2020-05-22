@@ -5,8 +5,17 @@ export class ActionCard extends Card {
   public title = '';
   public icon = '';
   public iconColor = '';
+  public small = false;
 
-  constructor(...args: { bgColor: string; value: number; desc: string; icon?: string, iconColor?: string, title?: string }[]) {
+  constructor(...args: {
+    bgColor: string;
+    value: number;
+    desc: string;
+    icon?: string,
+    iconColor?: string,
+    title?: string,
+    small?: boolean
+  }[]) {
     super(...args);
     Object.assign(this, ...args);
   }

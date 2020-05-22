@@ -11,7 +11,7 @@ export class CardColorsService {
   public set3 = '#d73995';
   public set4 = '#f7931e';
   public set5 = '#d32f35';
-  public set6 = '#e9df23';
+  public set6 = '#fff06c';
   public set7 = '#30b45b';
   public set8 = '#0072bb';
   public set9 = '#cde7d0';
@@ -21,8 +21,8 @@ export class CardColorsService {
 
   constructor(private sanitizer: DomSanitizer) { }
 
-  public getColor(color: string, set: number): string {
-    return this[`set${set}`] || color;
+  public getColor(set: number): string {
+    return this[`set${set}`];
   }
 
   public getRainbowLinearGradient(direction: string) {

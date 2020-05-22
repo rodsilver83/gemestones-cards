@@ -43,7 +43,7 @@ export class PropertyWildCardComponent implements OnInit {
   constructor(private cardColor: CardColorsService) { }
 
   bgColor(property) {
-    return this.cardColor.getColor(property.color, property.set);
+    return this.cardColor.getColor(property.set);
   }
 
   ngOnInit() {

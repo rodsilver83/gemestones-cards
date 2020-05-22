@@ -45,7 +45,7 @@ export class PropertyCardComponent implements OnInit {
   @Input() public config: PropertyCard;
 
   get bgColor() {
-    return this.cardColor.getColor(this.config.color, this.config.set);
+    return this.cardColor.getColor(this.config.set);
   }
 
   constructor(private cardColor: CardColorsService) { }
