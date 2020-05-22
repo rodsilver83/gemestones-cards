@@ -1,4 +1,4 @@
-.property-card__main {
+.property-wild-card__main {
 	border: 1px solid #333;
 	font-weight: bold;
 	width: 100%;
@@ -7,30 +7,30 @@
 	line-height: 40px;
 }
 
-.property-card__icon {
+.property-wild-card__icon {
 	align-self: flex-end;
 	padding: 8px;
 }
 
-.property-card__rent {
+.property-wild-card__rent {
 	width: 100%;
 	padding-top: 10px;
 	height: 100%;
 	font-weight: bold;
 }
 
-.property-card__rent-row {
+.property-wild-card__rent-row {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	padding: 0 15px;
 }
 
-.property-card__card {
+.property-wild-card__card {
 	position: relative;
 }
 
-.property-card__rent-title {
+.property-wild-card__rent-title {
 	text-align: center;
 	width: 100%;
 }

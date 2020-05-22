@@ -4,7 +4,7 @@ $flip-card-transition-time: 0.6s;
 
 .card {
 	background-color: #fafafa;
-	border: 1px solid #333;
+	border: 2px solid #333;
 	border-radius: 30px;
 	width: 190px;
 	height: 260px;
@@ -15,12 +15,11 @@ $flip-card-transition-time: 0.6s;
 
 	transition: all ease-in-out $flip-card-transition-time;
 
-	&:hover {
+	&.card_rotate {
 		transform: rotateY(180deg);
 
 		.card__value,
-		.card__content,
-		.card__container::after {
+		.card__content {
 			opacity: 0;
 		}
 
@@ -52,25 +51,11 @@ $flip-card-transition-time: 0.6s;
 		border-radius: 10px;
 		position: absolute;
 		top: 3px;
-		border: 2px dotted #333;
+		// border: 2px dotted #333;
 		pointer-events: none;
 		padding: 10px;
 		transform: rotateY(180deg);
 		opacity: 0;
-		transition: all ease-in-out $flip-card-transition-time;
-	}
-
-	&::after {
-		content: "";
-		width: calc(100% - 10px);
-		height: calc(100% - 10px);
-		border-radius: 10px;
-		position: absolute;
-		top: 3px;
-		border: 2px dotted #333;
-		pointer-events: none;
-		padding: 10px;
-		opacity: 1;
 		transition: all ease-in-out $flip-card-transition-time;
 	}
 }
@@ -78,12 +63,12 @@ $flip-card-transition-time: 0.6s;
 .card__value {
 	border: 2px solid #333;
 	border-radius: 50%;
-	width: 40px;
-	height: 40px;
+	width: 50px;
+	height: 50px;
 	text-align: center;
-	line-height: 37px;
+	line-height: 48px;
 	// transform: rotate(90deg);
-	font-size: 1.1rem;
+	font-size: 1.4rem;
 	font-weight: bold;
 	align-self: flex-end;
 	background-color: inherit;
@@ -92,26 +77,26 @@ $flip-card-transition-time: 0.6s;
 	opacity: 1;
 	transition: all ease-in-out $flip-card-transition-time;
 
-	&::before {
-		content: "";
-		position: absolute;
-		border: 1px dotted #333;
-		width: 44px;
-		height: 44px;
-		left: -5px;
-		top: -5px;
-		border-radius: 50%;
-	}
+	// &::before {
+	// 	content: "";
+	// 	position: absolute;
+	// 	border: 1px dotted #333;
+	// 	width: 44px;
+	// 	height: 44px;
+	// 	left: -5px;
+	// 	top: -5px;
+	// 	border-radius: 50%;
+	// }
 
 	&:first-child {
 		align-self: flex-start;
-		top: -5px;
-		left: -5px;
+		top: -10px;
+		left: -10px;
 	}
 
 	&:last-child {
-		bottom: -5px;
-		right: -5px;
+		bottom: -10px;
+		right: -10px;
 	}
 }
 

@@ -1,37 +1,6 @@
 {
 	"Deck": [
 		{
-			"type": "PROPERTY",
-			"quantity": 1,
-			"config": {
-				"color": "#000000",
-				"textColor": "#FFFFFF",
-				"bgColor": "#FFFFFF",
-				"value": 2,
-				"icon": "fa-tint",
-				"iconColor": "#000000",
-				"name": "Short Line",
-				"rents": [
-					{
-						"houses": 1,
-						"rent": 1
-					},
-					{
-						"houses": 2,
-						"rent": 2
-					},
-					{
-						"houses": 3,
-						"rent": 3
-					},
-					{
-						"houses": 4,
-						"rent": 4
-					}
-				]
-			}
-		},
-		{
 			"type": "ACTION",
 			"quantity": 1,
 			"config": {
@@ -106,6 +75,68 @@
 				"wild": true,
 				"title": "RENTA",
 				"desc": "Cobra alquiler a otros jugadores por la propiedad que tu elijas."
+			}
+		},
+		{
+			"type": "PROPERTY",
+			"quantity": 1,
+			"config": {
+				"color": "#000000",
+				"textColor": "#FFFFFF",
+				"bgColor": "#FFFFFF",
+				"value": 2,
+				"icon": "fa-tint",
+				"iconColor": "#000000",
+				"name": "Short Line",
+				"rents": [
+					{
+						"houses": 1,
+						"rent": 1
+					},
+					{
+						"houses": 2,
+						"rent": 2
+					},
+					{
+						"houses": 3,
+						"rent": 3
+					},
+					{
+						"houses": 4,
+						"rent": 4
+					}
+				]
+			}
+		},
+		{
+			"type": "PROPERTYWILD",
+			"quantity": 1,
+			"config": {
+				"color": "#000000",
+				"textColor": "#FFFFFF",
+				"bgColor": "#FFFFFF",
+				"value": 4,
+				"icon": "fa-tint",
+				"iconColor": "#000000",
+				"name": "Short Line",
+				"rents": [
+					{
+						"houses": 1,
+						"rent": 1
+					},
+					{
+						"houses": 2,
+						"rent": 2
+					},
+					{
+						"houses": 3,
+						"rent": 3
+					},
+					{
+						"houses": 4,
+						"rent": 4
+					}
+				]
 			}
 		}
 	]

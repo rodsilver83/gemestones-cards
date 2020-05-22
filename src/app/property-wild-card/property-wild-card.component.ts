@@ -1,16 +1,17 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Card } from '../card/card.component';
+import { Rent } from '../property-card/property-card.component';
 
-export class Rent {
-  public houses = 0;
-  public amount = 0;
-}
-
-export class PropertyCard extends Card {
+export class PropertyWild {
   public name = '';
   public color = '';
   public textColor = '';
-  public rents = Array<Rent>();
+  public rent = Array<Rent>();
+}
+
+export class PropertyWildCard extends Card {
+  public propertyA: PropertyWild;
+  public propertyB: PropertyWild;
 
   constructor(...args: {
     color: string,
@@ -33,13 +34,11 @@ export class PropertyCard extends Card {
 }
 
 @Component({
-  selector: 'app-property-card',
-  templateUrl: './property-card.component.html',
-  styleUrls: ['./property-card.component.scss']
+  selector: 'app-property-wild-card',
+  templateUrl: './property-wild-card.component.html',
+  styleUrls: ['./property-wild-card.component.scss']
 })
-export class PropertyCardComponent implements OnInit {
-
-  @Input() public config: PropertyCard;
+export class PropertyWildCardComponent implements OnInit {
 
   constructor() { }
 

@@ -1,0 +1,22 @@
+
+<app-card [config]="config">
+	<div class="property-wild-card__main"
+		[style.background-color]="config?.color"
+		[style.color]="config?.textColor">
+		{{config.name}}
+	</div>
+	<div class="property-wild-card__rent">
+		<div class="property-wild-card__rent-row">
+			<span class="property-wild-card__rent-title">RENT</span>
+		</div>
+
+		<div class="property-wild-card__rent-row" *ngFor="let rent of config?.rents">
+			<span class="property-wild-card__card">{{rent.houses}}
+				<i class="fas fa-home"></i>
+			</span>
+			<span><i class="fa fa-dollar-sign"
+					[style.color]="config?.iconColor"></i> {{rent.rent}}
+			</span>
+		</div>
+	</div>
+</app-card>

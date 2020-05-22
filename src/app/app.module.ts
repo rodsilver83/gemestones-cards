@@ -13,6 +13,7 @@ import { MoneyCardComponent } from './money-card/money-card.component';
 import { LobbyComponent } from './lobby/lobby.component';
 import { TableComponent } from './table/table.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PropertyWildCardComponent } from './property-wild-card/property-wild-card.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +25,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     RentCardComponent,
     MoneyCardComponent,
     LobbyComponent,
-    TableComponent
+    TableComponent,
+    PropertyWildCardComponent
   ],
   imports: [
     BrowserModule,
