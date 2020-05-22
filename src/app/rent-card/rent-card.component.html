@@ -1,1 +1,11 @@
-<p>rent-card works!</p>
+
+<app-card [config]="config">
+
+	<div class="rent__container"
+		[style.background]="backgroundColor">
+		<div class="rent__title">
+			{{config?.title}}
+		</div>
+	</div>
+
+</app-card>

@@ -1,11 +1,33 @@
+$scale: 0.6;
+
+$flip-card-transition-time: 0.6s;
+
 .card {
 	background-color: #fafafa;
 	border: 1px solid #333;
 	border-radius: 30px;
-	width: 200px;
-	height: 300px;
+	width: 190px;
+	height: 260px;
 	padding: 13px;
 	margin: 5px;
+	color: #333;
+	// transform: scale(0.6);
+
+	transition: all ease-in-out $flip-card-transition-time;
+
+	&:hover {
+		transform: rotateY(180deg);
+
+		.card__value,
+		.card__content,
+		.card__container::after {
+			opacity: 0;
+		}
+
+		.card__container::before {
+			opacity: 1;
+		}
+	}
 }
 
 .card__container {
@@ -17,11 +39,28 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	justify-content: space-around;
+	justify-content: space-evenly;
 	position: relative;
 	padding: 10px;
+	opacity: 1;
+	transition: all ease-in-out $flip-card-transition-time;
 
 	&::before {
+		content: attr(data-desc);
+		width: calc(100% - 10px);
+		height: calc(100% - 10px);
+		border-radius: 10px;
+		position: absolute;
+		top: 3px;
+		border: 2px dotted #333;
+		pointer-events: none;
+		padding: 10px;
+		transform: rotateY(180deg);
+		opacity: 0;
+		transition: all ease-in-out $flip-card-transition-time;
+	}
+
+	&::after {
 		content: "";
 		width: calc(100% - 10px);
 		height: calc(100% - 10px);
@@ -30,6 +69,9 @@
 		top: 3px;
 		border: 2px dotted #333;
 		pointer-events: none;
+		padding: 10px;
+		opacity: 1;
+		transition: all ease-in-out $flip-card-transition-time;
 	}
 }
 
@@ -46,6 +88,9 @@
 	align-self: flex-end;
 	background-color: inherit;
 	position: absolute;
+	z-index: 1;
+	opacity: 1;
+	transition: all ease-in-out $flip-card-transition-time;
 
 	&::before {
 		content: "";
@@ -68,4 +113,16 @@
 		bottom: -5px;
 		right: -5px;
 	}
+}
+
+.card__content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-evenly;
+	position: relative;
+	width: 100%;
+	height: 100%;
+	opacity: 1;
+	transition: all ease-in-out $flip-card-transition-time;
 }

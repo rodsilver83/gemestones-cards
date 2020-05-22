@@ -13,9 +13,9 @@
 }
 
 .property-card__rent {
-	flex-grow: 1;
 	width: 100%;
 	padding-top: 10px;
+	height: 100%;
 }
 
 .property-card__rent-row {
@@ -23,20 +23,13 @@
 	align-items: center;
 	justify-content: space-between;
 	padding: 0 15px;
-
-	&:first-child {
-		padding: 5px 0;
-	}
-}
-
-.property-card__rent-no {
-	font-size: 0.1rem;
-	text-align: center;
 }
 
 .property-card__card {
-	// border: 1px solid #333;
-	border-radius: 5px;
-	padding: 5px;
 	position: relative;
+}
+
+.property-card__rent-title {
+	text-align: center;
+	width: 100%;
 }

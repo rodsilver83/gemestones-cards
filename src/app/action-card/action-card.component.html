@@ -1,5 +1,5 @@
 
-<app-card [value]="config?.value" [color]="config?.bgColor">
+<app-card [config]="config">
 
 	<p class="action-card__main">ACCION</p>
 	<div class="action-card__action">
@@ -8,6 +8,6 @@
 			[style.color]="config?.iconColor"></i>
 		<div class="action-card__title">{{config?.title}}</div>
 	</div>
-	<p class="action-card__desc">{{config?.desc}}</p>
+	<!-- <p class="action-card__desc">{{config?.desc}}</p> -->
 
 </app-card>

@@ -1,6 +1,5 @@
 
-<app-card [value]="config?.value" [color]="config?.bgColor">
-
+<app-card [config]="config">
 	<div class="property-card__main"
 		[style.background-color]="config?.color"
 		[style.color]="config?.textColor">
@@ -8,7 +7,7 @@
 	</div>
 	<div class="property-card__rent">
 		<div class="property-card__rent-row">
-			<span class="property-card__rent-no">(No. de propiedades en el grupo)</span>
+			<!-- <span class="property-card__rent-no">(No. de propiedades en el grupo)</span> -->
 			<span class="property-card__rent-title">RENT</span>
 		</div>
 
@@ -20,7 +19,7 @@
 				<i class="fas fa-home" *ngIf="rent.houses> 3"></i> -->
 			</span>
 			<span><i class="fa fa-dollar-sign"
-					[style.color]="config?.iconColor"></i>{{rent.rent}}
+					[style.color]="config?.iconColor"></i> {{rent.rent}}
 			</span>
 		</div>
 	</div>

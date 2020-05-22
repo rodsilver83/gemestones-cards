@@ -22,7 +22,8 @@ export class PropertyCard extends Card {
     iconColor?: string,
     name: string,
     textColor?: string,
-    rent: Array<Rent>
+    desc: string,
+    rents: Array<Rent>
   }[]) {
     super(...args);
     Object.assign(this, ...args);

@@ -2,9 +2,10 @@ import { Component, OnInit, Input } from '@angular/core';
 
 export class Card {
   public value = 0;
-  public bgColor = '';
+  public bgColor = '#ffffff';
+  public desc = '';
 
-  constructor(...args: { value: number, bgColor: string }[]) {
+  constructor(...args: { value: number, bgColor: string, desc: string }[]) {
     Object.assign(this, ...args);
   }
 }
@@ -16,8 +17,7 @@ export class Card {
 })
 export class CardComponent implements OnInit {
 
-  @Input() public value: number;
-  @Input() public color: string;
+  @Input() public config: Card;
 
   constructor() { }
 

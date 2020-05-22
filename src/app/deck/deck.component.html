@@ -1,6 +1,24 @@
 <div class="deck">
 	<ng-container *ngFor="let card of deckCards" [ngSwitch]="card.type">
-		<app-action-card *ngSwitchCase="'ACTION'" [config]="card"></app-action-card>
-		<app-property-card *ngSwitchCase="'PROPERTY'" [config]="card"></app-property-card>
+		<app-rent-card class="deck__card" *ngSwitchCase="'RENT'"
+			[config]="card">
+		</app-rent-card>
+
+		<app-money-card class="deck__card" *ngSwitchCase="'MONEY'"
+			[config]="card">
+		</app-money-card>
+
+		<app-wild-card class="deck__card" *ngSwitchCase="'WILDCARD'"
+			[config]="card">
+		</app-wild-card>
+
+		<app-action-card class="deck__card" *ngSwitchCase="'ACTION'"
+			[config]="card">
+		</app-action-card>
+
+		<app-property-card class="deck__card" *ngSwitchCase="'PROPERTY'"
+			[config]="card">
+		</app-property-card>
+
 	</ng-container>
 </div>
