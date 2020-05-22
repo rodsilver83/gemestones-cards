@@ -1,9 +1,11 @@
 
 <app-card [config]="config">
 	<div class="property-card__main"
-		[style.background-color]="config?.color"
+		[style.background-color]="bgColor"
 		[style.color]="config?.textColor">
-		{{config.name}}
+		<span class="property-card__title">
+			{{config.name}}
+		</span>
 	</div>
 	<div class="property-card__rent">
 		<div class="property-card__rent-row">

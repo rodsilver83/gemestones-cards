@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Card } from '../card/card.component';
 import { DomSanitizer } from '@angular/platform-browser';
+import { CardColorsService } from '../card-colors.service';
 
 export class RentCard extends Card {
   public rentColors: string[];
@@ -31,32 +32,11 @@ export class RentCardComponent implements OnInit {
       ${this.config.rentColors[1]} 50%,
       ${this.config.rentColors[1]} 100%)`);
     } else {
-      return this.sanitizer.bypassSecurityTrustStyle(`linear-gradient(to bottom,
-        #955336 0%,
-        #955336 10%,
-        #aae0f9 10%,
-        #aae0f9 20%,
-        #d73995 20%,
-        #d73995 30%,
-        #f7931e 30%,
-        #f7931e 40%,
-        #ee1d23 40%,
-        #ee1d23 50%,
-        #fff100 50%,
-        #fff100 60%,
-        #30b45b 60%,
-        #30b45b 70%,
-        #0072bb 70%,
-        #0072bb 80%,
-        #cde7d0 80%,
-        #cde7d0 90%,
-        #231f20 90%,
-        #231f20 100%
-        )`);
+      return this.cardColor.getRainbowLinearGradient('bottom');
     }
   }
 
-  constructor(private sanitizer: DomSanitizer) { }
+  constructor(private sanitizer: DomSanitizer, private cardColor: CardColorsService) { }
 
   ngOnInit() {
   }

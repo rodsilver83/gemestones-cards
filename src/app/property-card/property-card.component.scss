@@ -1,20 +1,26 @@
+@import "../../styles.scss";
+
 .property-card__main {
-	border: 1px solid #333;
+	// border: 1px solid #333;
 	font-weight: bold;
 	width: 100%;
 	text-align: center;
-	height: 40px;
-	line-height: 40px;
+	height: 60px;
+	line-height: 40px * $scale;
+	box-sizing: content-box;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
 
 .property-card__icon {
 	align-self: flex-end;
-	padding: 8px;
+	padding: 8px * $scale;
 }
 
 .property-card__rent {
 	width: 100%;
-	padding-top: 10px;
+	padding-top: 5px * $scale;
 	height: 100%;
 	font-weight: bold;
 }
@@ -22,8 +28,9 @@
 .property-card__rent-row {
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
-	padding: 0 15px;
+	justify-content: space-around;
+	padding: 0 15px * $scale;
+	margin: 5px;
 }
 
 .property-card__card {

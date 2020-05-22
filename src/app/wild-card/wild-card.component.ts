@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Card } from '../card/card.component';
+import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
+import { CardColorsService } from '../card-colors.service';
 
 export class WildCard extends Card {
   public title = '';
@@ -22,9 +24,12 @@ export class WildCardComponent implements OnInit {
 
   @Input() public config: Card;
 
-  constructor() { }
+  public rainbowBg: SafeStyle;
+
+  constructor(private sanitizer: DomSanitizer, private cardColor: CardColorsService) { }
 
   ngOnInit() {
+    this.rainbowBg = this.cardColor.getRainbowLinearGradient('right');
   }
 
 }

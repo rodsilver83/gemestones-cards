@@ -18,6 +18,7 @@ export class Card {
 export class CardComponent implements OnInit {
 
   @Input() public config: Card;
+  @Input() public valueRotate = false;
 
   constructor() { }
 

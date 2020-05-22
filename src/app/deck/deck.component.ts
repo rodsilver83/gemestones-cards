@@ -6,6 +6,7 @@ import { PropertyCard } from '../property-card/property-card.component';
 import { WildCard } from '../wild-card/wild-card.component';
 import { MoneyCard } from '../money-card/money-card.component';
 import { RentCard } from '../rent-card/rent-card.component';
+import { PropertyWildCard } from '../property-wild-card/property-wild-card.component';
 
 @Component({
   selector: 'app-deck',
@@ -40,6 +41,9 @@ export class DeckComponent implements OnInit {
             break;
           case 'RENT':
             this.deckCards.push(new RentCard(item.config as RentCard));
+            break;
+          case 'PROPERTYWILD':
+            this.deckCards.push(new PropertyWildCard(item.config as PropertyWildCard));
             break;
         }
       }

@@ -1,15 +1,15 @@
-$scale: 0.6;
+@import "../../styles.scss";
 
 $flip-card-transition-time: 0.6s;
 
 .card {
-	background-color: #fafafa;
-	border: 2px solid #333;
-	border-radius: 30px;
-	width: 190px;
-	height: 260px;
-	padding: 13px;
-	margin: 5px;
+	// box-shadow: 0 0 2px #333;
+	background-color: #ffffff;
+	border-radius: 30px * $scale;
+	width: 195px * $scale;
+	height: 260px * $scale;
+	padding: 13px * $scale;
+	margin: 5px * $scale;
 	color: #333;
 	// transform: scale(0.6);
 
@@ -31,16 +31,16 @@ $flip-card-transition-time: 0.6s;
 
 .card__container {
 	background-color: inherit;
-	border: 2px solid #333;
+	// border: 1px solid #333;
 	width: 100%;
 	height: 100%;
-	border-radius: 15px;
+	border-radius: 15px * $scale;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: space-evenly;
 	position: relative;
-	padding: 10px;
+	padding: 8px * $scale;
 	opacity: 1;
 	transition: all ease-in-out $flip-card-transition-time;
 
@@ -48,12 +48,12 @@ $flip-card-transition-time: 0.6s;
 		content: attr(data-desc);
 		width: calc(100% - 10px);
 		height: calc(100% - 10px);
-		border-radius: 10px;
+		border-radius: 10px * $scale;
 		position: absolute;
-		top: 3px;
+		top: 3px * $scale;
 		// border: 2px dotted #333;
 		pointer-events: none;
-		padding: 10px;
+		padding: 10px * $scale;
 		transform: rotateY(180deg);
 		opacity: 0;
 		transition: all ease-in-out $flip-card-transition-time;
@@ -61,14 +61,14 @@ $flip-card-transition-time: 0.6s;
 }
 
 .card__value {
-	border: 2px solid #333;
+	// border: 1px dashed #333;
 	border-radius: 50%;
-	width: 50px;
-	height: 50px;
+	width: 50px * $scale;
+	height: 50px * $scale;
 	text-align: center;
-	line-height: 48px;
+	line-height: 48px * $scale;
 	// transform: rotate(90deg);
-	font-size: 1.4rem;
+	font-size: 1.4rem * $scale;
 	font-weight: bold;
 	align-self: flex-end;
 	background-color: inherit;
@@ -76,27 +76,21 @@ $flip-card-transition-time: 0.6s;
 	z-index: 1;
 	opacity: 1;
 	transition: all ease-in-out $flip-card-transition-time;
+	box-shadow: 0 0 3px #333;
 
-	// &::before {
-	// 	content: "";
-	// 	position: absolute;
-	// 	border: 1px dotted #333;
-	// 	width: 44px;
-	// 	height: 44px;
-	// 	left: -5px;
-	// 	top: -5px;
-	// 	border-radius: 50%;
-	// }
+	&.card__value_upsidedown {
+		transform: rotate(180deg);
+	}
 
 	&:first-child {
 		align-self: flex-start;
-		top: -10px;
-		left: -10px;
+		top: -10px * $scale;
+		left: -10px * $scale;
 	}
 
 	&:last-child {
-		bottom: -10px;
-		right: -10px;
+		bottom: -10px * $scale;
+		right: -10px * $scale;
 	}
 }
 
@@ -104,7 +98,7 @@ $flip-card-transition-time: 0.6s;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	justify-content: space-evenly;
+	justify-content: center;
 	position: relative;
 	width: 100%;
 	height: 100%;

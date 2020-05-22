@@ -1,30 +1,26 @@
+@import "../../styles.scss";
+
 .rent__container {
-	border: 5px solid #333;
+	border: 1px solid #333;
+	box-shadow: 0 0 3px #333;
 	border-radius: 50%;
 	font-weight: bold;
-	width: 130px;
-	height: 130px;
+	width: 130px * $scale;
+	height: 130px * $scale;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	// background: linear-gradient(
-	// 	to bottom,
-	// 	rgba(9, 196, 0, 1) 0%,
-	// 	rgba(9, 196, 0, 1) 50%,
-	// 	rgba(0, 21, 255, 1) 50%,
-	// 	rgba(0, 21, 255, 1) 100%
-	// );
 }
 
 .rent__title {
-	border: 2px solid #333;
+	border: 1px solid #333;
 	border-radius: 50%;
 	font-weight: bold;
-	width: 90px;
-	height: 90px;
+	width: 90px * $scale;
+	height: 90px * $scale;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	font-size: 1.5rem;
-	background: #ffffff;
+	font-size: 1.5rem * $scale;
+	background: #eeeeee;
 }

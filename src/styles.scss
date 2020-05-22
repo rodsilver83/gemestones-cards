@@ -1,6 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
 @import url("https://use.fontawesome.com/releases/v5.10.0/css/all.css");
 
+$scale: 0.7;
+
+// Set Colors
+$set1-color: #955336;
+$set2-color: #aae0f9;
+$set3-color: #d73995;
+$set4-color: #f7931e;
+$set5-color: #d32f35;
+$set6-color: #e9df23;
+$set7-color: #30b45b;
+$set8-color: #0072bb;
+$set9-color: #cde7d0;
+$set10-color: #231f20;
+
 * {
 	box-sizing: border-box;
 	font-family: Arial, Helvetica, sans-serif;
@@ -13,6 +27,7 @@ body {
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+	font-size: 1rem * $scale;
 }
 
 .text-cross {

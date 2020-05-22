@@ -1,12 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Card } from '../card/card.component';
 import { Rent } from '../property-card/property-card.component';
+import { CardColorsService } from '../card-colors.service';
 
 export class PropertyWild {
   public name = '';
   public color = '';
+  public set = 0;
   public textColor = '';
-  public rent = Array<Rent>();
+  public rents = Array<Rent>();
 }
 
 export class PropertyWildCard extends Card {
@@ -14,22 +16,18 @@ export class PropertyWildCard extends Card {
   public propertyB: PropertyWild;
 
   constructor(...args: {
-    color: string,
-    bgColor: string;
     value: number;
-    icon?: string,
-    iconColor?: string,
-    name: string,
-    textColor?: string,
+    bgColor: string;
     desc: string,
-    rents: Array<Rent>
+    propertyA: PropertyWild,
+    propertyB: PropertyWild
   }[]) {
     super(...args);
     Object.assign(this, ...args);
   }
 
   get type() {
-    return 'PROPERTY';
+    return 'PROPERTYWILD';
   }
 }
 
@@ -40,7 +38,13 @@ export class PropertyWildCard extends Card {
 })
 export class PropertyWildCardComponent implements OnInit {
 
-  constructor() { }
+  @Input() public config: PropertyWildCard;
+
+  constructor(private cardColor: CardColorsService) { }
+
+  bgColor(property) {
+    return this.cardColor.getColor(property.color, property.set);
+  }
 
   ngOnInit() {
   }

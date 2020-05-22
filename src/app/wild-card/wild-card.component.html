@@ -1,8 +1,10 @@
 <app-card [config]="config">
 	<div class="wild__container">
-		<div class="wild__rainbow"></div>
+		<div class="wild__rainbow"
+			[style.background]="rainbowBg"></div>
 		<div class="wild__title">{{ config?.title }}</div>
-		<div class="wild__rainbow"></div>
+		<div class="wild__rainbow"
+			[style.background]="rainbowBg"></div>
 	</div>
 	<i class="fas fa-child wild__icon"></i>
 </app-card>

@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Card } from '../card/card.component';
+import { CardColorsService } from '../card-colors.service';
 
 export class Rent {
   public houses = 0;
@@ -10,6 +11,7 @@ export class PropertyCard extends Card {
   public name = '';
   public color = '';
   public textColor = '';
+  public set = 0;
   public rents = Array<Rent>();
 
   constructor(...args: {
@@ -17,6 +19,7 @@ export class PropertyCard extends Card {
     bgColor: string;
     value: number;
     icon?: string,
+    set?: number,
     iconColor?: string,
     name: string,
     textColor?: string,
@@ -41,7 +44,11 @@ export class PropertyCardComponent implements OnInit {
 
   @Input() public config: PropertyCard;
 
-  constructor() { }
+  get bgColor() {
+    return this.cardColor.getColor(this.config.color, this.config.set);
+  }
+
+  constructor(private cardColor: CardColorsService) { }
 
   ngOnInit() {
   }
