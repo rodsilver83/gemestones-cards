@@ -24,7 +24,6 @@ export class DeckComponent implements OnInit {
   }
 
   initActionCards() {
-    console.log(Deck.length);
     Deck.forEach((item) => {
       for (let i = 0; i < item.quantity; i++) {
         switch (item.type) {

@@ -361,7 +361,7 @@
 		},
 		{
 			"type": "ACTION",
-			"quantity": 3,
+			"quantity": 2,
 			"config": {
 				"bgColor": "#C2D8EC",
 				"title": "Hotel",
@@ -376,11 +376,43 @@
 			"quantity": 3,
 			"config": {
 				"bgColor": "#C2D8EC",
+				"title": "DI QUE NO",
+				"icon": "fab fa-creative-commons-nc",
+				"iconColor": "#011482",
+				"value": 4,
+				"desc": "Úsala en cualquier momento cuando alguien juegue una carta de Acción contra ti. Juegala al centro."
+			}
+		},
+		{
+			"type": "ACTION",
+			"quantity": 3,
+			"config": {
+				"bgColor": "#C2D8EC",
 				"title": "CASA",
 				"icon": "fa-home",
 				"iconColor": "#009006",
 				"value": 3,
 				"desc": "Añádela a cualquier grupo completo que poseas para sumar a $3 al valor del alquiler. (Excepto a Aerolineas y Energia.)."
+			}
+		},
+		{
+			"type": "ACTION",
+			"quantity": 3,
+			"config": {
+				"bgColor": "#C2D8EC",
+				"title": "TRATO FORZOSO",
+				"value": 3,
+				"desc": "Quítale una propiedad al jugador que elijas. (No puede ser parte de un grupo completo.). Juegala al centro."
+			}
+		},
+		{
+			"type": "ACTION",
+			"quantity": 3,
+			"config": {
+				"bgColor": "#C2D8EC",
+				"title": "NEGOCIO FURTIVO",
+				"value": 3,
+				"desc": "Intercambia cualquier propiedad con otro jugador. (No puede ser parte de un grupo completo.). Juegala al centro."
 			}
 		},
 		{
@@ -408,12 +440,14 @@
 		},
 		{
 			"type": "ACTION",
-			"quantity": 3,
+			"quantity": 10,
 			"config": {
 				"bgColor": "#d2ebef",
-				"title": "TRATO FORZOSO",
-				"value": 3,
-				"desc": "Intercambia cualquier propiedad con otro jugador. (No puede ser parte de un grupo completo.). Juegala al centro."
+				"title": "CARTAS EXTRA",
+				"icon": "fa-angle-double-right",
+				"iconColor": "#9c27b0",
+				"value": 1,
+				"desc": "Toma 2 cartas mas. Juegala al centro."
 			}
 		},
 		{
