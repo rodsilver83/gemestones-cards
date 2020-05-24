@@ -1,0 +1,1248 @@
+{
+	"Deck": [
+		{
+			"type": "WILDCARD",
+			"quantity": 2,
+			"config": {
+				"bgColor": "##ffffff",
+				"value": 0,
+				"title": "COMODIN",
+				"desc": "Esta carta puede usarse como parte de cualquier grupo de propiedades. Esta carta no tiene valor monetario"
+			}
+		},
+		{
+			"type": "PROPERTYWILD",
+			"quantity": 1,
+			"config": {
+				"value": 4,
+				"propertyA": {
+					"set": 8,
+					"textColor": "#000000",
+					"bgColor": "#FFFFFF",
+					"name": "COMODIN",
+					"rents": [
+						{
+							"houses": 1,
+							"rent": 3
+						},
+						{
+							"houses": 2,
+							"rent": 8
+						}
+					]
+				},
+				"propertyB": {
+					"set": 7,
+					"textColor": "#000000",
+					"bgColor": "#FFFFFF",
+					"name": "COMODIN",
+					"rents": [
+						{
+							"houses": 1,
+							"rent": 2
+						},
+						{
+							"houses": 2,
+							"rent": 4
+						},
+						{
+							"houses": 3,
+							"rent": 7
+						}
+					]
+				}
+			}
+		},
+		{
+			"type": "PROPERTYWILD",
+			"quantity": 1,
+			"config": {
+				"value": 1,
+				"propertyA": {
+					"set": 2,
+					"textColor": "#000000",
+					"bgColor": "#FFFFFF",
+					"name": "COMODIN",
+					"rents": [
+						{
+							"houses": 1,
+							"rent": 1
+						},
+						{
+							"houses": 2,
+							"rent": 2
+						},
+						{
+							"houses": 1,
+							"rent": 3
+						}
+					]
+				},
+				"propertyB": {
+					"set": 1,
+					"textColor": "#000000",
+					"bgColor": "#FFFFFF",
+					"name": "COMODIN",
+					"rents": [
+						{
+							"houses": 1,
+							"rent": 1
+						},
+						{
+							"houses": 2,
+							"rent": 2
+						}
+					]
+				}
+			}
+		},
+		{
+			"type": "PROPERTYWILD",
+			"quantity": 2,
+			"config": {
+				"value": 2,
+				"propertyA": {
+					"set": 4,
+					"textColor": "#000000",
+					"bgColor": "#FFFFFF",
+					"name": "COMODIN",
+					"rents": [
+						{
+							"houses": 1,
+							"rent": 1
+						},
+						{
+							"houses": 2,
+							"rent": 3
+						},
+						{
+							"houses": 3,
+							"rent": 5
+						}
+					]
+				},
+				"propertyB": {
+					"set": 3,
+					"textColor": "#000000",
+					"bgColor": "#FFFFFF",
+					"name": "COMODIN",
+					"rents": [
+						{
+							"houses": 1,
+							"rent": 1
+						},
+						{
+							"houses": 2,
+							"rent": 2
+						},
+						{
+							"houses": 3,
+							"rent": 4
+						}
+					]
+				}
+			}
+		},
+		{
+			"type": "PROPERTYWILD",
+			"quantity": 1,
+			"config": {
+				"value": 2,
+				"propertyA": {
+					"set": 7,
+					"textColor": "#000000",
+					"bgColor": "#FFFFFF",
+					"name": "COMODIN",
+					"rents": [
+						{
+							"houses": 1,
+							"rent": 2
+						},
+						{
+							"houses": 2,
+							"rent": 4
+						},
+						{
+							"houses": 3,
+							"rent": 7
+						}
+					]
+				},
+				"propertyB": {
+					"set": 10,
+					"textColor": "#FFFFFF",
+					"bgColor": "#FFFFFF",
+					"name": "COMODIN",
+					"rents": [
+						{
+							"houses": 1,
+							"rent": 1
+						},
+						{
+							"houses": 2,
+							"rent": 2
+						},
+						{
+							"houses": 3,
+							"rent": 3
+						},
+						{
+							"houses": 4,
+							"rent": 4
+						}
+					]
+				}
+			}
+		},
+		{
+			"type": "PROPERTYWILD",
+			"quantity": 1,
+			"config": {
+				"value": 2,
+				"propertyA": {
+					"set": 2,
+					"textColor": "#000000",
+					"bgColor": "#FFFFFF",
+					"name": "COMODIN",
+					"rents": [
+						{
+							"houses": 1,
+							"rent": 1
+						},
+						{
+							"houses": 2,
+							"rent": 2
+						},
+						{
+							"houses": 3,
+							"rent": 3
+						}
+					]
+				},
+				"propertyB": {
+					"set": 10,
+					"textColor": "#FFFFFF",
+					"bgColor": "#FFFFFF",
+					"name": "COMODIN",
+					"rents": [
+						{
+							"houses": 1,
+							"rent": 1
+						},
+						{
+							"houses": 2,
+							"rent": 2
+						},
+						{
+							"houses": 3,
+							"rent": 3
+						},
+						{
+							"houses": 4,
+							"rent": 4
+						}
+					]
+				}
+			}
+		},
+		{
+			"type": "PROPERTYWILD",
+			"quantity": 1,
+			"config": {
+				"value": 2,
+				"propertyA": {
+					"set": 9,
+					"textColor": "#000000",
+					"bgColor": "#FFFFFF",
+					"name": "COMODIN",
+					"rents": [
+						{
+							"houses": 1,
+							"rent": 1
+						},
+						{
+							"houses": 2,
+							"rent": 2
+						}
+					]
+				},
+				"propertyB": {
+					"set": "10",
+					"textColor": "#FFFFFF",
+					"bgColor": "#FFFFFF",
+					"name": "COMODIN",
+					"rents": [
+						{
+							"houses": 1,
+							"rent": 1
+						},
+						{
+							"houses": 2,
+							"rent": 2
+						},
+						{
+							"houses": 3,
+							"rent": 3
+						},
+						{
+							"houses": 4,
+							"rent": 4
+						}
+					]
+				}
+			}
+		},
+		{
+			"type": "PROPERTYWILD",
+			"quantity": 2,
+			"config": {
+				"value": 2,
+				"propertyA": {
+					"set": 6,
+					"textColor": "#000000",
+					"bgColor": "#FFFFFF",
+					"name": "COMODIN",
+					"rents": [
+						{
+							"houses": 1,
+							"rent": 2
+						},
+						{
+							"houses": 2,
+							"rent": 4
+						},
+						{
+							"houses": 3,
+							"rent": 6
+						}
+					]
+				},
+				"propertyB": {
+					"set": 5,
+					"textColor": "#000000",
+					"bgColor": "#FFFFFF",
+					"name": "COMODIN",
+					"rents": [
+						{
+							"houses": 1,
+							"rent": 2
+						},
+						{
+							"houses": 2,
+							"rent": 3
+						},
+						{
+							"houses": 3,
+							"rent": 6
+						}
+					]
+				}
+			}
+		},
+		{
+			"type": "ACTION",
+			"quantity": 3,
+			"config": {
+				"bgColor": "#C3CFCC",
+				"title": "Cobra Deudas",
+				"value": 3,
+				"desc": "Obliga a un jugador a pagarte $5. Juega al centro."
+			}
+		},
+		{
+			"type": "ACTION",
+			"quantity": 2,
+			"config": {
+				"bgColor": "#7b7ab2",
+				"title": "Roba Negocios",
+				"value": 5,
+				"desc": "Robe un set completo de propiedades de cualquier jugador (incluyendo edificios). Juega al centro."
+			}
+		},
+		{
+			"type": "ACTION",
+			"quantity": 2,
+			"config": {
+				"bgColor": "#C2D8EC",
+				"title": "Hotel",
+				"icon": "fa-hotel",
+				"iconColor": "#D71921",
+				"value": 4,
+				"desc": "Añádela a cualquier grupo completo que poseas para sumar a $4 al valor del alquiler. (Excepto a Aerolineas y Energia.)."
+			}
+		},
+		{
+			"type": "ACTION",
+			"quantity": 3,
+			"config": {
+				"bgColor": "#C2D8EC",
+				"title": "DI QUE NO",
+				"icon": "fab fa-creative-commons-nc",
+				"iconColor": "#011482",
+				"value": 4,
+				"desc": "Úsala en cualquier momento cuando alguien juegue una carta de Acción contra ti. Juegala al centro."
+			}
+		},
+		{
+			"type": "ACTION",
+			"quantity": 3,
+			"config": {
+				"bgColor": "#C2D8EC",
+				"title": "CASA",
+				"icon": "fa-home",
+				"iconColor": "#009006",
+				"value": 3,
+				"desc": "Añádela a cualquier grupo completo que poseas para sumar a $3 al valor del alquiler. (Excepto a Aerolineas y Energia.)."
+			}
+		},
+		{
+			"type": "ACTION",
+			"quantity": 3,
+			"config": {
+				"bgColor": "#C2D8EC",
+				"title": "TRATO FORZOSO",
+				"value": 3,
+				"desc": "Quítale una propiedad al jugador que elijas. (No puede ser parte de un grupo completo.). Juegala al centro."
+			}
+		},
+		{
+			"type": "ACTION",
+			"quantity": 3,
+			"config": {
+				"bgColor": "#C2D8EC",
+				"title": "NEGOCIO FURTIVO",
+				"value": 3,
+				"desc": "Intercambia cualquier propiedad con otro jugador. (No puede ser parte de un grupo completo.). Juegala al centro."
+			}
+		},
+		{
+			"type": "ACTION",
+			"quantity": 3,
+			"config": {
+				"bgColor": "#d5ecba",
+				"title": "CUMPLEAñOS",
+				"icon": "fa-birthday-cake",
+				"iconColor": "#d27bba",
+				"value": 2,
+				"small": true,
+				"desc": "Todos los Jugadores te dan $2 de regalo. Juegala al centro."
+			}
+		},
+		{
+			"type": "ACTION",
+			"quantity": 2,
+			"config": {
+				"bgColor": "#d2ebef",
+				"title": "DOBLE RENTA",
+				"value": 1,
+				"desc": "Para jugarse con una carta de renta. Juegala al centro."
+			}
+		},
+		{
+			"type": "ACTION",
+			"quantity": 10,
+			"config": {
+				"bgColor": "#d2ebef",
+				"title": "CARTAS EXTRA",
+				"icon": "fa-angle-double-right",
+				"iconColor": "#9c27b0",
+				"value": 1,
+				"desc": "Toma 2 cartas mas. Juegala al centro."
+			}
+		},
+		{
+			"type": "MONEY",
+			"quantity": 6,
+			"config": {
+				"bgColor": "#fddb75",
+				"value": 1,
+				"desc": "Pon cartas de dinero en tu montón de banca y úsalas para pagar a otros jugadores."
+			}
+		},
+		{
+			"type": "MONEY",
+			"quantity": 5,
+			"config": {
+				"bgColor": "#c4ce69",
+				"value": 2,
+				"desc": "Pon cartas de dinero en tu montón de banca y úsalas para pagar a otros jugadores."
+			}
+		},
+		{
+			"type": "MONEY",
+			"quantity": 3,
+			"config": {
+				"bgColor": "#a6c59f",
+				"value": 3,
+				"desc": "Pon cartas de dinero en tu montón de banca y úsalas para pagar a otros jugadores."
+			}
+		},
+		{
+			"type": "MONEY",
+			"quantity": 3,
+			"config": {
+				"bgColor": "#e8a3a9",
+				"value": 4,
+				"desc": "Pon cartas de dinero en tu montón de banca y úsalas para pagar a otros jugadores."
+			}
+		},
+		{
+			"type": "MONEY",
+			"quantity": 2,
+			"config": {
+				"bgColor": "#8fa9cc",
+				"value": 5,
+				"desc": "Pon cartas de dinero en tu montón de banca y úsalas para pagar a otros jugadores."
+			}
+		},
+		{
+			"type": "MONEY",
+			"quantity": 1,
+			"config": {
+				"bgColor": "#79a791",
+				"value": 10,
+				"desc": "Pon cartas de dinero en tu montón de banca y úsalas para pagar a otros jugadores."
+			}
+		},
+		{
+			"type": "RENT",
+			"quantity": 2,
+			"config": {
+				"bgColor": "#a6a6a7",
+				"value": 1,
+				"title": "RENTA",
+				"wild": false,
+				"rentSet1": 7,
+				"rentSet2": 8,
+				"desc": "Cobra alquiler a otros jugadores por tus propiedades que coincida con el color de la tarjeta."
+			}
+		},
+		{
+			"type": "RENT",
+			"quantity": 2,
+			"config": {
+				"bgColor": "#a6a6a7",
+				"value": 1,
+				"title": "RENTA",
+				"wild": false,
+				"rentSet1": 1,
+				"rentSet2": 2,
+				"desc": "Cobra alquiler a otros jugadores por tus propiedades que coincida con el color de la tarjeta."
+			}
+		},
+		{
+			"type": "RENT",
+			"quantity": 2,
+			"config": {
+				"bgColor": "#a6a6a7",
+				"value": 1,
+				"title": "RENTA",
+				"wild": false,
+				"rentSet1": 3,
+				"rentSet2": 4,
+				"desc": "Cobra alquiler a otros jugadores por tus propiedades que coincida con el color de la tarjeta."
+			}
+		},
+		{
+			"type": "RENT",
+			"quantity": 2,
+			"config": {
+				"bgColor": "#a6a6a7",
+				"value": 1,
+				"title": "RENTA",
+				"wild": false,
+				"rentSet1": 5,
+				"rentSet2": 6,
+				"desc": "Cobra alquiler a otros jugadores por tus propiedades que coincida con el color de la tarjeta."
+			}
+		},
+		{
+			"type": "RENT",
+			"quantity": 2,
+			"config": {
+				"bgColor": "#a6a6a7",
+				"value": 1,
+				"title": "RENTA",
+				"wild": false,
+				"rentSet1": 9,
+				"rentSet2": 10,
+				"desc": "Cobra alquiler a otros jugadores por tus propiedades que coincida con el color de la tarjeta."
+			}
+		},
+		{
+			"type": "RENT",
+			"quantity": 3,
+			"config": {
+				"bgColor": "#a6a6a7",
+				"value": 3,
+				"wild": true,
+				"title": "RENTA",
+				"desc": "Cobra alquiler a otros jugadores por la propiedad que tu elijas."
+			}
+		},
+		{
+			"type": "PROPERTY",
+			"quantity": 1,
+			"config": {
+				"set": 1,
+				"textColor": "#ffffff",
+				"value": 1,
+				"name": "Mexico",
+				"rents": [
+					{
+						"houses": 1,
+						"rent": 1
+					},
+					{
+						"houses": 2,
+						"rent": 2
+					}
+				]
+			}
+		},
+		{
+			"type": "PROPERTY",
+			"quantity": 1,
+			"config": {
+				"set": 1,
+				"textColor": "#ffffff",
+				"value": 1,
+				"name": "Las Vegas",
+				"rents": [
+					{
+						"houses": 1,
+						"rent": 1
+					},
+					{
+						"houses": 2,
+						"rent": 2
+					}
+				]
+			}
+		},
+		{
+			"type": "PROPERTY",
+			"quantity": 1,
+			"config": {
+				"set": 2,
+				"textColor": "#333333",
+				"value": 1,
+				"name": "Sydney",
+				"rents": [
+					{
+						"houses": 1,
+						"rent": 1
+					},
+					{
+						"houses": 2,
+						"rent": 2
+					},
+					{
+						"houses": 3,
+						"rent": 3
+					}
+				]
+			}
+		},
+		{
+			"type": "PROPERTY",
+			"quantity": 1,
+			"config": {
+				"set": 2,
+				"textColor": "#333333",
+				"value": 1,
+				"name": "San Diego",
+				"rents": [
+					{
+						"houses": 1,
+						"rent": 1
+					},
+					{
+						"houses": 2,
+						"rent": 2
+					},
+					{
+						"houses": 3,
+						"rent": 3
+					}
+				]
+			}
+		},
+		{
+			"type": "PROPERTY",
+			"quantity": 1,
+			"config": {
+				"set": 2,
+				"textColor": "#333333",
+				"value": 1,
+				"name": "Hong Kong",
+				"rents": [
+					{
+						"houses": 1,
+						"rent": 1
+					},
+					{
+						"houses": 2,
+						"rent": 2
+					},
+					{
+						"houses": 3,
+						"rent": 3
+					}
+				]
+			}
+		},
+		{
+			"type": "PROPERTY",
+			"quantity": 1,
+			"config": {
+				"set": 3,
+				"textColor": "#ffffff",
+				"value": 1,
+				"name": "Doha",
+				"rents": [
+					{
+						"houses": 1,
+						"rent": 1
+					},
+					{
+						"houses": 2,
+						"rent": 2
+					},
+					{
+						"houses": 3,
+						"rent": 4
+					}
+				]
+			}
+		},
+		{
+			"type": "PROPERTY",
+			"quantity": 1,
+			"config": {
+				"set": 3,
+				"textColor": "#ffffff",
+				"value": 2,
+				"name": "Toronto",
+				"rents": [
+					{
+						"houses": 1,
+						"rent": 1
+					},
+					{
+						"houses": 2,
+						"rent": 2
+					},
+					{
+						"houses": 3,
+						"rent": 4
+					}
+				]
+			}
+		},
+		{
+			"type": "PROPERTY",
+			"quantity": 1,
+			"config": {
+				"set": 3,
+				"textColor": "#ffffff",
+				"value": 2,
+				"name": "Bijing",
+				"rents": [
+					{
+						"houses": 1,
+						"rent": 1
+					},
+					{
+						"houses": 2,
+						"rent": 2
+					},
+					{
+						"houses": 3,
+						"rent": 4
+					}
+				]
+			}
+		},
+		{
+			"type": "PROPERTY",
+			"quantity": 1,
+			"config": {
+				"set": 4,
+				"textColor": "#333333",
+				"value": 2,
+				"name": "Amsterdam",
+				"rents": [
+					{
+						"houses": 1,
+						"rent": 1
+					},
+					{
+						"houses": 2,
+						"rent": 3
+					},
+					{
+						"houses": 3,
+						"rent": 5
+					}
+				]
+			}
+		},
+		{
+			"type": "PROPERTY",
+			"quantity": 1,
+			"config": {
+				"set": 4,
+				"textColor": "#333333",
+				"value": 2,
+				"name": "Abu Dhabi",
+				"rents": [
+					{
+						"houses": 1,
+						"rent": 1
+					},
+					{
+						"houses": 2,
+						"rent": 3
+					},
+					{
+						"houses": 3,
+						"rent": 5
+					}
+				]
+			}
+		},
+		{
+			"type": "PROPERTY",
+			"quantity": 1,
+			"config": {
+				"set": 4,
+				"textColor": "#333333",
+				"value": 2,
+				"name": "Chicago",
+				"rents": [
+					{
+						"houses": 1,
+						"rent": 1
+					},
+					{
+						"houses": 2,
+						"rent": 3
+					},
+					{
+						"houses": 3,
+						"rent": 5
+					}
+				]
+			}
+		},
+		{
+			"type": "PROPERTY",
+			"quantity": 1,
+			"config": {
+				"set": 5,
+				"textColor": "#ffffff",
+				"value": 3,
+				"name": "Madrid",
+				"rents": [
+					{
+						"houses": 1,
+						"rent": 2
+					},
+					{
+						"houses": 2,
+						"rent": 3
+					},
+					{
+						"houses": 3,
+						"rent": 6
+					}
+				]
+			}
+		},
+		{
+			"type": "PROPERTY",
+			"quantity": 1,
+			"config": {
+				"set": 5,
+				"textColor": "#ffffff",
+				"value": 3,
+				"name": "Barcelona",
+				"rents": [
+					{
+						"houses": 1,
+						"rent": 2
+					},
+					{
+						"houses": 2,
+						"rent": 3
+					},
+					{
+						"houses": 3,
+						"rent": 6
+					}
+				]
+			}
+		},
+		{
+			"type": "PROPERTY",
+			"quantity": 1,
+			"config": {
+				"set": 5,
+				"textColor": "#ffffff",
+				"value": 3,
+				"name": "Roma",
+				"rents": [
+					{
+						"houses": 1,
+						"rent": 2
+					},
+					{
+						"houses": 2,
+						"rent": 3
+					},
+					{
+						"houses": 3,
+						"rent": 6
+					}
+				]
+			}
+		},
+		{
+			"type": "PROPERTY",
+			"quantity": 1,
+			"config": {
+				"set": 6,
+				"textColor": "#333333",
+				"value": 3,
+				"name": "Singapore",
+				"rents": [
+					{
+						"houses": 1,
+						"rent": 2
+					},
+					{
+						"houses": 2,
+						"rent": 4
+					},
+					{
+						"houses": 3,
+						"rent": 6
+					}
+				]
+			}
+		},
+		{
+			"type": "PROPERTY",
+			"quantity": 1,
+			"config": {
+				"set": 6,
+				"textColor": "#333333",
+				"value": 3,
+				"name": "Dubai",
+				"rents": [
+					{
+						"houses": 1,
+						"rent": 2
+					},
+					{
+						"houses": 2,
+						"rent": 4
+					},
+					{
+						"houses": 3,
+						"rent": 6
+					}
+				]
+			}
+		},
+		{
+			"type": "PROPERTY",
+			"quantity": 1,
+			"config": {
+				"set": 6,
+				"textColor": "#333333",
+				"value": 3,
+				"name": "Shanghai",
+				"rents": [
+					{
+						"houses": 1,
+						"rent": 2
+					},
+					{
+						"houses": 2,
+						"rent": 4
+					},
+					{
+						"houses": 3,
+						"rent": 6
+					}
+				]
+			}
+		},
+		{
+			"type": "PROPERTY",
+			"quantity": 1,
+			"config": {
+				"set": 7,
+				"textColor": "#333333",
+				"value": 4,
+				"name": "Tokyo",
+				"rents": [
+					{
+						"houses": 1,
+						"rent": 2
+					},
+					{
+						"houses": 2,
+						"rent": 4
+					},
+					{
+						"houses": 3,
+						"rent": 7
+					}
+				]
+			}
+		},
+		{
+			"type": "PROPERTY",
+			"quantity": 1,
+			"config": {
+				"set": 7,
+				"textColor": "#333333",
+				"value": 4,
+				"name": "Paris",
+				"rents": [
+					{
+						"houses": 1,
+						"rent": 2
+					},
+					{
+						"houses": 2,
+						"rent": 4
+					},
+					{
+						"houses": 3,
+						"rent": 7
+					}
+				]
+			}
+		},
+		{
+			"type": "PROPERTY",
+			"quantity": 1,
+			"config": {
+				"set": 7,
+				"textColor": "#333333",
+				"value": 4,
+				"name": "Moscow",
+				"rents": [
+					{
+						"houses": 1,
+						"rent": 2
+					},
+					{
+						"houses": 2,
+						"rent": 4
+					},
+					{
+						"houses": 3,
+						"rent": 7
+					}
+				]
+			}
+		},
+		{
+			"type": "PROPERTY",
+			"quantity": 1,
+			"config": {
+				"set": 8,
+				"textColor": "#ffffff",
+				"value": 4,
+				"name": "New York",
+				"rents": [
+					{
+						"houses": 1,
+						"rent": 3
+					},
+					{
+						"houses": 2,
+						"rent": 8
+					}
+				]
+			}
+		},
+		{
+			"type": "PROPERTY",
+			"quantity": 1,
+			"config": {
+				"set": 8,
+				"textColor": "#ffffff",
+				"value": 4,
+				"name": "London",
+				"rents": [
+					{
+						"houses": 1,
+						"rent": 3
+					},
+					{
+						"houses": 2,
+						"rent": 8
+					}
+				]
+			}
+		},
+		{
+			"type": "PROPERTY",
+			"quantity": 1,
+			"config": {
+				"set": 9,
+				"textColor": "#333333",
+				"value": 2,
+				"name": "Energia Solar",
+				"rents": [
+					{
+						"houses": 1,
+						"rent": 1
+					},
+					{
+						"houses": 2,
+						"rent": 2
+					}
+				]
+			}
+		},
+		{
+			"type": "PROPERTY",
+			"quantity": 1,
+			"config": {
+				"set": 9,
+				"textColor": "#333333",
+				"value": 2,
+				"name": "Energia Eolica",
+				"rents": [
+					{
+						"houses": 1,
+						"rent": 1
+					},
+					{
+						"houses": 2,
+						"rent": 2
+					}
+				]
+			}
+		},
+		{
+			"type": "PROPERTY",
+			"quantity": 1,
+			"config": {
+				"set": 10,
+				"textColor": "#ffffff",
+				"value": 2,
+				"name": "Delta Air",
+				"rents": [
+					{
+						"houses": 1,
+						"rent": 1
+					},
+					{
+						"houses": 2,
+						"rent": 2
+					},
+					{
+						"houses": 3,
+						"rent": 3
+					},
+					{
+						"houses": 4,
+						"rent": 4
+					}
+				]
+			}
+		},
+		{
+			"type": "PROPERTY",
+			"quantity": 1,
+			"config": {
+				"set": 10,
+				"textColor": "#ffffff",
+				"value": 2,
+				"name": "Emirates Air",
+				"rents": [
+					{
+						"houses": 1,
+						"rent": 1
+					},
+					{
+						"houses": 2,
+						"rent": 2
+					},
+					{
+						"houses": 3,
+						"rent": 3
+					},
+					{
+						"houses": 4,
+						"rent": 4
+					}
+				]
+			}
+		},
+		{
+			"type": "PROPERTY",
+			"quantity": 1,
+			"config": {
+				"set": 10,
+				"textColor": "#ffffff",
+				"value": 2,
+				"name": "Qantas Air",
+				"rents": [
+					{
+						"houses": 1,
+						"rent": 1
+					},
+					{
+						"houses": 2,
+						"rent": 2
+					},
+					{
+						"houses": 3,
+						"rent": 3
+					},
+					{
+						"houses": 4,
+						"rent": 4
+					}
+				]
+			}
+		},
+		{
+			"type": "PROPERTY",
+			"quantity": 1,
+			"config": {
+				"set": 10,
+				"textColor": "#ffffff",
+				"value": 2,
+				"name": "Lufthansa Air",
+				"rents": [
+					{
+						"houses": 1,
+						"rent": 1
+					},
+					{
+						"houses": 2,
+						"rent": 2
+					},
+					{
+						"houses": 3,
+						"rent": 3
+					},
+					{
+						"houses": 4,
+						"rent": 4
+					}
+				]
+			}
+		}
+	]
+}
