@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import Peer from 'peerjs';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { FormControl } from '@angular/forms';
+import { ConnectionService } from '../connection.service';
+import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
+import { take } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-lobby',
@@ -8,29 +13,40 @@ import Peer from 'peerjs';
 })
 export class LobbyComponent implements OnInit {
 
-  connId: string;
+  public connId: string;
+  public room = new FormControl('');
+  public joinName = new FormControl('');
+  public id = new FormControl('');
+  public error = null;
+  private rooms$: AngularFireList<any>;
 
-  constructor() { }
+  constructor(
+    private connection: ConnectionService,
+    private fireBase: AngularFireDatabase,
+    private router: Router) { }
 
   ngOnInit() {
-    const peer = new Peer();
-
-    peer.on('open', (id) => {
-      this.connId = id;
-    });
-
-    peer.on('connection', (c) => {
-      c.on('data', (data) => {
-        // Will print 'hi!'
-        // console.log(data);
-        document.getElementById('msg').innerHTML = data;
-      });
-    });
-
-    peer.on('error', (id) => {
-      console.log('error:', id);
-    });
-
+    this.rooms$ = this.fireBase.list('/Rooms');
   }
 
+  createRoom() {
+    this.connection.createHostConnection().pipe(take(1))
+      .subscribe((id) => {
+        this.rooms$.push({
+          name: this.room.value,
+          host: id
+        });
+        this.router.navigate(['table', { host: true, name: this.room.value }]);
+      });
+  }
+
+  joinRoom() {
+    const query = this.fireBase.list('/Rooms',
+      ref => ref.limitToFirst(1).orderByChild('name')
+        .equalTo(this.joinName.value))
+      .valueChanges();
+    query.subscribe(res => {
+      this.router.navigate(['table', { host: false, name: this.joinName.value }]);
+    });
+  }
 }

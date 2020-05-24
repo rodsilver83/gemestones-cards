@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Card } from '../card/card.component';
 import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
-import { CardColorsService } from '../card-colors.service';
+import { CardColorsService } from '../services/card-colors.service';
 
 export class WildCard extends Card {
   public title = '';
@@ -22,7 +22,7 @@ export class WildCard extends Card {
 })
 export class WildCardComponent implements OnInit {
 
-  @Input() public config: Card;
+  @Input() public config: WildCard;
 
   public rainbowBg: SafeStyle;
 

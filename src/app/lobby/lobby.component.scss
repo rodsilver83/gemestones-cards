@@ -1,4 +1,12 @@
-video {
-	max-width: 100%;
-	width: 320px;
+@import "../../styles.scss";
+
+:host {
+	width: 100vw;
+	max-width: 400px;
+}
+
+.lobby__section {
+	background: $set7-color;
+	border-radius: 30px;
+	margin: 10px;
 }

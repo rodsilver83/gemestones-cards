@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Card } from '../card/card.component';
-import { CardColorsService } from '../card-colors.service';
+import { CardColorsService } from '../services/card-colors.service';
 
 export class Rent {
   public houses = 0;

@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Card } from '../card/card.component';
 import { Rent } from '../property-card/property-card.component';
-import { CardColorsService } from '../card-colors.service';
+import { CardColorsService } from '../services/card-colors.service';
 
 export class PropertyWild {
   public name = '';
@@ -43,7 +43,10 @@ export class PropertyWildCardComponent implements OnInit {
   constructor(private cardColor: CardColorsService) { }
 
   bgColor(property) {
-    return this.cardColor.getColor(property.set);
+    if (property) {
+      return this.cardColor.getColor(property.set);
+    }
+    return '';
   }
 
   ngOnInit() {

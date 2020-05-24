@@ -1,5 +1,5 @@
 <div class="deck">
-  <ng-container *ngFor="let card of deckCards" [ngSwitch]="card.type">
+  <ng-container *ngFor="let card of deckCards$ | async" [ngSwitch]="card?.type">
     <app-rent-card class="deck__card" *ngSwitchCase="'RENT'"
       [config]="card">
     </app-rent-card>

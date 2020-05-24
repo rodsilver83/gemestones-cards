@@ -1,15 +1,51 @@
 
-<h1>RTC Test - Reciver</h1>
-<p>id: {{connId}}</p>
-<p id="msg"></p>
+<div class="notification is-danger" *ngIf="error">
+  <button class="delete" (click)="error= null"></button>
+  {{error}}
+</div>
 
-<section class="section">
-	<div class="container">
-		<h1 class="title">
-			Hello World
-		</h1>
-		<p class="subtitle">
-			My first website with <strong>Bulma</strong>!
-		</p>
-	</div>
-</section>
+<div class="container is-widescreen">
+
+  <section class="section lobby__section">
+    <div class="container">
+      <h1 class="title">Create Game Room</h1>
+
+      <div class="field">
+        <label class="label">Name:</label>
+        <div class="control">
+          <input class="input" [formControl]="room" type="text"
+            placeholder="Name">
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="control">
+          <button class="button is-link" (click)="createRoom()">Create</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section lobby__section">
+    <div class="container">
+
+      <h1 class="title">Join Game Room</h1>
+
+      <div class="field">
+        <label class="label">Room Name:</label>
+        <div class="control">
+          <input class="input" [formControl]="joinName" type="text"
+            placeholder="Room">
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="control">
+          <button class="button is-link" (click)="joinRoom()">Join</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</div>

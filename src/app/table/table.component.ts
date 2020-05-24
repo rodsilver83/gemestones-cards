@@ -1,55 +1,36 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import Peer from 'peerjs';
+import { ActivatedRoute, RouterOutlet, Params } from '@angular/router';
+import { switchMap, map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss']
 })
-export class TableComponent implements OnInit {
+export class TableComponent implements OnInit, OnDestroy {
 
   peer2 = new Peer();
   conn2 = null;
   msg: string;
 
-  constructor() { }
+  // private routeParams$: Observable<Params>;
+
+  constructor(
+    private route: ActivatedRoute,
+    private outlet: RouterOutlet
+  ) { }
 
   ngOnInit() {
-
+    this.route.params.subscribe(params => {
+      console.log(params);
+      // In a real app: dispatch action to load the details here.
+    });
   }
 
-  click() {
-
-    const id = (document.getElementById('key') as HTMLInputElement).value;
-
-    const conn2 = this.peer2.connect(id, {
-      reliable: true
-    });
-
-    this.peer2.on('open', (id) => {
-      console.log('open2:', id);
-    });
-
-    this.peer2.on('connection', (id) => {
-      console.log('connection:', id);
-    });
-
-    this.peer2.on('error', (id) => {
-      console.log('error2:', id);
-    });
-
-    conn2.on('open', () => {
-      console.log('connOpen2:');
-      conn2.send(this.msg);
-    });
-
-    conn2.on('data', () => {
-      console.log('connConnection2:');
-    });
-
-    conn2.on('error', (e) => {
-      console.log('connError2:', e);
-    });
+  ngOnDestroy() {
+    // this.routeParams$.unsubscribe();
   }
 
 }
