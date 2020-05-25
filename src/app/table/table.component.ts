@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterOutlet, Params } from '@angular/router';
 import { FormControl } from '@angular/forms';
 import { ConnectionService } from '../connection.service';
-import { Observable, Observer } from 'rxjs';
+import { Observable, Observer, Subject } from 'rxjs';
 
 @Component({
   selector: 'app-table',
@@ -12,7 +12,7 @@ import { Observable, Observer } from 'rxjs';
 export class TableComponent implements OnInit {
 
   public sendMsg = new FormControl('');
-  public messages$: Observable<string[]>;
+  public messages$: Subject<string[]>;
   public isHost: boolean;
 
   private messages: string[] = [];
@@ -25,6 +25,8 @@ export class TableComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.messages$ = new Subject<string[]>();
+
     this.route.params.subscribe(params => {
       this.roomName = params.name;
       this.isHost = (params.host === 'true');
@@ -35,28 +37,25 @@ export class TableComponent implements OnInit {
 
   stablishConnection() {
     if (this.isHost) {
-      this.messages$ = new Observable<string[]>((observer: Observer<string[]>) => {
-        this.conn.connection
-          .subscribe((msg: string) => {
-            this.messages.push(`Recieved: ${msg}`);
-            observer.next(this.messages);
-          },
-            err => {
-              console.log(err);
-            });
-      });
+      this.conn.connection
+        .subscribe((msg: string) => {
+          console.log('tableH:', msg);
+          this.messages.push(`Recieved: ${msg}`);
+          this.messages$.next(this.messages);
+        },
+          err => {
+            console.log(err);
+          });
     } else {
-      this.messages$ = new Observable<string[]>((observer: Observer<string[]>) => {
-        this.conn.createConnection(this.hostId)
-          .subscribe((msg: string) => {
-            this.messages.push(`Recieved: ${msg}`);
-            observer.next(this.messages);
-          },
-            err => {
-              console.log(err);
-            });
-      });
-
+      this.conn.createConnection(this.hostId)
+        .subscribe((msg: string) => {
+          console.log('tableP:', msg);
+          this.messages.push(`Recieved: ${msg}`);
+          this.messages$.next(this.messages);
+        },
+          err => {
+            console.log(err);
+          });
     }
   }
 

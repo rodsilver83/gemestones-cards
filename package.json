@@ -8,7 +8,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "deploy": "yarn build && ngh"
+    "deploy": "yarn build && ngh",
+    "live": "yarn build && ngh && deploy.sh"
   },
   "private": true,
   "dependencies": {

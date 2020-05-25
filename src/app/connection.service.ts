@@ -41,7 +41,7 @@ export class ConnectionService {
         this.peerConnection = conn;
         this.peerConnection.on('data', (data) => {
           // Will print 'hi!'
-          console.log('data:', data);
+          console.log('dataH:', data);
           this.connection$.next(data);
           // document.getElementById('msg').innerHTML = data;
         });
@@ -68,6 +68,7 @@ export class ConnectionService {
         this.peerConnection.on('open', () => {
           // Receive messages
           this.peerConnection.on('data', (data) => {
+            console.log('dataP:', data);
             this.connection$.next(data);
           });
 
