@@ -2,6 +2,7 @@
 
 .property-card__main {
 	// border: 1px solid #333;
+	font-size: 1rem * $scale;
 	font-weight: bold;
 	width: 100%;
 	text-align: center;
@@ -30,7 +31,7 @@
 	align-items: center;
 	justify-content: space-around;
 	padding: 0 15px * $scale;
-	margin: 5px;
+	// margin: 5px;
 }
 
 .property-card__card {

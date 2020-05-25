@@ -23,7 +23,7 @@ export class DeckComponent implements OnInit {
 
   ngOnInit() {
     this.deckCards$ = new Observable<Card[]>((observer: Observer<Card[]>) => {
-      this.deckService.draw(4).subscribe((deck: Card[]) => {
+      this.deckService.draw(5).subscribe((deck: Card[]) => {
         observer.next(deck);
       },
         err => {

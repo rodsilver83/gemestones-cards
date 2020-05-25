@@ -30,7 +30,7 @@ export class LobbyComponent implements OnInit {
   }
 
   createRoom() {
-    this.connection.createHostConnection().pipe(take(1))
+    this.connection.createPeer().pipe(take(1))
       .subscribe((id) => {
         this.rooms$.push({
           name: this.room.value,
@@ -45,8 +45,12 @@ export class LobbyComponent implements OnInit {
       ref => ref.limitToFirst(1).orderByChild('name')
         .equalTo(this.joinName.value))
       .valueChanges();
-    query.subscribe(res => {
-      this.router.navigate(['table', { host: false, name: this.joinName.value }]);
+    query.subscribe((res: any) => {
+      if (res[0] && res[0].host) {
+        this.router.navigate(['table', { host: false, name: this.joinName.value, hostId: res[0].host }]);
+      } else {
+        this.error = 'Room not found, try again.';
+      }
     });
   }
 }

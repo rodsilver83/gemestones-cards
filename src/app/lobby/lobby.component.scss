@@ -9,4 +9,8 @@
 	background: $set7-color;
 	border-radius: 30px;
 	margin: 10px;
+
+	&:first-child {
+		background: $set6-color;
+	}
 }

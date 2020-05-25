@@ -1,4 +1,14 @@
-<h1>RTC Test - Send</h1>
-<input type="text" id="key">
-<input type="text" [(ngModel)]="msg" #ctrl="ngModel">
-<button (click)="click()">send</button>
+<h1 class="title">You are in Room: {{ roomName }}
+  <span *ngIf="isHost" class="tag is-info">
+    Host
+  </span>
+</h1>
+
+<p *ngFor="let msg of messages$ | async">
+  {{msg}}
+</p>
+
+<textarea class="textarea" type="textarea" [formControl]="sendMsg">
+</textarea>
+<br>
+<button type="button" class="button is-link" (click)="send()">Send</button>

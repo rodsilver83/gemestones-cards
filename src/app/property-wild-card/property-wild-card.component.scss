@@ -32,14 +32,14 @@
 	width: 50%;
 }
 
-.property_sideA {
+.property_sideA,
+.property_sideB {
 	width: 100%;
 	height: 100%;
+	font-size: 1rem * $scale;
 }
 
 .property_sideB {
 	position: absolute;
-	width: 100%;
-	height: 100%;
 	transform: rotate(180deg);
 }

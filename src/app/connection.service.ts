@@ -1,83 +1,87 @@
 import { Injectable } from '@angular/core';
 import Peer from 'peerjs';
-import { Observable, Subject } from 'rxjs';
+import { Subject } from 'rxjs';
+import { take } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ConnectionService {
 
-  public hostPeer: Peer = null;
+  private peer: Peer = null;
+  private peerConnection: any;
 
   private connection$: Subject<string>;
-  private localSessionID: string;
-  private hostSessionID: string;
+  private peer$: Subject<string>;
+  private sessionId: string;
 
   constructor() {
     this.connection$ = new Subject<string>();
+    this.peer$ = new Subject<string>();
   }
 
-  createHostConnection(): Subject<string> {
-    if (!this.hostPeer) {
-      this.hostPeer = new Peer(null, {
+  get connection(): Subject<string> {
+    return this.connection$;
+  }
+
+  createPeer(): Subject<string> {
+    if (!this.peer) {
+      this.peer = new Peer(null, {
         host: 'rodrigosoria.me',
         port: 9000,
         path: '/myapp'
       });
 
-      this.hostPeer.on('open', (id) => {
-        this.hostSessionID = id;
-        this.connection$.next(id);
+      this.peer.on('open', (id) => {
+        this.sessionId = id;
+        this.peer$.next(id);
       });
 
-      this.hostPeer.on('connection', (c) => {
-        c.on('data', (data) => {
+      this.peer.on('connection', (conn) => {
+        this.peerConnection = conn;
+        this.peerConnection.on('data', (data) => {
           // Will print 'hi!'
           console.log('data:', data);
+          this.connection$.next(data);
           // document.getElementById('msg').innerHTML = data;
         });
+
+        this.peerConnection.send('Que hace!');
       });
 
-      this.hostPeer.on('error', (err) => {
+      this.peer.on('error', (err) => {
         console.log('error:', err);
-        this.connection$.error(err);
+        this.peer$.error(err);
       });
     } else {
-      this.connection$.next(this.hostSessionID);
+      this.peer$.next(this.sessionId);
     }
 
+    return this.peer$;
+  }
+
+  createConnection(connId: string): Subject<string> {
+    this.createPeer().pipe(take(1))
+      .subscribe((peerId) => {
+        this.peerConnection = this.peer.connect(connId);
+
+        this.peerConnection.on('open', () => {
+          // Receive messages
+          this.peerConnection.on('data', (data) => {
+            this.connection$.next(data);
+          });
+
+          // Send messages
+          this.peerConnection.send('Hello!');
+        });
+      });
     return this.connection$;
   }
 
-  createLocalConnection(): Subject<string> {
-    if (!this.hostPeer) {
-      this.hostPeer = new Peer(null, {
-        host: 'rodrigosoria.me',
-        port: 9000,
-        path: '/myapp'
-      });
-
-      this.hostPeer.on('open', (id) => {
-        this.localSessionID = id;
-        this.connection$.next(id);
-      });
-
-      this.hostPeer.on('connection', (c) => {
-        c.on('data', (data) => {
-          // Will print 'hi!'
-          console.log('data:', data);
-          // document.getElementById('msg').innerHTML = data;
-        });
-      });
-
-      this.hostPeer.on('error', (err) => {
-        console.log('error:', err);
-        this.connection$.error(err);
-      });
-    } else {
-      this.connection$.next(this.localSessionID);
+  sendMessage(msg: string) {
+    if (this.peerConnection) {
+      this.peerConnection.send(msg);
     }
-
-    return this.connection$;
   }
+
 }
