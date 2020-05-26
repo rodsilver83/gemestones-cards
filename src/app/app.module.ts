@@ -12,13 +12,14 @@ import { WildCardComponent } from './wild-card/wild-card.component';
 import { RentCardComponent } from './rent-card/rent-card.component';
 import { MoneyCardComponent } from './money-card/money-card.component';
 import { LobbyComponent } from './lobby/lobby.component';
-import { TableComponent } from './table/table.component';
+import { RoomComponent } from './room/room.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PropertyWildCardComponent } from './property-wild-card/property-wild-card.component';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { RoomPlayerComponent } from './room-player/room-player.component';
 
 @NgModule({
   declarations: [
@@ -31,8 +32,9 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
     RentCardComponent,
     MoneyCardComponent,
     LobbyComponent,
-    TableComponent,
-    PropertyWildCardComponent
+    RoomComponent,
+    PropertyWildCardComponent,
+    RoomPlayerComponent
   ],
   imports: [
     BrowserModule,

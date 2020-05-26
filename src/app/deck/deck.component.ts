@@ -1,14 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { Card } from '../card/card.component';
-import { ActionCard } from '../action-card/action-card.component';
-// import { Deck } from '../../deck.json';
-import { PropertyCard } from '../property-card/property-card.component';
-import { WildCard } from '../wild-card/wild-card.component';
-import { MoneyCard } from '../money-card/money-card.component';
-import { RentCard } from '../rent-card/rent-card.component';
-import { PropertyWildCard } from '../property-wild-card/property-wild-card.component';
-import { Observable, Observer } from 'rxjs';
+import { Component, OnInit, Input } from '@angular/core';
 import { DeckService } from '../services/deck.service';
+import { Card } from '../classes/card';
 
 @Component({
   selector: 'app-deck',
@@ -17,18 +9,15 @@ import { DeckService } from '../services/deck.service';
 })
 export class DeckComponent implements OnInit {
 
-  public deckCards$: Observable<Card[]>;
+  @Input() public cards: Card[];
 
   constructor(private deckService: DeckService) { }
 
   ngOnInit() {
-    this.deckCards$ = new Observable<Card[]>((observer: Observer<Card[]>) => {
-      this.deckService.draw(5).subscribe((deck: Card[]) => {
-        observer.next(deck);
-      },
-        err => {
-          console.log(err);
-        });
-    });
+    // if (!this.cards) {
+    //   this.deckService.draw(5).subscribe((deck: Card[]) => {
+    //     this.cards = deck;
+    //   });
+    // }
   }
 }

@@ -2,38 +2,38 @@ import { Injectable, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError, Observer } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
-import { Card } from '../card/card.component';
-import { ActionCard } from '../action-card/action-card.component';
-import { PropertyCard } from '../property-card/property-card.component';
-import { WildCard } from '../wild-card/wild-card.component';
+import { Card } from '../classes/card';
+import { ActionCard } from '../classes/action-card';
+import { PropertyCard } from '../classes/property-card';
+import { WildCard } from '../classes/wild-card';
 import { MoneyCard } from '../money-card/money-card.component';
-import { RentCard } from '../rent-card/rent-card.component';
-import { PropertyWildCard } from '../property-wild-card/property-wild-card.component';
+import { RentCard } from '../classes/rent-card';
+import { PropertyWildCard } from '../classes/property-wild-card';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DeckService {
 
-  private jsonURL = 'assets/deck.json';
+  private jsonURL = 'https://monopolycards-20516.firebaseio.com/Deck.json';
   private deckCards: Card[] = [];
   private deckCards$: Observable<Card[]>;
 
   constructor(
     private http: HttpClient
-  ) {
-    this.getDeck();
-  }
+  ) { }
 
   private getDeck(): Observable<Card[]> {
     if (this.deckCards.length === 0) {
       this.deckCards$ = this.http.get<any>(this.jsonURL)
         .pipe(
           map((res: any) => {
-            this.initDeck(res.Deck);
+            this.initDeck(res);
             return this.suffleDeck(this.deckCards);
           }),
           catchError(this.handleError));
+      return this.deckCards$;
+    } else {
       return this.deckCards$;
     }
   }
@@ -91,8 +91,7 @@ export class DeckService {
 
   draw(count: number): Observable<Card[]> {
     return new Observable<Card[]>((observer: Observer<Card[]>) => {
-      this.deckCards$.subscribe(() => {
-
+      this.getDeck().subscribe(() => {
         const draw = [];
         for (let i = 0; i < count; i++) {
           draw.push(this.deckCards.shift());

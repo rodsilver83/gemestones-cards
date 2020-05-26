@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
 import { FormControl } from '@angular/forms';
 import { ConnectionService } from '../connection.service';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
@@ -36,7 +35,7 @@ export class LobbyComponent implements OnInit {
           name: this.room.value,
           host: id
         });
-        this.router.navigate(['table', { host: true, name: this.room.value }]);
+        this.router.navigate(['room', { name: this.room.value }]);
       });
   }
 
@@ -47,7 +46,7 @@ export class LobbyComponent implements OnInit {
       .valueChanges();
     query.subscribe((res: any) => {
       if (res[0] && res[0].host) {
-        this.router.navigate(['table', { host: false, name: this.joinName.value, hostId: res[0].host }]);
+        this.router.navigate(['roomPlayer', { name: this.joinName.value, hostId: res[0].host }]);
       } else {
         this.error = 'Room not found, try again.';
       }

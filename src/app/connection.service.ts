@@ -2,31 +2,28 @@ import { Injectable } from '@angular/core';
 import Peer from 'peerjs';
 import { Subject } from 'rxjs';
 import { take } from 'rxjs/operators';
+import { ConnData } from './classes/conn-data';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ConnectionService {
 
-  private peer: Peer = null;
-  private peerConnection: any;
+  public connection$: Subject<ConnData>;
 
-  private connection$: Subject<string>;
+  private peerConnection: any;
+  private peer: Peer = null;
   private peer$: Subject<string>;
   private sessionId: string;
 
   constructor() {
-    this.connection$ = new Subject<string>();
+    this.connection$ = new Subject<ConnData>();
     this.peer$ = new Subject<string>();
   }
 
-  get connection(): Subject<string> {
-    return this.connection$;
-  }
-
-  createPeer(): Subject<string> {
+  createPeer(peerId = null): Subject<string> {
     if (!this.peer) {
-      this.peer = new Peer(null, {
+      this.peer = new Peer(peerId, {
         host: 'rodrigosoria.me',
         port: 9000,
         path: '/myapp'
@@ -40,10 +37,7 @@ export class ConnectionService {
       this.peer.on('connection', (conn) => {
         this.peerConnection = conn;
         this.peerConnection.on('data', (data) => {
-          // Will print 'hi!'
-          console.log('dataH:', data);
           this.connection$.next(data);
-          // document.getElementById('msg').innerHTML = data;
         });
 
         this.peerConnection.send('Que hace!');
@@ -60,20 +54,17 @@ export class ConnectionService {
     return this.peer$;
   }
 
-  createConnection(connId: string): Subject<string> {
+  createConnection(connId: string): Subject<ConnData> {
     this.createPeer().pipe(take(1))
       .subscribe((peerId) => {
         this.peerConnection = this.peer.connect(connId);
 
         this.peerConnection.on('open', () => {
-          // Receive messages
           this.peerConnection.on('data', (data) => {
-            console.log('dataP:', data);
             this.connection$.next(data);
           });
 
-          // Send messages
-          this.peerConnection.send('Hello!');
+          this.sendMessage('Player Joined!');
         });
       });
     return this.connection$;
@@ -81,7 +72,21 @@ export class ConnectionService {
 
   sendMessage(msg: string) {
     if (this.peerConnection) {
-      this.peerConnection.send(msg);
+      const data: ConnData = {
+        type: 'MSG',
+        data: msg
+      };
+      this.peerConnection.send(data);
+    }
+  }
+
+  sendData(connType: string, connData: any) {
+    if (this.peerConnection) {
+      const dataC: ConnData = {
+        type: connType,
+        data: connData
+      };
+      this.peerConnection.send(dataC);
     }
   }
 

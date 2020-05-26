@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DeckComponent } from './deck/deck.component';
 import { LobbyComponent } from './lobby/lobby.component';
-import { TableComponent } from './table/table.component';
+import { RoomComponent } from './room/room.component';
+import { RoomPlayerComponent } from './room-player/room-player.component';
 
 
 const routes: Routes = [
@@ -11,8 +12,12 @@ const routes: Routes = [
     component: LobbyComponent
   },
   {
-    path: 'table',
-    component: TableComponent
+    path: 'room',
+    component: RoomComponent
+  },
+  {
+    path: 'roomPlayer',
+    component: RoomPlayerComponent
   },
   {
     path: '**',

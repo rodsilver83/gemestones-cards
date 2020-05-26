@@ -1,0 +1,15 @@
+<h1 class="title">You are in Room: {{ roomName }}</h1>
+
+<p *ngFor="let msg of messages$ | async">
+	{{msg}}
+</p>
+
+<textarea class="textarea"
+	type="textarea"
+	(keyup.enter)="send()"
+	[formControl]="sendMsg">
+</textarea>
+
+<br>
+
+<app-deck [cards]="player.handCards"></app-deck>

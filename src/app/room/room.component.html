@@ -1,0 +1,23 @@
+<h1 class="title">You are in Room: {{ roomName }}
+	<span class="tag is-info">
+		Host
+	</span>
+</h1>
+
+<p *ngFor="let msg of messages$ | async">
+	{{msg}}
+</p>
+
+<textarea class="textarea"
+	type="textarea"
+	(keyup.enter)="send()"
+	[formControl]="sendMsg">
+</textarea>
+
+<br>
+
+<button class="button is-primary" type="button"
+	(click)="startGame()">Start
+	Game</button>
+
+<app-deck [cards]="player.handCards"></app-deck>

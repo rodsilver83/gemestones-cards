@@ -1,19 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Card } from '../card/card.component';
 import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
 import { CardColorsService } from '../services/card-colors.service';
-
-export class WildCard extends Card {
-  public title = '';
-  constructor(...args: { value: number, desc: string, bgColor: string, title: string }[]) {
-    super(...args);
-    Object.assign(this, ...args);
-  }
-
-  get type() {
-    return 'WILDCARD';
-  }
-}
+import { WildCard } from '../classes/wild-card';
 
 @Component({
   selector: 'app-wild-card',

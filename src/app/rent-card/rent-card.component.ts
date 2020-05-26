@@ -1,29 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Card } from '../card/card.component';
 import { DomSanitizer } from '@angular/platform-browser';
 import { CardColorsService } from '../services/card-colors.service';
-
-export class RentCard extends Card {
-  public rentSet1: number;
-  public rentSet2: number;
-  public wild: boolean;
-  public title: string;
-  constructor(...args: {
-    value: number,
-    bgColor: string,
-    desc: string,
-    rentSet1?: number,
-    rentSet2?: number,
-    wild: boolean,
-    title: string
-  }[]) {
-    super(...args);
-  }
-
-  get type() {
-    return 'RENT';
-  }
-}
+import { RentCard } from '../classes/rent-card';
 
 @Component({
   selector: 'app-rent-card',

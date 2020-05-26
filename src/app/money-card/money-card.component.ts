@@ -1,13 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Card } from '../card/card.component';
+import { Card } from '../classes/card';
 
 export class MoneyCard extends Card {
+  public type = 'MONEY';
   constructor(...args: { value: number, bgColor: string, desc: string }[]) {
     super(...args);
-  }
-
-  get type() {
-    return 'MONEY';
   }
 }
 
