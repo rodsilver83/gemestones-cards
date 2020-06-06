@@ -5,6 +5,11 @@
 	"projects": {
 		"monopoly-cards": {
 			"projectType": "application",
+			"i18n": {
+				"locales": {
+					"es": "src/locale/messages.es.xlf"
+				}
+			},
 			"schematics": {
 				"@schematics/angular:component": {
 					"style": "scss"
@@ -29,12 +34,6 @@
 					},
 					"configurations": {
 						"es": {
-              "budgets": [
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "6kb"
-                }
-              ],
 							"localize": ["es"]
 						},
 						"production": {
@@ -73,6 +72,9 @@
 						"browserTarget": "monopoly-cards:build"
 					},
 					"configurations": {
+						"es": {
+							"browserTarget": "monopoly-cards:build:es"
+						},
 						"production": {
 							"browserTarget": "monopoly-cards:build:production"
 						}
