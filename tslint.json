@@ -21,6 +21,7 @@
       "app",
       "kebab-case"
     ],
+    "ident": "tab"
     "import-blacklist": [
       true,
       "rxjs/Rx"

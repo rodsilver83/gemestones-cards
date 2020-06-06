@@ -70,9 +70,11 @@ export class ConnectionService {
     return this.connection$;
   }
 
+  // Chat use only
   sendMessage(msg: string) {
     if (this.peerConnection) {
       const data: ConnData = {
+        peer: this.sessionId,
         type: 'MSG',
         data: msg
       };
@@ -83,6 +85,7 @@ export class ConnectionService {
   sendData(connType: string, connData: any) {
     if (this.peerConnection) {
       const dataC: ConnData = {
+        peer: this.sessionId,
         type: connType,
         data: connData
       };

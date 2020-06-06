@@ -1,51 +1,62 @@
-
 <div class="notification is-danger" *ngIf="error">
-  <button class="delete" (click)="error= null"></button>
-  {{error}}
+	<button class="delete" (click)="error = null"></button>
+	{{ error }}
 </div>
 
-<div class="container is-widescreen">
+<section class="section is-flex">
+	<div class="tile is-ancestor">
+		<div class="tile is-horizontal">
+			<div class="tile is-parent">
+				<div class="tile is-child box has-background-primary">
+					<h2 class="title has-text-white" i18n="@@lobby__create-title">
+						Create Game Room
+					</h2>
+					<div class="field">
+						<label class="label has-text-white">Name:</label>
+						<div class="control">
+							<input
+								class="input"
+								[formControl]="room"
+								type="text"
+								placeholder="Name"
+							/>
+						</div>
+					</div>
 
-  <section class="section lobby__section">
-    <div class="container">
-      <h1 class="title">Create Game Room</h1>
+					<div class="field">
+						<div class="control">
+							<button class="button is-link" (click)="createRoom()">
+								Create
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="tile is-parent">
+				<div class="tile is-child box has-background-success join-game">
+					<h2 class="title has-text-white">Join Game Room</h2>
 
-      <div class="field">
-        <label class="label">Name:</label>
-        <div class="control">
-          <input class="input" [formControl]="room" type="text"
-            placeholder="Name">
-        </div>
-      </div>
+					<div class="field">
+						<label class="label has-text-white">Room Name:</label>
+						<div class="control">
+							<input
+								class="input"
+								[formControl]="joinName"
+								type="text"
+								placeholder="Room"
+							/>
+						</div>
+					</div>
 
-      <div class="field">
-        <div class="control">
-          <button class="button is-link" (click)="createRoom()">Create</button>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <section class="section lobby__section">
-    <div class="container">
-
-      <h1 class="title">Join Game Room</h1>
-
-      <div class="field">
-        <label class="label">Room Name:</label>
-        <div class="control">
-          <input class="input" [formControl]="joinName" type="text"
-            placeholder="Room">
-        </div>
-      </div>
-
-      <div class="field">
-        <div class="control">
-          <button class="button is-link" (click)="joinRoom()">Join</button>
-        </div>
-      </div>
-
-    </div>
-  </section>
-</div>
+					<div class="field">
+						<div class="control">
+							<button class="button is-link" (click)="joinRoom()">
+								Join
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

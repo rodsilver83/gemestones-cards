@@ -35,7 +35,7 @@ export class RoomComponent implements OnInit {
 
     this.route.params.subscribe(params => {
       this.roomName = params.name;
-      this.hostId = params.hostId;
+      // this.hostId = params.hostId;
       this.stablishConnection();
     });
 
@@ -44,9 +44,7 @@ export class RoomComponent implements OnInit {
 
   stablishConnection() {
     // HOST
-    // For local testing
-    // this.conn.createPeer();
-    this.conn.createPeer('39411ba0-aaae-4fd8-be25-1b54b354a6ad');
+    this.conn.createPeer(this.roomName);
 
     this.conn.connection$
       .subscribe((data: ConnData) => {

@@ -43,7 +43,7 @@ export class RoomPlayerComponent implements OnInit {
 
   stablishConnection() {
     // PLAYER
-    this.conn.createConnection(this.hostId)
+    this.conn.createConnection(this.roomName)
       .subscribe((data: ConnData) => {
         this.handleConnData(data);
       },

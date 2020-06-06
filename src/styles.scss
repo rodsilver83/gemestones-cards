@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-@import url("https://use.fontawesome.com/releases/v5.10.0/css/all.css");
+@import url('https://use.fontawesome.com/releases/v5.10.0/css/all.css');
 
 $scale: 0.7;
 
@@ -15,11 +15,6 @@ $set8-color: #0072bb;
 $set9-color: #cde7d0;
 $set10-color: #231f20;
 
-* {
-	box-sizing: border-box;
-	font-family: Arial, Helvetica, sans-serif;
-}
-
 body {
 	margin: 0;
 	padding: 10px;
@@ -28,8 +23,6 @@ body {
 	align-items: center;
 	justify-content: center;
 	font-size: 1rem;
-}
-
-.text-cross {
-	text-decoration: line-through;
+	height: 100vh;
+	width: 100vw;
 }

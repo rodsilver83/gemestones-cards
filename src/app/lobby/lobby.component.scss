@@ -1,16 +1,9 @@
-@import "../../styles.scss";
+.join-game {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 
-:host {
-	width: 100vw;
-	max-width: 400px;
-}
-
-.lobby__section {
-	background: $set7-color;
-	border-radius: 30px;
-	margin: 10px;
-
-	&:first-child {
-		background: $set6-color;
+	> h2 {
+		flex-grow: 1;
 	}
 }

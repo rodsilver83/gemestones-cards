@@ -6,50 +6,56 @@ import { take } from 'rxjs/operators';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-lobby',
-  templateUrl: './lobby.component.html',
-  styleUrls: ['./lobby.component.scss']
+	selector: 'app-lobby',
+	templateUrl: './lobby.component.html',
+	styleUrls: ['./lobby.component.scss'],
 })
 export class LobbyComponent implements OnInit {
+	public connId: string;
+	public room = new FormControl('');
+	public joinName = new FormControl('');
+	public id = new FormControl('');
+	public error = null;
+	private rooms$: AngularFireList<any>;
 
-  public connId: string;
-  public room = new FormControl('');
-  public joinName = new FormControl('');
-  public id = new FormControl('');
-  public error = null;
-  private rooms$: AngularFireList<any>;
+	constructor(
+		private connection: ConnectionService,
+		private fireBase: AngularFireDatabase,
+		private router: Router
+	) {}
 
-  constructor(
-    private connection: ConnectionService,
-    private fireBase: AngularFireDatabase,
-    private router: Router) { }
+	ngOnInit() {
+		this.rooms$ = this.fireBase.list('/Rooms');
+	}
 
-  ngOnInit() {
-    this.rooms$ = this.fireBase.list('/Rooms');
-  }
+	createRoom() {
+		this.connection
+			.createPeer()
+			.pipe(take(1))
+			.subscribe((id) => {
+				this.rooms$.push({
+					name: this.room.value,
+					host: id,
+				});
+				this.router.navigate(['room', { name: this.room.value }]);
+			});
+	}
 
-  createRoom() {
-    this.connection.createPeer().pipe(take(1))
-      .subscribe((id) => {
-        this.rooms$.push({
-          name: this.room.value,
-          host: id
-        });
-        this.router.navigate(['room', { name: this.room.value }]);
-      });
-  }
-
-  joinRoom() {
-    const query = this.fireBase.list('/Rooms',
-      ref => ref.limitToFirst(1).orderByChild('name')
-        .equalTo(this.joinName.value))
-      .valueChanges();
-    query.subscribe((res: any) => {
-      if (res[0] && res[0].host) {
-        this.router.navigate(['roomPlayer', { name: this.joinName.value, hostId: res[0].host }]);
-      } else {
-        this.error = 'Room not found, try again.';
-      }
-    });
-  }
+	joinRoom() {
+		const query = this.fireBase
+			.list('/Rooms', (ref) =>
+				ref.limitToFirst(1).orderByChild('name').equalTo(this.joinName.value)
+			)
+			.valueChanges();
+		query.subscribe((res: any) => {
+			if (res[0] && res[0].host) {
+				this.router.navigate([
+					'roomPlayer',
+					{ name: this.joinName.value, hostId: res[0].host },
+				]);
+			} else {
+				this.error = 'Room not found, try again.';
+			}
+		});
+	}
 }

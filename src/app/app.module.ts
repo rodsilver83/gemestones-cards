@@ -20,33 +20,37 @@ import { environment } from '../environments/environment';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { RoomPlayerComponent } from './room-player/room-player.component';
+import { registerLocaleData } from '@angular/common';
+import localeMx from '@angular/common/locales/es-MX';
+
+registerLocaleData(localeMx);
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    ActionCardComponent,
-    CardComponent,
-    DeckComponent,
-    PropertyCardComponent,
-    WildCardComponent,
-    RentCardComponent,
-    MoneyCardComponent,
-    LobbyComponent,
-    RoomComponent,
-    PropertyWildCardComponent,
-    RoomPlayerComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule,
-    AngularFireDatabaseModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+	declarations: [
+		AppComponent,
+		ActionCardComponent,
+		CardComponent,
+		DeckComponent,
+		PropertyCardComponent,
+		WildCardComponent,
+		RentCardComponent,
+		MoneyCardComponent,
+		LobbyComponent,
+		RoomComponent,
+		PropertyWildCardComponent,
+		RoomPlayerComponent,
+	],
+	imports: [
+		BrowserModule,
+		AppRoutingModule,
+		FormsModule,
+		ReactiveFormsModule,
+		HttpClientModule,
+		AngularFireModule.initializeApp(environment.firebase),
+		AngularFirestoreModule,
+		AngularFireDatabaseModule,
+	],
+	providers: [],
+	bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
