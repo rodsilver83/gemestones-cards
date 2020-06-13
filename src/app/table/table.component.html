@@ -1,0 +1,17 @@
+<div class="tile is-ancestor">
+	<app-chat
+		playerName="Host"
+		[roomName]="roomName"
+		class="tile is-parent is-3"
+	></app-chat>
+
+	<div class="tile is-parent is-9">
+		<div class="tile is-child box">
+			<button class="button is-primary" type="button" (click)="startGame()">
+				Start Game
+			</button>
+
+			<app-deck [cards]="player.handCards"></app-deck>
+		</div>
+	</div>
+</div>

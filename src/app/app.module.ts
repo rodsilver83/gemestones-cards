@@ -1,3 +1,4 @@
+import { TableComponent } from './table/table.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
@@ -12,7 +13,6 @@ import { WildCardComponent } from './wild-card/wild-card.component';
 import { RentCardComponent } from './rent-card/rent-card.component';
 import { MoneyCardComponent } from './money-card/money-card.component';
 import { LobbyComponent } from './lobby/lobby.component';
-import { RoomComponent } from './room/room.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PropertyWildCardComponent } from './property-wild-card/property-wild-card.component';
 import { AngularFireModule } from '@angular/fire';
@@ -22,6 +22,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { RoomPlayerComponent } from './room-player/room-player.component';
 import { registerLocaleData } from '@angular/common';
 import localeMx from '@angular/common/locales/es-MX';
+import { ChatComponent } from './chat/chat.component';
 
 registerLocaleData(localeMx);
 
@@ -36,9 +37,10 @@ registerLocaleData(localeMx);
 		RentCardComponent,
 		MoneyCardComponent,
 		LobbyComponent,
-		RoomComponent,
+		TableComponent,
 		PropertyWildCardComponent,
 		RoomPlayerComponent,
+		ChatComponent,
 	],
 	imports: [
 		BrowserModule,

@@ -7,54 +7,70 @@
 	<div class="tile is-ancestor">
 		<div class="tile is-horizontal">
 			<div class="tile is-parent">
-				<div class="tile is-child box has-background-primary">
+				<div class="tile is-child box has-background-primary join-game">
 					<h2 class="title has-text-white" i18n="@@lobby__create-title">
 						Create Game Room
 					</h2>
-					<div class="field">
-						<label class="label has-text-white">Name:</label>
-						<div class="control">
-							<input
-								class="input"
-								[formControl]="room"
-								type="text"
-								placeholder="Name"
-							/>
+					<form [formGroup]="createForm" (ngSubmit)="createRoom()">
+						<div class="field">
+							<label class="label has-text-white">Room Name:</label>
+							<div class="control">
+								<input
+									class="input"
+									formControlName="room"
+									type="text"
+									placeholder="Room Name"
+								/>
+							</div>
 						</div>
-					</div>
 
-					<div class="field">
-						<div class="control">
-							<button class="button is-link" (click)="createRoom()">
-								Create
-							</button>
+						<div class="field">
+							<div class="control">
+								<button class="button is-link" [disabled]="!createForm.valid">
+									Create
+								</button>
+							</div>
 						</div>
-					</div>
+					</form>
 				</div>
 			</div>
 			<div class="tile is-parent">
 				<div class="tile is-child box has-background-success join-game">
 					<h2 class="title has-text-white">Join Game Room</h2>
 
-					<div class="field">
-						<label class="label has-text-white">Room Name:</label>
-						<div class="control">
-							<input
-								class="input"
-								[formControl]="joinName"
-								type="text"
-								placeholder="Room"
-							/>
+					<form [formGroup]="joinForm" (ngSubmit)="joinRoom()">
+						<div class="field">
+							<label class="label has-text-white">Room Name:</label>
+							<div class="control">
+								<input
+									class="input"
+									formControlName="joinName"
+									type="text"
+									placeholder="Room"
+								/>
+							</div>
 						</div>
-					</div>
 
-					<div class="field">
-						<div class="control">
-							<button class="button is-link" (click)="joinRoom()">
-								Join
-							</button>
+						<div class="field">
+							<label class="label has-text-white">Player Name:</label>
+							<div class="control">
+								<input
+									class="input"
+									formControlName="playerName"
+									type="text"
+									placeholder="Player Name"
+								/>
+							</div>
 						</div>
-					</div>
+
+						<div class="field">
+							<div class="control">
+								<button class="button is-link" [disabled]="!joinForm.valid">
+									Join
+								</button>
+							</div>
+						</div>
+					</form>
 				</div>
 			</div>
 		</div>

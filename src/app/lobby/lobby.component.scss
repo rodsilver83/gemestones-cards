@@ -1,3 +1,15 @@
+:host {
+	margin: 0;
+	padding: 10px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	font-size: 1rem;
+	height: 100vh;
+	width: 100vw;
+}
+
 .join-game {
 	display: flex;
 	flex-direction: column;

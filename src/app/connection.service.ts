@@ -2,95 +2,103 @@ import { Injectable } from '@angular/core';
 import Peer from 'peerjs';
 import { Subject } from 'rxjs';
 import { take } from 'rxjs/operators';
-import { ConnData } from './classes/conn-data';
+import { ConnData, ConnDataType } from './classes/conn-data';
 
 @Injectable({
-  providedIn: 'root'
+	providedIn: 'root',
 })
 export class ConnectionService {
+	public connection$: Subject<ConnData>;
 
-  public connection$: Subject<ConnData>;
+	private peerConnection: any;
+	private peer: Peer = null;
+	private peer$: Subject<string>;
+	private sessionId: string;
+	private playerName: string;
 
-  private peerConnection: any;
-  private peer: Peer = null;
-  private peer$: Subject<string>;
-  private sessionId: string;
+	constructor() {
+		this.connection$ = new Subject<ConnData>();
+		this.peer$ = new Subject<string>();
+	}
 
-  constructor() {
-    this.connection$ = new Subject<ConnData>();
-    this.peer$ = new Subject<string>();
-  }
+	createPeer(player: string, peerId = null): Subject<string> {
+		this.playerName = player;
+		if (!this.peer) {
+			this.peer = new Peer(peerId, {
+				host: 'rodrigosoria.me',
+				port: 9000,
+				path: '/myapp',
+			});
 
-  createPeer(peerId = null): Subject<string> {
-    if (!this.peer) {
-      this.peer = new Peer(peerId, {
-        host: 'rodrigosoria.me',
-        port: 9000,
-        path: '/myapp'
-      });
+			this.peer.on('open', (id) => {
+				this.sessionId = id;
+				this.peer$.next(id);
+			});
 
-      this.peer.on('open', (id) => {
-        this.sessionId = id;
-        this.peer$.next(id);
-      });
+			this.peer.on('connection', (conn) => {
+				this.peerConnection = conn;
+				this.peerConnection.on('data', (data) => {
+					this.connection$.next(data);
+				});
 
-      this.peer.on('connection', (conn) => {
-        this.peerConnection = conn;
-        this.peerConnection.on('data', (data) => {
-          this.connection$.next(data);
-        });
+				this.peerConnection.send('Que hace!');
+			});
 
-        this.peerConnection.send('Que hace!');
-      });
+			this.peer.on('error', (err) => {
+				console.log('error:', err);
+				this.peer$.error(err);
+			});
+		} else {
+			this.peer$.next(this.sessionId);
+		}
 
-      this.peer.on('error', (err) => {
-        console.log('error:', err);
-        this.peer$.error(err);
-      });
-    } else {
-      this.peer$.next(this.sessionId);
-    }
+		return this.peer$;
+	}
 
-    return this.peer$;
-  }
+	createConnection(connId: string, player: string): Subject<ConnData> {
+		this.createPeer(player)
+			.pipe(take(1))
+			.subscribe((peerId) => {
+				this.peerConnection = this.peer.connect(connId);
 
-  createConnection(connId: string): Subject<ConnData> {
-    this.createPeer().pipe(take(1))
-      .subscribe((peerId) => {
-        this.peerConnection = this.peer.connect(connId);
+				this.peerConnection.on('open', () => {
+					this.peerConnection.on('data', (data) => {
+						this.connection$.next(data);
+					});
 
-        this.peerConnection.on('open', () => {
-          this.peerConnection.on('data', (data) => {
-            this.connection$.next(data);
-          });
+					this.sendMessage('Player Joined!');
+				});
 
-          this.sendMessage('Player Joined!');
-        });
-      });
-    return this.connection$;
-  }
+				this.peerConnection.on('error', (err) => {
+					console.log('error:', err);
+					this.connection$.error(err);
+				});
+			});
+		return this.connection$;
+	}
 
-  // Chat use only
-  sendMessage(msg: string) {
-    if (this.peerConnection) {
-      const data: ConnData = {
-        peer: this.sessionId,
-        type: 'MSG',
-        data: msg
-      };
-      this.peerConnection.send(data);
-    }
-  }
+	// Chat use only
+	sendMessage(msg: string) {
+		if (this.peerConnection) {
+			const data: ConnData = {
+				peer: this.sessionId,
+				type: ConnDataType.MSG,
+				data: msg,
+				player: this.playerName,
+			};
+			this.peerConnection.send(data);
+		}
+	}
 
-  sendData(connType: string, connData: any) {
-    if (this.peerConnection) {
-      const dataC: ConnData = {
-        peer: this.sessionId,
-        type: connType,
-        data: connData
-      };
-      this.peerConnection.send(dataC);
-    }
-  }
-
+	sendData(connType: ConnDataType, connData: any) {
+		if (this.peerConnection) {
+			const dataC: ConnData = {
+				peer: this.sessionId,
+				type: connType,
+				data: connData,
+				player: this.playerName,
+			};
+			this.peerConnection.send(dataC);
+		}
+	}
 }
