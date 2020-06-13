@@ -36,19 +36,17 @@ export class LobbyComponent implements OnInit {
 	}
 
 	createRoom() {
+		const room = this.createForm.get('room').value;
 		this.connection
-			.createPeer()
+			.createPeer('Host', room)
 			.pipe(take(1))
 			.subscribe(
 				(id) => {
 					this.rooms$.push({
-						name: this.createForm.get('room').value,
+						name: room,
 						host: id,
 					});
-					this.router.navigate([
-						'table',
-						{ name: this.createForm.get('room').value, player: 'Host' },
-					]);
+					this.router.navigate(['host', { name: room, player: 'Host' }]);
 				},
 				(error: any) => {
 					this.error = error;
@@ -68,7 +66,7 @@ export class LobbyComponent implements OnInit {
 		query.subscribe((res: any) => {
 			if (res[0] && res[0].host) {
 				this.router.navigate([
-					'roomPlayer',
+					'player',
 					{
 						name: this.joinForm.get('joinName').value,
 						hostId: res[0].host,

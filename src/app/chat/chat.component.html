@@ -1,8 +1,10 @@
-<section class="tile is-child notification is-info column">
-	<h1 class="subtitle">Room: {{ roomName }}</h1>
+<div class="chat__board">
+	<h1 class="title has-text-white">
+		Chat
+	</h1>
 
-	<div class="box chat__board">
-		<p *ngFor="let msg of messages$ | async">
+	<div class="box px-2 py-2">
+		<p class="mb-1" *ngFor="let msg of messages$ | async">
 			<span class="tag is-info">
 				{{ msg.player }}
 			</span>
@@ -13,9 +15,10 @@
 	</div>
 
 	<input
-		class="input is-info"
+		class="input is-primary"
 		type="text"
+		placeholder="Type Here"
 		(keyup.enter)="send()"
 		[formControl]="sendMsg"
 	/>
-</section>
+</div>

@@ -1,17 +1,28 @@
-<div class="tile is-ancestor">
-	<app-chat
-		playerName="Host"
-		[roomName]="roomName"
-		class="tile is-parent is-3"
-	></app-chat>
+<div class="tile is-ancestor mx-1 my-1">
+	<div class="tile is-parent is-vertical is-3">
+		<ng-content select="[host-panel]"></ng-content>
 
-	<div class="tile is-parent is-9">
-		<div class="tile is-child box">
-			<button class="button is-primary" type="button" (click)="startGame()">
-				Start Game
-			</button>
+		<app-chat
+			[playerName]="player.name"
+			class="tile is-child box has-background-grey"
+		>
+		</app-chat>
+	</div>
 
+	<div class="tile is-parent is-vertical">
+		<div class="tile is-child box has-background-info">
+			<h2 class="title has-text-white has-text-centered">Cards in Hand</h2>
 			<app-deck [cards]="player.handCards"></app-deck>
+		</div>
+		<div class="tile">
+			<div class="tile is-vertical box has-background-info mr-3 mb-0">
+				<h2 class="title has-text-white has-text-centered">Cards in Play</h2>
+				<app-deck [cards]="player.handCards"></app-deck>
+			</div>
+			<div class="tile is-vertical box has-background-info ml-3">
+				<h2 class="title has-text-white has-text-centered">Cards in Bank</h2>
+				<app-deck [cards]="player.handCards"></app-deck>
+			</div>
 		</div>
 	</div>
 </div>

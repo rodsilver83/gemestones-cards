@@ -8,12 +8,14 @@
 		<div class="tile is-horizontal">
 			<div class="tile is-parent">
 				<div class="tile is-child box has-background-primary join-game">
-					<h2 class="title has-text-white" i18n="@@lobby__create-title">
-						Create Game Room
+					<h2 class="title has-text-white" i18n="@@lobby_new-room">
+						New Game Room
 					</h2>
 					<form [formGroup]="createForm" (ngSubmit)="createRoom()">
 						<div class="field">
-							<label class="label has-text-white">Room Name:</label>
+							<label class="label has-text-white" i18n="@@lobby_room-name"
+								>Room Name:</label
+							>
 							<div class="control">
 								<input
 									class="input"
@@ -26,8 +28,12 @@
 
 						<div class="field">
 							<div class="control">
-								<button class="button is-link" [disabled]="!createForm.valid">
-									Create
+								<button
+									class="button is-primary is-light is-fullwidth"
+									[disabled]="!createForm.valid"
+									i18n="@@lobby_create-room"
+								>
+									Create Room
 								</button>
 							</div>
 						</div>
@@ -36,11 +42,15 @@
 			</div>
 			<div class="tile is-parent">
 				<div class="tile is-child box has-background-success join-game">
-					<h2 class="title has-text-white">Join Game Room</h2>
+					<h2 class="title has-text-white" i18n="@@lobby_join-title">
+						Join Game Room
+					</h2>
 
 					<form [formGroup]="joinForm" (ngSubmit)="joinRoom()">
 						<div class="field">
-							<label class="label has-text-white">Room Name:</label>
+							<label class="label has-text-white" i18n="@@lobby_room-name"
+								>Room Name:</label
+							>
 							<div class="control">
 								<input
 									class="input"
@@ -52,7 +62,9 @@
 						</div>
 
 						<div class="field">
-							<label class="label has-text-white">Player Name:</label>
+							<label class="label has-text-white" i18n="@@lobby_player-name"
+								>Player Name:</label
+							>
 							<div class="control">
 								<input
 									class="input"
@@ -65,8 +77,12 @@
 
 						<div class="field">
 							<div class="control">
-								<button class="button is-link" [disabled]="!joinForm.valid">
-									Join
+								<button
+									class="button is-success is-light is-fullwidth"
+									[disabled]="!joinForm.valid"
+									i18n="@@lobby_join-room"
+								>
+									Join Room
 								</button>
 							</div>
 						</div>

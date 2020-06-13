@@ -23,6 +23,7 @@ import { RoomPlayerComponent } from './room-player/room-player.component';
 import { registerLocaleData } from '@angular/common';
 import localeMx from '@angular/common/locales/es-MX';
 import { ChatComponent } from './chat/chat.component';
+import { HostComponent } from './host/host.component';
 
 registerLocaleData(localeMx);
 
@@ -41,6 +42,7 @@ registerLocaleData(localeMx);
 		PropertyWildCardComponent,
 		RoomPlayerComponent,
 		ChatComponent,
+		HostComponent,
 	],
 	imports: [
 		BrowserModule,

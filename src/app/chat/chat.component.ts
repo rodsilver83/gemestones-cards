@@ -35,11 +35,19 @@ export class ChatComponent implements OnInit {
 	stablishConnection() {
 		this.conn.connection$.subscribe(
 			(data: ConnData) => {
-				if (data.type === ConnDataType.MSG) {
-					this.updateMsg({
-						player: data.player,
-						text: data.data,
-					});
+				switch (data.type) {
+					case ConnDataType.MSG:
+						this.updateMsg({
+							player: data.player,
+							text: data.data,
+						});
+						break;
+					case ConnDataType.HANDSHAKE:
+						this.updateMsg({
+							player: data.data,
+							text: 'Joined!',
+						});
+						break;
 				}
 			},
 			(err) => {
@@ -56,10 +64,6 @@ export class ChatComponent implements OnInit {
 
 	send() {
 		const msg = this.sendMsg.value;
-		this.updateMsg({
-			player: this.playerName,
-			text: msg,
-		});
 		this.conn.sendMessage(msg);
 		this.sendMsg.reset();
 	}

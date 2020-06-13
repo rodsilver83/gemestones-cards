@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import Peer from 'peerjs';
+import Peer, { DataConnection } from 'peerjs';
 import { Subject } from 'rxjs';
 import { take } from 'rxjs/operators';
 import { ConnData, ConnDataType } from './classes/conn-data';
@@ -10,7 +10,8 @@ import { ConnData, ConnDataType } from './classes/conn-data';
 export class ConnectionService {
 	public connection$: Subject<ConnData>;
 
-	private peerConnection: any;
+	private peerConnections: DataConnection[] = [];
+	private clientConnection: DataConnection;
 	private peer: Peer = null;
 	private peer$: Subject<string>;
 	private sessionId: string;
@@ -21,6 +22,7 @@ export class ConnectionService {
 		this.peer$ = new Subject<string>();
 	}
 
+	// HOST
 	createPeer(player: string, peerId = null): Subject<string> {
 		this.playerName = player;
 		if (!this.peer) {
@@ -36,12 +38,10 @@ export class ConnectionService {
 			});
 
 			this.peer.on('connection', (conn) => {
-				this.peerConnection = conn;
-				this.peerConnection.on('data', (data) => {
+				this.peerConnections.push(conn);
+				conn.on('data', (data) => {
 					this.connection$.next(data);
 				});
-
-				this.peerConnection.send('Que hace!');
 			});
 
 			this.peer.on('error', (err) => {
@@ -55,21 +55,22 @@ export class ConnectionService {
 		return this.peer$;
 	}
 
+	// CLIENT
 	createConnection(connId: string, player: string): Subject<ConnData> {
 		this.createPeer(player)
 			.pipe(take(1))
 			.subscribe((peerId) => {
-				this.peerConnection = this.peer.connect(connId);
+				this.clientConnection = this.peer.connect(connId);
 
-				this.peerConnection.on('open', () => {
-					this.peerConnection.on('data', (data) => {
+				this.clientConnection.on('open', () => {
+					this.clientConnection.on('data', (data) => {
 						this.connection$.next(data);
 					});
 
-					this.sendMessage('Player Joined!');
+					this.sendData(ConnDataType.HANDSHAKE, player);
 				});
 
-				this.peerConnection.on('error', (err) => {
+				this.clientConnection.on('error', (err) => {
 					console.log('error:', err);
 					this.connection$.error(err);
 				});
@@ -79,26 +80,50 @@ export class ConnectionService {
 
 	// Chat use only
 	sendMessage(msg: string) {
-		if (this.peerConnection) {
-			const data: ConnData = {
-				peer: this.sessionId,
-				type: ConnDataType.MSG,
-				data: msg,
-				player: this.playerName,
-			};
-			this.peerConnection.send(data);
+		const data: ConnData = {
+			peer: this.sessionId,
+			type: ConnDataType.MSG,
+			data: msg,
+			player: this.playerName,
+		};
+		if (this.peerConnections.length > 0) {
+			this.peerConnections.forEach((conn) => {
+				conn.send(data);
+			});
+		} else {
+			if (this.clientConnection) {
+				this.clientConnection.send(data);
+			}
 		}
 	}
 
 	sendData(connType: ConnDataType, connData: any) {
-		if (this.peerConnection) {
+		if (this.clientConnection) {
 			const dataC: ConnData = {
 				peer: this.sessionId,
 				type: connType,
 				data: connData,
 				player: this.playerName,
 			};
-			this.peerConnection.send(dataC);
+			this.clientConnection.send(dataC);
+		}
+	}
+
+	sendDataClients(
+		connType: ConnDataType,
+		connData: any,
+		player = this.playerName
+	) {
+		if (this.peerConnections.length > 0) {
+			const dataC: ConnData = {
+				peer: this.sessionId,
+				type: connType,
+				data: connData,
+				player: player,
+			};
+			this.peerConnections.forEach((conn) => {
+				conn.send(dataC);
+			});
 		}
 	}
 }
