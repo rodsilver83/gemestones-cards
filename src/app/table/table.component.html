@@ -10,14 +10,23 @@
 					<ng-content select="[host-panel]"></ng-content>
 
 					<button class="button is-primary is-fullwidth is-light" type="button">
+						Help
+					</button>
+
+					<button class="button is-primary is-fullwidth is-light" type="button">
 						Draw Card
 					</button>
 
 					<hr />
 
-					<div class="py-6 my-6">
+					<div class="py-6 my-7">
 						<ng-content select="[action-card]"></ng-content>
 					</div>
+				</div>
+
+				<div class="tile is-child">
+					<app-chat [playerName]="player.name" class="tile is-child">
+					</app-chat>
 				</div>
 			</div>
 
@@ -50,10 +59,6 @@
 					<app-deck class="message-body" [cards]="player.handCards"></app-deck>
 				</div>
 			</div>
-		</div>
-
-		<div class="tile is-parent">
-			<app-chat [playerName]="player.name" class="tile is-child"> </app-chat>
 		</div>
 	</div>
 </div>

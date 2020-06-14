@@ -6,7 +6,7 @@
 	<div class="message-body">
 		<div class="box chat__board">
 			<p class="mb-1" *ngFor="let msg of messages$ | async">
-				<span class="tag is-info">
+				<span class="tag is-info" [style.backgroundColor]="msg.bgColor">
 					{{ msg.player }}
 				</span>
 				<span>
@@ -25,9 +25,9 @@
 				[formControl]="sendMsg"
 			/>
 
-			<button class="button is-dark ml-5" i18n="@@chat_send-button">
+			<!-- <button class="button is-dark ml-5" i18n="@@chat_send-button">
 				Send
-			</button>
+			</button> -->
 		</form>
 	</div>
 </div>

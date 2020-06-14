@@ -60,7 +60,7 @@ export class HostComponent implements OnInit {
 	}
 
 	startGame() {
-		this.deckService.draw(10).subscribe(
+		this.deckService.draw(5).subscribe(
 			(draw: Card[]) => {
 				this.player.handCards = draw;
 				this.conn.sendData(ConnDataType.DEAL, draw);
