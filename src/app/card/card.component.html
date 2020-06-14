@@ -1,19 +1,24 @@
-
+<div class="card__tooltip"></div>
 <div class="card">
-	<div class="card__container"
+	<div
+		class="card__container"
 		[attr.data-desc]="config?.desc"
-		[style.background-color]="config?.bgColor">
+		[style.background-color]="config?.bgColor"
+	>
 		<div class="card__value" *ngIf="config?.value">
-			<i class="fas fa-dollar-sign"></i>{{config.value}}
+			<i class="fas fa-dollar-sign"></i>{{ config.value }}
 		</div>
 
 		<div class="card__content">
 			<ng-content></ng-content>
 		</div>
 
-		<div class="card__value" [class.card__value_upsidedown]="valueRotate"
-			*ngIf="config?.value">
-			<i class="fas fa-dollar-sign"></i>{{config.value}}
+		<div
+			class="card__value"
+			[class.card__value_upsidedown]="valueRotate"
+			*ngIf="config?.value"
+		>
+			<i class="fas fa-dollar-sign"></i>{{ config.value }}
 		</div>
 	</div>
 </div>

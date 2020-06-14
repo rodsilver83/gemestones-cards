@@ -1,24 +1,33 @@
-<div class="chat__board">
-	<h1 class="title has-text-white">
-		Chat
-	</h1>
+<div class="message is-dark">
+	<h2 class="message-header" i18n="@@chat_title">
+		Messages
+	</h2>
 
-	<div class="box px-2 py-2">
-		<p class="mb-1" *ngFor="let msg of messages$ | async">
-			<span class="tag is-info">
-				{{ msg.player }}
-			</span>
-			<span>
-				{{ msg.text }}
-			</span>
-		</p>
+	<div class="message-body">
+		<div class="box chat__board">
+			<p class="mb-1" *ngFor="let msg of messages$ | async">
+				<span class="tag is-info">
+					{{ msg.player }}
+				</span>
+				<span>
+					{{ msg.text }}
+				</span>
+			</p>
+		</div>
+
+		<!--TODO add formControl-->
+		<form class="is-flex">
+			<input
+				class="input is-dark"
+				type="text"
+				placeholder="Type Here"
+				(keyup.enter)="send()"
+				[formControl]="sendMsg"
+			/>
+
+			<button class="button is-dark ml-5" i18n="@@chat_send-button">
+				Send
+			</button>
+		</form>
 	</div>
-
-	<input
-		class="input is-primary"
-		type="text"
-		placeholder="Type Here"
-		(keyup.enter)="send()"
-		[formControl]="sendMsg"
-	/>
 </div>

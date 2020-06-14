@@ -65,6 +65,14 @@ export class ChatComponent implements OnInit {
 	send() {
 		const msg = this.sendMsg.value;
 		this.conn.sendMessage(msg);
+
+		if (this.playerName === 'Host') {
+			this.updateMsg({
+				player: this.playerName,
+				text: msg,
+			});
+		}
+
 		this.sendMsg.reset();
 	}
 }

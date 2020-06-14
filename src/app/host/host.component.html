@@ -1,11 +1,16 @@
 <app-table [player]="player">
-	<div host-panel class="tile is-child box has-background-success mb-1">
-		<button
-			class="button is-primary is-fullwidth is-light"
-			type="button"
-			(click)="startGame()"
-		>
-			Start Game
-		</button>
-	</div>
+	<button
+		host-panel
+		class="button is-primary is-fullwidth is-light"
+		type="button"
+		(click)="startGame()"
+	>
+		Start Game
+	</button>
+	<app-deck
+		action-card
+		[cards]="actionCard"
+		[scale]="2"
+		class="card_half-hover"
+	></app-deck>
 </app-table>

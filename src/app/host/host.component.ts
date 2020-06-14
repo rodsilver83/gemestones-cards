@@ -15,6 +15,7 @@ import { ConnDataType } from '../classes/conn-data';
 export class HostComponent implements OnInit {
 	public player: Player;
 	public roomName: string;
+	public actionCard: Card[];
 
 	constructor(
 		private route: ActivatedRoute,
@@ -31,6 +32,16 @@ export class HostComponent implements OnInit {
 			// this.hostId = params.hostId;
 			this.stablishConnection();
 		});
+
+		this.deckService.draw(1).subscribe(
+			(draw: Card[]) => {
+				this.actionCard = draw;
+				this.cd.detectChanges();
+			},
+			(err) => {
+				console.log(err);
+			}
+		);
 	}
 
 	stablishConnection() {
@@ -49,7 +60,7 @@ export class HostComponent implements OnInit {
 	}
 
 	startGame() {
-		this.deckService.draw(5).subscribe(
+		this.deckService.draw(10).subscribe(
 			(draw: Card[]) => {
 				this.player.handCards = draw;
 				this.conn.sendData(ConnDataType.DEAL, draw);

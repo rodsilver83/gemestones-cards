@@ -2,6 +2,14 @@
 
 $flip-card-transition-time: 0.6s;
 
+:host-context(.card_half-hover) {
+	.card {
+		&:hover {
+			transform: scale(1.5);
+		}
+	}
+}
+
 .card {
 	// box-shadow: 0 0 2px #333;
 	background-color: #ffffff;
@@ -12,6 +20,7 @@ $flip-card-transition-time: 0.6s;
 	margin: 5px * $scale;
 	color: #333;
 	font-size: 1rem * $scale;
+	cursor: pointer;
 	// transform: scale(0.6);
 
 	transition: all ease-in-out $flip-card-transition-time;
@@ -27,6 +36,11 @@ $flip-card-transition-time: 0.6s;
 		.card__container::before {
 			opacity: 1;
 		}
+	}
+
+	&:hover {
+		transform: scale(2.5);
+		z-index: 10000;
 	}
 }
 

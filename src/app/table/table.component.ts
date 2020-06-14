@@ -8,4 +8,6 @@ import { Player } from '../classes/player';
 })
 export class TableComponent {
 	@Input() public player: Player;
+
+	public statusMsg = 'Waiting for Host to start the game.';
 }

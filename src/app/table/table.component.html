@@ -1,28 +1,59 @@
-<div class="tile is-ancestor mx-1 my-1">
-	<div class="tile is-parent is-vertical is-3">
-		<ng-content select="[host-panel]"></ng-content>
-
-		<app-chat
-			[playerName]="player.name"
-			class="tile is-child box has-background-grey"
-		>
-		</app-chat>
-	</div>
-
-	<div class="tile is-parent is-vertical">
-		<div class="tile is-child box has-background-info">
-			<h2 class="title has-text-white has-text-centered">Cards in Hand</h2>
-			<app-deck [cards]="player.handCards"></app-deck>
-		</div>
+<div class="tile">
+	<div class="tile is-vertical">
 		<div class="tile">
-			<div class="tile is-vertical box has-background-info mr-3 mb-0">
-				<h2 class="title has-text-white has-text-centered">Cards in Play</h2>
-				<app-deck [cards]="player.handCards"></app-deck>
+			<div class="tile is-parent is-vertical is-4">
+				<div class="tile is-child box has-background-primary buttons">
+					<div class="notification is-warning px-3 py-3 is-size-7">
+						{{ statusMsg }}
+					</div>
+
+					<ng-content select="[host-panel]"></ng-content>
+
+					<button class="button is-primary is-fullwidth is-light" type="button">
+						Draw Card
+					</button>
+
+					<hr />
+
+					<div class="py-6 my-6">
+						<ng-content select="[action-card]"></ng-content>
+					</div>
+				</div>
 			</div>
-			<div class="tile is-vertical box has-background-info ml-3">
-				<h2 class="title has-text-white has-text-centered">Cards in Bank</h2>
-				<app-deck [cards]="player.handCards"></app-deck>
+
+			<div class="tile is-parent is-vertical is-4">
+				<div class="tile is-child message is-danger">
+					<h2 class="message-header">Players</h2>
+					<app-deck class="message-body" [cards]="player.handCards"></app-deck>
+				</div>
+
+				<div class="tile is-child message is-info">
+					<h2 class="message-header">
+						Cards in Hand
+					</h2>
+					<app-deck class="message-body" [cards]="player.handCards"></app-deck>
+				</div>
 			</div>
+
+			<div class="tile is-parent is-vertical is-4">
+				<div class="tile is-child message is-link">
+					<h2 class="message-header">
+						Cards in Play
+					</h2>
+					<app-deck class="message-body" [cards]="player.handCards"></app-deck>
+				</div>
+
+				<div class="tile is-child message is-success">
+					<h2 class="message-header">
+						Cards in Bank
+					</h2>
+					<app-deck class="message-body" [cards]="player.handCards"></app-deck>
+				</div>
+			</div>
+		</div>
+
+		<div class="tile is-parent">
+			<app-chat [playerName]="player.name" class="tile is-child"> </app-chat>
 		</div>
 	</div>
 </div>

@@ -1,11 +1,4 @@
 .chat__board {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	height: 100%;
-
-	> .box {
-		flex-grow: 1;
-		min-height: 200px;
-	}
+	height: 100px;
+	overflow-y: scroll;
 }

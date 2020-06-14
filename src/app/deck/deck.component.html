@@ -1,28 +1,37 @@
-<div class="deck">
-  <ng-container *ngFor="let card of cards" [ngSwitch]="card?.type">
-    <app-rent-card class="deck__card" *ngSwitchCase="'RENT'"
-      [config]="card">
-    </app-rent-card>
+<div class="deck" style="transform: scale({{ scale }});">
+	<ng-container *ngFor="let card of cards" [ngSwitch]="card?.type">
+		<app-rent-card class="deck__card" *ngSwitchCase="'RENT'" [config]="card">
+		</app-rent-card>
 
-    <app-money-card class="deck__card" *ngSwitchCase="'MONEY'"
-      [config]="card">
-    </app-money-card>
+		<app-money-card class="deck__card" *ngSwitchCase="'MONEY'" [config]="card">
+		</app-money-card>
 
-    <app-wild-card class="deck__card" *ngSwitchCase="'WILDCARD'"
-      [config]="card">
-    </app-wild-card>
+		<app-wild-card
+			class="deck__card"
+			*ngSwitchCase="'WILDCARD'"
+			[config]="card"
+		>
+		</app-wild-card>
 
-    <app-action-card class="deck__card" *ngSwitchCase="'ACTION'"
-      [config]="card">
-    </app-action-card>
+		<app-action-card
+			class="deck__card"
+			*ngSwitchCase="'ACTION'"
+			[config]="card"
+		>
+		</app-action-card>
 
-    <app-property-wild-card class="deck__card" *ngSwitchCase="'PROPERTYWILD'"
-      [config]="card">
-    </app-property-wild-card>
+		<app-property-wild-card
+			class="deck__card"
+			*ngSwitchCase="'PROPERTYWILD'"
+			[config]="card"
+		>
+		</app-property-wild-card>
 
-    <app-property-card class="deck__card" *ngSwitchCase="'PROPERTY'"
-      [config]="card">
-    </app-property-card>
-
-  </ng-container>
+		<app-property-card
+			class="deck__card"
+			*ngSwitchCase="'PROPERTY'"
+			[config]="card"
+		>
+		</app-property-card>
+	</ng-container>
 </div>
