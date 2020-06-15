@@ -1,9 +1,10 @@
-<app-table [player]="player">
+<app-table [player]="player" [statusMsg]="statusMsg">
 	<button
 		host-panel
 		class="button is-primary is-fullwidth is-light"
 		type="button"
 		(click)="startGame()"
+		[disabled]="!deckReady"
 	>
 		Start Game
 	</button>

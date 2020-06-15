@@ -11,4 +11,5 @@ export enum ConnDataType {
 	DRAW,
 	INFO,
 	HANDSHAKE,
+	STAUS,
 }

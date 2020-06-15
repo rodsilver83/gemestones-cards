@@ -21,6 +21,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { RoomPlayerComponent } from './room-player/room-player.component';
 import { registerLocaleData } from '@angular/common';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 import localeMx from '@angular/common/locales/es-MX';
 import { ChatComponent } from './chat/chat.component';
 import { HostComponent } from './host/host.component';
@@ -53,6 +54,7 @@ registerLocaleData(localeMx);
 		AngularFireModule.initializeApp(environment.firebase),
 		AngularFirestoreModule,
 		AngularFireDatabaseModule,
+		DragDropModule,
 	],
 	providers: [],
 	bootstrap: [AppComponent],

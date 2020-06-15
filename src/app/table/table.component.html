@@ -1,9 +1,12 @@
 <div class="tile">
 	<div class="tile is-vertical">
 		<div class="tile">
-			<div class="tile is-parent is-vertical is-4">
+			<div class="tile is-parent is-vertical is-3">
 				<div class="tile is-child box has-background-primary buttons">
-					<div class="notification is-warning px-3 py-3 is-size-7">
+					<div
+						class="notification is-warning px-3 py-3 is-size-7"
+						[class.is-hidden]="!statusMsg"
+					>
 						{{ statusMsg }}
 					</div>
 
@@ -40,7 +43,13 @@
 					<h2 class="message-header">
 						Cards in Hand
 					</h2>
-					<app-deck class="message-body" [cards]="player.handCards"></app-deck>
+					<app-deck
+						cdkDropList
+						cdkDropListOrientation="horizontal"
+						(cdkDropListDropped)="dropHand($event)"
+						class="message-body"
+						[cards]="player.handCards"
+					></app-deck>
 				</div>
 			</div>
 
@@ -49,7 +58,9 @@
 					<h2 class="message-header">
 						Cards in Play
 					</h2>
-					<app-deck class="message-body" [cards]="player.handCards"></app-deck>
+					<div class="message-body playcards-boundry">
+						<app-deck [cards]="player.playCards"></app-deck>
+					</div>
 				</div>
 
 				<div class="tile is-child message is-success">

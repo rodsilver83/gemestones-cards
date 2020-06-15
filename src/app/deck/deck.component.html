@@ -1,5 +1,11 @@
-<div class="deck" style="transform: scale({{ scale }});">
-	<ng-container *ngFor="let card of cards" [ngSwitch]="card?.type">
+<div class="deck" style="transform: scale({{ scale }})">
+	<div
+		cdkDrag
+		cdkDragBoundary=".playcards-boundry"
+		class="deck__card-container"
+		*ngFor="let card of cards"
+		[ngSwitch]="card?.type"
+	>
 		<app-rent-card class="deck__card" *ngSwitchCase="'RENT'" [config]="card">
 		</app-rent-card>
 
@@ -33,5 +39,5 @@
 			[config]="card"
 		>
 		</app-property-card>
-	</ng-container>
+	</div>
 </div>

@@ -5,4 +5,15 @@ export class Player {
 	public bankCards: Card[];
 	public playCards: Card[];
 	public name: string;
+
+	constructor(
+		...args: {
+			handCards?: Card[];
+			bankCards?: Card[];
+			playCards?: Card[];
+			name: string;
+		}[]
+	) {
+		Object.assign(this, ...args);
+	}
 }

@@ -1,3 +1,4 @@
+import { Player } from './../classes/player';
 import { CardColorsService } from './../services/card-colors.service';
 import { Component, OnInit, Input, ChangeDetectorRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -25,7 +26,7 @@ export class ChatComponent implements OnInit {
 	public messages$: Subject<Message[]>;
 
 	private messages: Message[] = [];
-	private playersColors = {};
+	private playersColors = new Map<string, string>();
 
 	constructor(
 		private conn: ConnectionService,
@@ -71,13 +72,13 @@ export class ChatComponent implements OnInit {
 		if (player === 'Host') {
 			return '#3298dc';
 		}
-		if (!this.playersColors[player]) {
-			const set = Object.keys(this.playersColors).length + 3;
+		if (!this.playersColors.has(player)) {
+			const set = this.playersColors.size + 3;
 			const color = this.colorService.getColor(set);
-			this.playersColors[player] = color;
+			this.playersColors.set(player, color);
 			return color;
 		} else {
-			return this.playersColors[player];
+			return this.playersColors.get(player);
 		}
 	}
 
