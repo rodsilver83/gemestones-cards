@@ -13,6 +13,7 @@ import { WildCard } from '../classes/wild-card';
 import { MoneyCard } from '../money-card/money-card.component';
 import { RentCard } from '../classes/rent-card';
 import { PropertyWildCard } from '../classes/property-wild-card';
+import * as DECK from '../../assets/deck.json';
 
 @Injectable({
 	providedIn: 'root',
@@ -23,12 +24,19 @@ export class DeckService {
 	public deckCards$: Subject<boolean>;
 	public drawCards$: Subject<Card[]>;
 
+	private useLocalDeckJson = true;
+
 	constructor(private http: HttpClient) {
 		this.deckCards$ = new Subject<boolean>();
 		this.drawCards$ = new Subject<Card[]>();
 	}
 
 	getDeck() {
+		if (this.useLocalDeckJson) {
+			this.initDeck(DECK.Deck);
+			this.suffleDeck();
+			this.deckCards$.next(true);
+		}
 		if (this.deckCards.length === 0) {
 			this.http
 				.get<any>(this.jsonURL)
@@ -56,9 +64,12 @@ export class DeckService {
 					case 'ACTION':
 						this.deckCards.push(new ActionCard(item.config as ActionCard));
 						break;
-					case 'PROPERTY':
-						this.deckCards.push(new PropertyCard(item.config as PropertyCard));
+					case 'PROPERTY': {
+						const card = new PropertyCard(item.config as PropertyCard);
+						card.desc = `Cada carta muestra cuántas ropiedades necesitas de ese color para completar un GRUPO	COMPLETO.`;
+						this.deckCards.push(card);
 						break;
+					}
 					case 'WILDCARD':
 						this.deckCards.push(new WildCard(item.config as WildCard));
 						break;
@@ -68,11 +79,12 @@ export class DeckService {
 					case 'RENT':
 						this.deckCards.push(new RentCard(item.config as RentCard));
 						break;
-					case 'PROPERTYWILD':
-						this.deckCards.push(
-							new PropertyWildCard(item.config as PropertyWildCard)
-						);
+					case 'PROPERTYWILD': {
+						const card = new PropertyWildCard(item.config as PropertyWildCard);
+						card.desc = `Cada carta muestra cuántas ropiedades necesitas de ese color para completar un GRUPO	COMPLETO.`;
+						this.deckCards.push(new PropertyWildCard(card));
 						break;
+					}
 				}
 			}
 		});

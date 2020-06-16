@@ -1,74 +1,24 @@
-<div class="tile">
-	<div class="tile is-vertical">
-		<div class="tile">
-			<div class="tile is-parent is-vertical is-3">
-				<div class="tile is-child box has-background-primary buttons">
-					<div
-						class="notification is-warning px-3 py-3 is-size-7"
-						[class.is-hidden]="!statusMsg"
-					>
-						{{ statusMsg }}
-					</div>
-
-					<ng-content select="[host-panel]"></ng-content>
-
-					<button class="button is-primary is-fullwidth is-light" type="button">
-						Help
-					</button>
-
-					<button class="button is-primary is-fullwidth is-light" type="button">
-						Draw Card
-					</button>
-
-					<hr />
-
-					<div class="py-6 my-7">
-						<ng-content select="[action-card]"></ng-content>
-					</div>
-				</div>
-
-				<div class="tile is-child">
-					<app-chat [playerName]="player.name" class="tile is-child">
-					</app-chat>
-				</div>
+<div class="container is-fluid is-desktop flex-center">
+	<div class="tile is-ancestor">
+		<div class="tile is-parent is-vertical is-3 table__control-panel">
+			<div class="tile is-child">
+				<mc-control-panel [statusMsg]="statusMsg" [actionCard]="actionCard">
+					<ng-content host-panel select="[host-panel]"></ng-content>
+				</mc-control-panel>
 			</div>
 
-			<div class="tile is-parent is-vertical is-4">
-				<div class="tile is-child message is-danger">
-					<h2 class="message-header">Players</h2>
-					<app-deck class="message-body" [cards]="player.handCards"></app-deck>
-				</div>
+			<div class="tile is-child">
+				<mc-chat [playerName]="player.name"></mc-chat>
+			</div>
+		</div>
 
-				<div class="tile is-child message is-info">
-					<h2 class="message-header">
-						Cards in Hand
-					</h2>
-					<app-deck
-						cdkDropList
-						cdkDropListOrientation="horizontal"
-						(cdkDropListDropped)="dropHand($event)"
-						class="message-body"
-						[cards]="player.handCards"
-					></app-deck>
-				</div>
+		<div class="tile is-parent is-vertical">
+			<div class="tile is-child table__players-list">
+				<mc-players-list></mc-players-list>
 			</div>
 
-			<div class="tile is-parent is-vertical is-4">
-				<div class="tile is-child message is-link">
-					<h2 class="message-header">
-						Cards in Play
-					</h2>
-					<div class="message-body playcards-boundry">
-						<app-deck [cards]="player.playCards"></app-deck>
-					</div>
-				</div>
-
-				<div class="tile is-child message is-success">
-					<h2 class="message-header">
-						Cards in Bank
-					</h2>
-					<app-deck class="message-body" [cards]="player.handCards"></app-deck>
-				</div>
+			<div class="tile is-child">
+				<mc-player-game [player]="player"></mc-player-game>
 			</div>
 		</div>
 	</div>

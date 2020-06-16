@@ -3,24 +3,21 @@ import { CardColorsService } from '../services/card-colors.service';
 import { PropertyWildCard } from '../classes/property-wild-card';
 
 @Component({
-  selector: 'app-property-wild-card',
-  templateUrl: './property-wild-card.component.html',
-  styleUrls: ['./property-wild-card.component.scss']
+	selector: 'mc-property-wild-card',
+	templateUrl: './property-wild-card.component.html',
+	styleUrls: ['./property-wild-card.component.scss'],
 })
 export class PropertyWildCardComponent implements OnInit {
+	@Input() public config: PropertyWildCard;
 
-  @Input() public config: PropertyWildCard;
+	constructor(private cardColor: CardColorsService) {}
 
-  constructor(private cardColor: CardColorsService) { }
+	bgColor(property) {
+		if (property) {
+			return this.cardColor.getColor(property.set);
+		}
+		return '';
+	}
 
-  bgColor(property) {
-    if (property) {
-      return this.cardColor.getColor(property.set);
-    }
-    return '';
-  }
-
-  ngOnInit() {
-  }
-
+	ngOnInit() {}
 }

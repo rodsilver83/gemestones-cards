@@ -1,0 +1,36 @@
+<div class="box has-background-info control-panel">
+	<div
+		class="notification is-warning is-size-7 px-3 py-3"
+		[class.is-hidden]="!statusMsg"
+	>
+		{{ statusMsg }}
+	</div>
+	<div class="tile is-ancestor">
+		<div class="tile is-parent">
+			<div class="tile is-child is-vertical buttons_container">
+				<button class="button is-primary is-fullwidth" type="button">
+					Help
+				</button>
+
+				<ng-content select="[host-panel]"></ng-content>
+
+				<button class="button is-primary is-fullwidth" type="button">
+					Draw Card
+				</button>
+			</div>
+		</div>
+
+		<div class="tile is-parent">
+			<div
+				class="tile is-vertical is-child box has-background-info-light flex-center"
+			>
+				<h2 class="subtitle mb-3">Pile</h2>
+				<mc-deck-card
+					[card]="actionCard"
+					[scale]="1"
+					class="card_pile"
+				></mc-deck-card>
+			</div>
+		</div>
+	</div>
+</div>

@@ -14,7 +14,7 @@ class Message {
 }
 
 @Component({
-	selector: 'app-chat',
+	selector: 'mc-chat',
 	templateUrl: './chat.component.html',
 	styleUrls: ['./chat.component.scss'],
 })

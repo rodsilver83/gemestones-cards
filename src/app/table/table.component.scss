@@ -1,3 +1,21 @@
 .message-header {
 	position: initial;
 }
+
+.table__wrapper {
+	display: flex;
+	margin: 10px;
+}
+
+.table__control-panel {
+	min-width: 350px;
+}
+
+.table__players-list {
+	flex-grow: 0;
+}
+
+.container {
+	height: 100%;
+	min-height: 100vh;
+}

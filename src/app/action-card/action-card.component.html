@@ -1,14 +1,17 @@
-
-<app-card [config]="config">
-
+<mc-card [config]="config">
 	<p class="action-card__main">ACCION</p>
 	<div class="action-card__action">
-		<i *ngIf="config?.icon"
-			class="action-card__icon fa {{config?.icon}}"
-			[style.color]="config?.iconColor"></i>
-		<div class="action-card__title"
-			[class.action-card__title_small]="config?.small">{{config?.title}}</div>
+		<i
+			*ngIf="config?.icon"
+			class="action-card__icon fa {{ config?.icon }}"
+			[style.color]="config?.iconColor"
+		></i>
+		<div
+			class="action-card__title"
+			[class.action-card__title_small]="config?.small"
+		>
+			{{ config?.title }}
+		</div>
 	</div>
 	<!-- <p class="action-card__desc">{{config?.desc}}</p> -->
-
-</app-card>
+</mc-card>

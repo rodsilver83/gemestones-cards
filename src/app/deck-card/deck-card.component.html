@@ -1,0 +1,43 @@
+<div
+	class="deck-card"
+	style="transform: scale({{ scale }})"
+	[ngSwitch]="card?.type"
+>
+	<mc-rent-card class="deck-card__card" *ngSwitchCase="'RENT'" [config]="card">
+	</mc-rent-card>
+
+	<mc-money-card
+		class="deck-card__card"
+		*ngSwitchCase="'MONEY'"
+		[config]="card"
+	>
+	</mc-money-card>
+
+	<mc-wild-card
+		class="deck-card__card"
+		*ngSwitchCase="'WILDCARD'"
+		[config]="card"
+	>
+	</mc-wild-card>
+
+	<mc-action-card
+		class="deck-card__card"
+		*ngSwitchCase="'ACTION'"
+		[config]="card"
+	>
+	</mc-action-card>
+
+	<mc-property-wild-card
+		class="deck-card__card"
+		*ngSwitchCase="'PROPERTYWILD'"
+		[config]="card"
+	>
+	</mc-property-wild-card>
+
+	<mc-property-card
+		class="deck-card__card"
+		*ngSwitchCase="'PROPERTY'"
+		[config]="card"
+	>
+	</mc-property-card>
+</div>

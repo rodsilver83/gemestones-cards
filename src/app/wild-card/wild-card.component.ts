@@ -4,20 +4,21 @@ import { CardColorsService } from '../services/card-colors.service';
 import { WildCard } from '../classes/wild-card';
 
 @Component({
-  selector: 'app-wild-card',
-  templateUrl: './wild-card.component.html',
-  styleUrls: ['./wild-card.component.scss']
+	selector: 'mc-wild-card',
+	templateUrl: './wild-card.component.html',
+	styleUrls: ['./wild-card.component.scss'],
 })
 export class WildCardComponent implements OnInit {
+	@Input() public config: WildCard;
 
-  @Input() public config: WildCard;
+	public rainbowBg: SafeStyle;
 
-  public rainbowBg: SafeStyle;
+	constructor(
+		private sanitizer: DomSanitizer,
+		private cardColor: CardColorsService
+	) {}
 
-  constructor(private sanitizer: DomSanitizer, private cardColor: CardColorsService) { }
-
-  ngOnInit() {
-    this.rainbowBg = this.cardColor.getRainbowLinearGradient('right');
-  }
-
+	ngOnInit() {
+		this.rainbowBg = this.cardColor.getRainbowLinearGradient('right');
+	}
 }

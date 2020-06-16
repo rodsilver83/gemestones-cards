@@ -1,12 +1,12 @@
-@import "../../styles.scss";
+@import '../../styles.scss';
 
 .rent__container {
 	border: 1px solid #333;
 	box-shadow: 0 0 3px #333;
 	border-radius: 50%;
 	font-weight: bold;
-	width: 130px * $scale;
-	height: 130px * $scale;
+	width: 150px * $scale;
+	height: 150px * $scale;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -16,8 +16,8 @@
 	border: 1px solid #333;
 	border-radius: 50%;
 	font-weight: bold;
-	width: 90px * $scale;
-	height: 90px * $scale;
+	width: 100px * $scale;
+	height: 100px * $scale;
 	display: flex;
 	align-items: center;
 	justify-content: center;

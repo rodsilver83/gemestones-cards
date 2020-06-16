@@ -7,7 +7,7 @@ import { FormControl } from '@angular/forms';
 import { ConnData, ConnDataType } from '../classes/conn-data';
 
 @Component({
-	selector: 'app-room-player',
+	selector: 'mc-room-player',
 	templateUrl: './room-player.component.html',
 	styleUrls: ['./room-player.component.scss'],
 })

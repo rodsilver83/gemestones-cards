@@ -6,7 +6,7 @@ import { take } from 'rxjs/operators';
 import { Router } from '@angular/router';
 
 @Component({
-	selector: 'app-lobby',
+	selector: 'mc-lobby',
 	templateUrl: './lobby.component.html',
 	styleUrls: ['./lobby.component.scss'],
 })

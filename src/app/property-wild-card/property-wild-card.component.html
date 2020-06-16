@@ -1,47 +1,54 @@
+<mc-card [config]="config" [valueRotate]="true">
+	<div class="property_sideA">
+		<div
+			class="property-wild-card__main"
+			[style.background-color]="bgColor(config?.propertyA)"
+			[style.color]="config?.propertyA?.textColor"
+		>
+			{{ config.propertyA?.name }}
+		</div>
 
-<app-card [config]="config" [valueRotate]="true">
-  <div class="property_sideA">
-    <div class="property-wild-card__main"
-      [style.background-color]="bgColor(config?.propertyA)"
-      [style.color]="config?.propertyA?.textColor">
-      {{config.propertyA?.name}}
-    </div>
+		<div class="property-wild-card__rent">
+			<div class="property-wild-card__rent-row">
+				<span class="property-wild-card__rent-title">RENTA</span>
+			</div>
 
-    <div class="property-wild-card__rent">
-      <div class="property-wild-card__rent-row">
-        <span class="property-wild-card__rent-title">RENTA</span>
-      </div>
+			<div
+				class="property-wild-card__rent-row"
+				*ngFor="let rent of config?.propertyA?.rents"
+			>
+				<span class="property-wild-card__card"
+					>{{ rent.houses }}
+					<i class="fas fa-home"></i>
+				</span>
+				<span><i class="fa fa-dollar-sign"></i> {{ rent.rent }} </span>
+			</div>
+		</div>
+	</div>
 
-      <div class="property-wild-card__rent-row" *ngFor="let rent of
-        config?.propertyA?.rents">
-        <span class="property-wild-card__card">{{rent.houses}}
-          <i class="fas fa-home"></i>
-        </span>
-        <span><i class="fa fa-dollar-sign"></i> {{rent.rent}}
-        </span>
-      </div>
-    </div>
-  </div>
+	<div class="property_sideB">
+		<div
+			class="property-wild-card__main"
+			[style.background-color]="bgColor(config?.propertyB)"
+			[style.color]="config?.propertyB?.textColor"
+		>
+			{{ config.propertyB?.name }}
+		</div>
+		<div class="property-wild-card__rent">
+			<div class="property-wild-card__rent-row">
+				<span class="property-wild-card__rent-title">RENTA</span>
+			</div>
 
-  <div class="property_sideB">
-    <div class="property-wild-card__main"
-      [style.background-color]="bgColor(config?.propertyB)"
-      [style.color]="config?.propertyB?.textColor">
-      {{config.propertyB?.name}}
-    </div>
-    <div class="property-wild-card__rent">
-      <div class="property-wild-card__rent-row">
-        <span class="property-wild-card__rent-title">RENTA</span>
-      </div>
-
-      <div class="property-wild-card__rent-row" *ngFor="let rent of
-        config?.propertyB?.rents">
-        <span class="property-wild-card__card">{{rent.houses}}
-          <i class="fas fa-home"></i>
-        </span>
-        <span><i class="fa fa-dollar-sign"></i> {{rent.rent}}
-        </span>
-      </div>
-    </div>
-  </div>
-</app-card>
+			<div
+				class="property-wild-card__rent-row"
+				*ngFor="let rent of config?.propertyB?.rents"
+			>
+				<span class="property-wild-card__card"
+					>{{ rent.houses }}
+					<i class="fas fa-home"></i>
+				</span>
+				<span><i class="fa fa-dollar-sign"></i> {{ rent.rent }} </span>
+			</div>
+		</div>
+	</div>
+</mc-card>

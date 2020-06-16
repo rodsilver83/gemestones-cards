@@ -1,17 +1,16 @@
-<app-table [player]="player" [statusMsg]="statusMsg">
+<mc-table
+	[player]="player"
+	[players]="otherPlayers"
+	[statusMsg]="statusMsg"
+	[actionCard]="actionCard"
+>
 	<button
 		host-panel
-		class="button is-primary is-fullwidth is-light"
+		class="button is-primary is-fullwidth"
 		type="button"
 		(click)="startGame()"
 		[disabled]="!deckReady"
 	>
 		Start Game
 	</button>
-	<app-deck
-		action-card
-		[cards]="actionCard"
-		[scale]="2"
-		class="card_half-hover"
-	></app-deck>
-</app-table>
+</mc-table>

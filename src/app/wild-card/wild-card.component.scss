@@ -1,8 +1,12 @@
-@import "../../styles.scss";
+@import '../../styles.scss';
 
 .wild__rainbow {
 	width: 100%;
 	height: 20px * $scale;
+
+	&:first-of-type {
+		border-radius: 15px * $scale 15px * $scale 0 0;
+	}
 }
 
 .wild__title {

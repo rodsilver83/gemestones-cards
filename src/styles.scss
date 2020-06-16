@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://use.fontawesome.com/releases/v5.10.0/css/all.css');
 
-$scale: 0.3;
+$scale: 0.4;
 
 // Set Colors
 $set1-color: #955336;
@@ -33,4 +33,29 @@ $set10-color: #231f20;
 
 .cdk-drag-animating {
 	transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.message {
+	.message-header {
+		position: inherit;
+	}
+
+	&.is-dark {
+		background-color: #e8e8e8;
+	}
+
+	&.is-fullheight {
+		height: 100%;
+	}
+}
+
+.flex-center {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+}
+
+.box {
+	box-shadow: none;
 }

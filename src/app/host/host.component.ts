@@ -9,18 +9,28 @@ import { ConnDataType } from '../classes/conn-data';
 import { take } from 'rxjs/operators';
 
 @Component({
-	selector: 'app-host',
+	selector: 'mc-host',
 	templateUrl: './host.component.html',
 	styleUrls: ['./host.component.scss'],
 })
 export class HostComponent implements OnInit {
 	public player: Player;
 	public roomName: string;
-	public actionCard: Card[];
+	public actionCard: Card;
 	public statusMsg = 'Shuffling  Cards...';
 	public deckReady = false;
 
 	private players = new Map<string, Player>();
+
+	get otherPlayers(): Player[] {
+		const players = [];
+		this.players.forEach((v, k) => {
+			if (k !== this.player.name) {
+				players.push(v);
+			}
+		});
+		return players;
+	}
 
 	constructor(
 		private route: ActivatedRoute,
@@ -51,7 +61,7 @@ export class HostComponent implements OnInit {
 
 	drawCard() {
 		const card = this.deckService.drawFromDeck(1);
-		this.actionCard = card;
+		this.actionCard = card[0];
 		this.cd.detectChanges();
 	}
 
