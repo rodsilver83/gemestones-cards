@@ -1,4 +1,4 @@
-import { Card } from './card';
+import { Card, CardType } from './card';
 import { Rent } from './rent';
 
 export class PropertyCard extends Card {
@@ -7,7 +7,7 @@ export class PropertyCard extends Card {
 	public textColor = '';
 	public set = 0;
 	public rents = Array<Rent>();
-	public type = 'PROPERTY';
+	public type = CardType.PROPERTY;
 
 	constructor(
 		...args: {

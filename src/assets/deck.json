@@ -80,7 +80,7 @@
 				},
 				"propertyB": {
 					"set": 1,
-					"textColor": "#000000",
+					"textColor": "#FFFFFF",
 					"bgColor": "#FFFFFF",
 					"name": "COMODIN",
 					"rents": [
@@ -150,7 +150,7 @@
 				"value": 2,
 				"propertyA": {
 					"set": 7,
-					"textColor": "#000000",
+					"textColor": "#FFFFFF",
 					"bgColor": "#FFFFFF",
 					"name": "COMODIN",
 					"rents": [
@@ -319,7 +319,7 @@
 				},
 				"propertyB": {
 					"set": 5,
-					"textColor": "#000000",
+					"textColor": "#FFFFFF",
 					"bgColor": "#FFFFFF",
 					"name": "COMODIN",
 					"rents": [
@@ -353,7 +353,7 @@
 			"type": "ACTION",
 			"quantity": 2,
 			"config": {
-				"bgColor": "#7b7ab2",
+				"bgColor": "#b2b2da",
 				"title": "Roba Negocios",
 				"value": 5,
 				"desc": "Robe un set completo de propiedades de cualquier jugador (incluyendo edificios). Juega al centro."

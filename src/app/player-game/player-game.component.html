@@ -3,9 +3,16 @@
 	<section class="message-body">
 		<div class="box">
 			<h2 class="subtitle">Hand</h2>
-			<div class="flex-center mb-3">
+			<div
+				class="pg__deck-list mb-3"
+				cdkDropList
+				cdkDropListOrientation="horizontal"
+				(cdkDropListDropped)="dropHand($event)"
+			>
 				<mc-deck-card
 					[card]="card"
+					cdkDragLockAxis="x"
+					cdkDrag
 					*ngFor="let card of player.handCards"
 				></mc-deck-card>
 			</div>

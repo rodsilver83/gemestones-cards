@@ -1,3 +1,4 @@
+import { moveItemInArray, CdkDragDrop } from '@angular/cdk/drag-drop';
 import { Player } from './../classes/player';
 import { Component, OnInit, Input } from '@angular/core';
 
@@ -12,4 +13,12 @@ export class PlayerGameComponent implements OnInit {
 	constructor() {}
 
 	ngOnInit(): void {}
+
+	dropHand(event: CdkDragDrop<string[]>) {
+		moveItemInArray(
+			this.player.handCards,
+			event.previousIndex,
+			event.currentIndex
+		);
+	}
 }

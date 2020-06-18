@@ -1,8 +1,7 @@
-@import "../../styles.scss";
+@import '../../styles.scss';
 
 .action-card__action {
 	border: 1px solid #333;
-	box-shadow: 0 0 3px #333;
 	width: 130px * $scale;
 	height: 130px * $scale;
 	border-radius: 20%;

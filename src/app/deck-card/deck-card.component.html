@@ -1,8 +1,4 @@
-<div
-	class="deck-card"
-	style="transform: scale({{ scale }})"
-	[ngSwitch]="card?.type"
->
+<div class="deck-card" [ngSwitch]="card?.type">
 	<mc-rent-card class="deck-card__card" *ngSwitchCase="'RENT'" [config]="card">
 	</mc-rent-card>
 

@@ -17,11 +17,12 @@
 				class="property-wild-card__rent-row"
 				*ngFor="let rent of config?.propertyA?.rents"
 			>
-				<span class="property-wild-card__card"
+				<span
+					class="property-wild-card__card"
+					[style.border-color]="bgColor(config?.propertyA)"
 					>{{ rent.houses }}
-					<i class="fas fa-home"></i>
 				</span>
-				<span><i class="fa fa-dollar-sign"></i> {{ rent.rent }} </span>
+				<span class="property-wild-card__rent-value">$ {{ rent.rent }} </span>
 			</div>
 		</div>
 	</div>
@@ -43,11 +44,12 @@
 				class="property-wild-card__rent-row"
 				*ngFor="let rent of config?.propertyB?.rents"
 			>
-				<span class="property-wild-card__card"
+				<span
+					class="property-wild-card__card"
+					[style.border-color]="bgColor(config?.propertyB)"
 					>{{ rent.houses }}
-					<i class="fas fa-home"></i>
 				</span>
-				<span><i class="fa fa-dollar-sign"></i> {{ rent.rent }} </span>
+				<span class="property-wild-card__rent-value">$ {{ rent.rent }} </span>
 			</div>
 		</div>
 	</div>

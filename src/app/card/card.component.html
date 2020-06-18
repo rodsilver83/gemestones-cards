@@ -1,10 +1,20 @@
 <div class="card__wrapper">
 	<div class="card__tooltip box has-background-info-light">
+		<!-- <span class="icon is-small">
+			<i class="fas fa-arrows-alt"></i>
+		</span> -->
 		<span class="icon is-small" (click)="toggleInfo()">
-			<i class="fas fa-question-circle"></i>
+			<i class="fas fa-info-circle"></i>
 		</span>
-		<i class="fas fa-money-check-alt"></i>
-		<i class="fas fa-play"></i>
+		<span class="icon is-small">
+			<i class="fas fa-money-check-alt"></i>
+		</span>
+		<span class="icon is-small">
+			<i class="fas fa-play-circle"></i>
+		</span>
+		<span class="icon is-small">
+			<i class="fas fa-inbox"></i>
+		</span>
 	</div>
 
 	<div class="card" [class.card_rotate]="showInfo">
@@ -13,8 +23,13 @@
 			[attr.data-desc]="config?.desc"
 			[style.background-color]="config?.bgColor"
 		>
-			<div class="card__value" *ngIf="config?.value">
-				<i class="fas fa-dollar-sign"></i>{{ config.value }}
+			<div
+				class="card__value"
+				*ngIf="config?.value"
+				[style.background-color]="valueColor(true)"
+				[style.color]="valueTextColor(true)"
+			>
+				${{ config.value }}
 			</div>
 
 			<div class="card__content">
@@ -25,8 +40,10 @@
 				class="card__value"
 				[class.card__value_upsidedown]="valueRotate"
 				*ngIf="config?.value"
+				[style.background-color]="valueColor(false)"
+				[style.color]="valueTextColor(false)"
 			>
-				<i class="fas fa-dollar-sign"></i>{{ config.value }}
+				${{ config.value }}
 			</div>
 		</div>
 	</div>

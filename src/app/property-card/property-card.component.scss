@@ -33,8 +33,8 @@
 .property-card__rent-row {
 	display: flex;
 	align-items: center;
-	justify-content: space-around;
-	padding: 0 15px * $scale;
+	justify-content: space-between;
+	padding: 0 40px * $scale;
 
 	&.property-card__rent-row_width {
 		width: 100%;
@@ -43,10 +43,21 @@
 
 .property-card__card {
 	position: relative;
-	margin-right: 10px;
+	margin-right: 20px * $scale;
+	border: 2px * $scale solid;
+	border-radius: 5px * $scale;
+	width: 20px * $scale;
+	height: 25px * $scale;
+	line-height: 20px * $scale;
+	text-align: center;
 }
 
 .property-card__rent-title {
 	text-align: center;
 	width: 100%;
+}
+
+.property-card__rent-value {
+	width: 30px * $scale;
+	line-height: 20px * $scale;
 }

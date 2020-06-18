@@ -14,23 +14,30 @@
 	padding-top: 5px * $scale;
 	height: 100%;
 	font-weight: bold;
-	padding: 18px * $scale;
+	padding: 8px * $scale;
 }
 
 .property-wild-card__rent-row {
 	display: flex;
 	align-items: center;
 	justify-content: flex-end;
+	margin-bottom: 5px * $scale;
 }
 
 .property-wild-card__card {
 	position: relative;
-	padding-right: 10px * $scale;
+	margin-right: 20px * $scale;
+	border: 2px * $scale solid;
+	border-radius: 5px * $scale;
+	width: 20px * $scale;
+	height: 25px * $scale;
+	line-height: 20px * $scale;
+	text-align: center;
 }
 
 .property-wild-card__rent-title {
 	text-align: center;
-	width: 50%;
+	width: 40%;
 }
 
 .property_sideA,
@@ -43,4 +50,9 @@
 .property_sideB {
 	position: absolute;
 	transform: rotate(180deg);
+}
+
+.property-wild-card__rent-value {
+	width: 30px * $scale;
+	line-height: 20px * $scale;
 }

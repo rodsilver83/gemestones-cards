@@ -1,3 +1,4 @@
+import { CardType } from './../classes/card';
 import { Injectable, OnInit } from '@angular/core';
 import {
 	HttpClient,
@@ -61,25 +62,25 @@ export class DeckService {
 		deck.forEach((item) => {
 			for (let i = 0; i < item.quantity; i++) {
 				switch (item.type) {
-					case 'ACTION':
+					case CardType.ACTION:
 						this.deckCards.push(new ActionCard(item.config as ActionCard));
 						break;
-					case 'PROPERTY': {
+					case CardType.PROPERTY: {
 						const card = new PropertyCard(item.config as PropertyCard);
 						card.desc = `Cada carta muestra cuántas ropiedades necesitas de ese color para completar un GRUPO	COMPLETO.`;
 						this.deckCards.push(card);
 						break;
 					}
-					case 'WILDCARD':
+					case CardType.WILDCARD:
 						this.deckCards.push(new WildCard(item.config as WildCard));
 						break;
-					case 'MONEY':
+					case CardType.MONEY:
 						this.deckCards.push(new MoneyCard(item.config as MoneyCard));
 						break;
-					case 'RENT':
+					case CardType.RENT:
 						this.deckCards.push(new RentCard(item.config as RentCard));
 						break;
-					case 'PROPERTYWILD': {
+					case CardType.PROPERTYWILD: {
 						const card = new PropertyWildCard(item.config as PropertyWildCard);
 						card.desc = `Cada carta muestra cuántas ropiedades necesitas de ese color para completar un GRUPO	COMPLETO.`;
 						this.deckCards.push(new PropertyWildCard(card));

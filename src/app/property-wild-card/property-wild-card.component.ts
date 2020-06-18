@@ -1,3 +1,4 @@
+import { PropertyCard } from './../classes/property-card';
 import { Component, OnInit, Input } from '@angular/core';
 import { CardColorsService } from '../services/card-colors.service';
 import { PropertyWildCard } from '../classes/property-wild-card';
@@ -12,12 +13,12 @@ export class PropertyWildCardComponent implements OnInit {
 
 	constructor(private cardColor: CardColorsService) {}
 
+	ngOnInit() {}
+
 	bgColor(property) {
 		if (property) {
 			return this.cardColor.getColor(property.set);
 		}
 		return '';
 	}
-
-	ngOnInit() {}
 }

@@ -1,5 +1,3 @@
 <mc-card [config]="config">
-	<div class="money__value">
-		<i class="fas fa-dollar-sign"></i> {{ config?.value }}
-	</div>
+	<div class="money__value">${{ config?.value }}</div>
 </mc-card>

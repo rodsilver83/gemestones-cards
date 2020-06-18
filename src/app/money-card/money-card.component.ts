@@ -1,8 +1,9 @@
+import { CardType } from './../classes/card';
 import { Component, OnInit, Input } from '@angular/core';
 import { Card } from '../classes/card';
 
 export class MoneyCard extends Card {
-	public type = 'MONEY';
+	public type = CardType.MONEY;
 	constructor(...args: { value: number; bgColor: string; desc: string }[]) {
 		super(...args);
 	}

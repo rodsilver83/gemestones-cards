@@ -1,4 +1,4 @@
-import { Card } from './card';
+import { Card, CardType } from './card';
 import { Rent } from './rent';
 
 export class PropertyWild {
@@ -12,17 +12,18 @@ export class PropertyWild {
 export class PropertyWildCard extends Card {
 	public propertyA: PropertyWild;
 	public propertyB: PropertyWild;
-	public type = 'PROPERTYWILD';
+	public type = CardType.PROPERTYWILD;
 
-	constructor(...args: {
-		value: number;
-		bgColor: string;
-		desc: string,
-		propertyA: PropertyWild,
-		propertyB: PropertyWild
-	}[]) {
+	constructor(
+		...args: {
+			value: number;
+			bgColor: string;
+			desc: string;
+			propertyA: PropertyWild;
+			propertyB: PropertyWild;
+		}[]
+	) {
 		super(...args);
 		Object.assign(this, ...args);
 	}
-
 }
