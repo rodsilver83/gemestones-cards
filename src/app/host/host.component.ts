@@ -98,10 +98,13 @@ export class HostComponent implements OnInit {
 	}
 
 	drawCards(player: Player) {
+		// Values to test
 		const cards = this.deckService.drawFromDeck(5);
 		const play = this.deckService.drawFromDeck(1);
+		const bank = this.deckService.drawFromDeck(1);
 		player.handCards = cards;
 		player.playCards = play;
+		player.bankCards = bank;
 		this.conn.sendDataClients(ConnDataType.DEAL, player);
 	}
 }

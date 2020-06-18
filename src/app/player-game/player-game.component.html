@@ -23,13 +23,27 @@
 				<div class="tile is-child">
 					<div class="box">
 						<h2 class="subtitle">Table</h2>
+						<div class="flex-center mb-3">
+							<mc-deck-card
+								[card]="card"
+								cdkDrag
+								*ngFor="let card of player.playCards"
+							></mc-deck-card>
+						</div>
 					</div>
 				</div>
 			</div>
-			<div class="tile is-parent is-3">
+			<div class="tile is-parent">
 				<div class="tile is-child">
 					<div class="box">
 						<h2 class="subtitle">Bank</h2>
+						<div class="flex-center mb-3">
+							<mc-deck-card
+								[card]="card"
+								cdkDrag
+								*ngFor="let card of player.bankCards"
+							></mc-deck-card>
+						</div>
 					</div>
 				</div>
 			</div>
