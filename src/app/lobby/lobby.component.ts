@@ -1,7 +1,7 @@
+import { ConnData, ConnDataType } from './../classes/conn-data';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ConnectionService } from '../connection.service';
-import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 import { take } from 'rxjs/operators';
 import { Router } from '@angular/router';
 
@@ -11,42 +11,33 @@ import { Router } from '@angular/router';
 	styleUrls: ['./lobby.component.scss'],
 })
 export class LobbyComponent implements OnInit {
-	public connId: string;
+	public room: string;
+	public player: string;
 	public id = new FormControl('');
 	public error = null;
-	public joinForm = new FormGroup({
-		joinName: new FormControl('', Validators.required),
-		playerName: new FormControl('', Validators.required),
-	});
 
 	public createForm = new FormGroup({
 		room: new FormControl('', Validators.required),
+		player: new FormControl('', Validators.required),
 	});
 
-	private rooms$: AngularFireList<any>;
+	constructor(private connection: ConnectionService, private router: Router) {}
 
-	constructor(
-		private connection: ConnectionService,
-		private fireBase: AngularFireDatabase,
-		private router: Router
-	) {}
-
-	ngOnInit() {
-		this.rooms$ = this.fireBase.list('/Rooms');
-	}
+	ngOnInit() {}
 
 	createRoom() {
-		const room = this.createForm.get('room').value;
+		this.room = this.createForm.get('room').value;
+		this.player = this.createForm.get('player').value;
 		this.connection
-			.createPeer('Host', room)
+			.createPeer('Host', this.room)
 			.pipe(take(1))
 			.subscribe(
 				(id) => {
-					this.rooms$.push({
-						name: room,
-						host: id,
-					});
-					this.router.navigate(['host', { name: room, player: 'Host' }]);
+					if (id === 'joinRoom') {
+						this.joinRoom();
+					} else {
+						this.router.navigate(['host', { name: this.room, player: 'Host' }]);
+					}
 				},
 				(error: any) => {
 					this.error = error;
@@ -55,27 +46,19 @@ export class LobbyComponent implements OnInit {
 	}
 
 	joinRoom() {
-		const query = this.fireBase
-			.list('/Rooms', (ref) =>
-				ref
-					.limitToFirst(1)
-					.orderByChild('name')
-					.equalTo(this.joinForm.get('joinName').value)
-			)
-			.valueChanges();
-		query.subscribe((res: any) => {
-			if (res[0] && res[0].host) {
+		// Validate if room exist
+		this.connection.connection$.subscribe((data: ConnData) => {
+			if (data.type === ConnDataType.HANDSHAKE) {
 				this.router.navigate([
 					'player',
 					{
-						name: this.joinForm.get('joinName').value,
-						hostId: res[0].host,
-						player: this.joinForm.get('playerName').value,
+						name: this.room,
+						player: this.player,
 					},
 				]);
-			} else {
-				this.error = 'Room not found, try again.';
 			}
 		});
+
+		this.connection.createConnection(this.room, this.player);
 	}
 }

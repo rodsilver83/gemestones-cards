@@ -46,7 +46,12 @@ export class ConnectionService {
 
 			this.peer.on('error', (err) => {
 				console.log('error:', err);
-				this.peer$.error(err);
+				if (err.type === 'unavailable-id') {
+					this.peer = null;
+					this.peer$.next('joinRoom');
+				} else {
+					this.peer$.error(err);
+				}
 			});
 		} else {
 			this.peer$.next(this.sessionId);
@@ -57,7 +62,7 @@ export class ConnectionService {
 
 	// CLIENT
 	createConnection(connId: string, player: string): Subject<ConnData> {
-		this.createPeer(player)
+		this.createPeer(player, player)
 			.pipe(take(1))
 			.subscribe((peerId) => {
 				this.clientConnection = this.peer.connect(connId);
