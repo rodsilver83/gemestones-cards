@@ -1,19 +1,43 @@
-<div class="card__wrapper">
+<div
+	class="card__wrapper"
+	[class.card__wrapper_clicked]="clicked"
+	(click)="clicked = !clicked"
+>
 	<div class="card__tooltip box has-background-info-light">
-		<!-- <span class="icon is-small">
-			<i class="fas fa-arrows-alt"></i>
-		</span> -->
-		<span class="icon is-small" (click)="toggleInfo()">
+		<span class="icon is-small" (click)="toggleInfo($event)">
 			<i class="fas fa-info-circle"></i>
 		</span>
-		<span class="icon is-small">
+		<span
+			class="icon is-small"
+			(click)="moveMoney()"
+			*ngIf="
+				config?.type !== CardType.WILDCARD &&
+				config?.type !== CardType.PROPERTY &&
+				config?.type !== CardType.PROPERTYWILD
+			"
+		>
 			<i class="fas fa-money-check-alt"></i>
 		</span>
-		<span class="icon is-small">
-			<i class="fas fa-play-circle"></i>
+
+		<span
+			class="icon is-small"
+			(click)="moveTable()"
+			*ngIf="
+				config?.type === CardType.PROPERTY ||
+				config?.type === CardType.PROPERTYWILD ||
+				config?.type === CardType.WILDCARD
+			"
+		>
+			<i class="fas fa-th-large"></i>
+		</span>
+		<span
+			class="icon is-small"
+			*ngIf="config?.type === CardType.ACTION || config?.type === CardType.RENT"
+		>
+			<i class="fas fa-inbox"></i>
 		</span>
 		<span class="icon is-small">
-			<i class="fas fa-inbox"></i>
+			<i class="fas fa-recycle"></i>
 		</span>
 	</div>
 

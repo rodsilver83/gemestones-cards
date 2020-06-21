@@ -19,8 +19,8 @@ class Message {
 	styleUrls: ['./chat.component.scss'],
 })
 export class ChatComponent implements OnInit {
-	@Input() public playerName: string;
 	@Input() public roomName: string;
+	@Input() public playerName: string;
 
 	public sendMsg = new FormControl('');
 	public messages$: Subject<Message[]>;

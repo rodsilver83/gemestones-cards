@@ -1,3 +1,4 @@
+import { PlayerDataService } from './../player-data.service';
 import { Player } from './../classes/player';
 import { ConnData } from './../classes/conn-data';
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
@@ -36,7 +37,8 @@ export class HostComponent implements OnInit {
 		private route: ActivatedRoute,
 		private conn: ConnectionService,
 		private cd: ChangeDetectorRef,
-		private deckService: DeckService
+		private deckService: DeckService,
+		private playerDataService: PlayerDataService
 	) {}
 
 	ngOnInit() {
@@ -95,16 +97,13 @@ export class HostComponent implements OnInit {
 			this.drawCards(player);
 		});
 		this.cd.detectChanges();
+		this.playerDataService.playerCards = this.player;
 	}
 
 	drawCards(player: Player) {
 		// Values to test
-		const cards = this.deckService.drawFromDeck(5);
-		const play = this.deckService.drawFromDeck(1);
-		const bank = this.deckService.drawFromDeck(1);
+		const cards = this.deckService.drawFromDeck(7);
 		player.handCards = cards;
-		player.playCards = play;
-		player.bankCards = bank;
 		this.conn.sendDataClients(ConnDataType.DEAL, player);
 	}
 }

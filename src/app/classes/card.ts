@@ -1,4 +1,6 @@
 export class Card {
+	private static incrementId = 0;
+	public readonly id = Card.incrementId++;
 	public value = 0;
 	public bgColor = '#ffffff';
 	public desc = '';

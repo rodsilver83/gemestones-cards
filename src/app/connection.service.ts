@@ -46,12 +46,8 @@ export class ConnectionService {
 
 			this.peer.on('error', (err) => {
 				console.log('error:', err);
-				if (err.type === 'unavailable-id') {
-					this.peer = null;
-					this.peer$.next('joinRoom');
-				} else {
-					this.peer$.error(err);
-				}
+				this.peer = null;
+				this.peer$.next(err.type);
 			});
 		} else {
 			this.peer$.next(this.sessionId);
@@ -64,21 +60,36 @@ export class ConnectionService {
 	createConnection(connId: string, player: string): Subject<ConnData> {
 		this.createPeer(player, player)
 			.pipe(take(1))
-			.subscribe((peerId) => {
-				this.clientConnection = this.peer.connect(connId);
+			.subscribe((res) => {
+				if (res === player) {
+					this.clientConnection = this.peer.connect(connId);
 
-				this.clientConnection.on('open', () => {
-					this.clientConnection.on('data', (data) => {
-						this.connection$.next(data);
+					this.clientConnection.on('open', () => {
+						this.clientConnection.on('data', (data) => {
+							this.connection$.next(data);
+						});
+
+						this.sendData(ConnDataType.HANDSHAKE, player);
 					});
 
-					this.sendData(ConnDataType.HANDSHAKE, player);
-				});
-
-				this.clientConnection.on('error', (err) => {
-					console.log('error:', err);
-					this.connection$.error(err);
-				});
+					this.clientConnection.on('error', (err) => {
+						console.log('error:', err);
+						this.clientConnection = null;
+						this.connection$.next({
+							peer: player,
+							type: ConnDataType.ERROR,
+							data: err,
+							player: player,
+						});
+					});
+				} else {
+					this.connection$.next({
+						peer: player,
+						type: ConnDataType.ERROR,
+						data: res,
+						player: player,
+					});
+				}
 			});
 		return this.connection$;
 	}

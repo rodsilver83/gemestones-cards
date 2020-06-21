@@ -13,7 +13,7 @@
 					[card]="card"
 					cdkDragLockAxis="x"
 					cdkDrag
-					*ngFor="let card of player.handCards"
+					*ngFor="let card of playerDataService.handCards | async"
 				></mc-deck-card>
 			</div>
 		</div>
@@ -27,7 +27,7 @@
 							<mc-deck-card
 								[card]="card"
 								cdkDrag
-								*ngFor="let card of player.playCards"
+								*ngFor="let card of playerDataService.playCards | async"
 							></mc-deck-card>
 						</div>
 					</div>
@@ -41,7 +41,7 @@
 							<mc-deck-card
 								[card]="card"
 								cdkDrag
-								*ngFor="let card of player.bankCards"
+								*ngFor="let card of playerDataService.bankCards | async"
 							></mc-deck-card>
 						</div>
 					</div>

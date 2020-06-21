@@ -1,3 +1,4 @@
+import { PlayerDataService } from './../player-data.service';
 import { PropertyWildCard } from './../classes/property-wild-card';
 import { PropertyCard } from './../classes/property-card';
 import { CardColorsService } from './../services/card-colors.service';
@@ -14,12 +15,18 @@ export class CardComponent implements OnInit {
 	@Input() public valueRotate = false;
 
 	public showInfo = false;
+	public clicked = false;
+	public readonly CardType = CardType;
 
-	constructor(private cardColor: CardColorsService) {}
+	constructor(
+		private cardColor: CardColorsService,
+		private playerService: PlayerDataService
+	) {}
 
 	ngOnInit() {}
 
-	toggleInfo() {
+	toggleInfo(event: Event) {
+		event.stopImmediatePropagation();
 		this.showInfo = !this.showInfo;
 	}
 
@@ -50,5 +57,13 @@ export class CardComponent implements OnInit {
 		if (this.config.type === CardType.PROPERTY) {
 			return (this.config as PropertyCard).textColor;
 		}
+	}
+
+	moveMoney() {
+		this.playerService.moveMoney(this.config.id);
+	}
+
+	moveTable() {
+		this.playerService.moveTable(this.config.id);
 	}
 }

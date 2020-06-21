@@ -4,6 +4,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ConnectionService } from '../connection.service';
 import { take } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { watch } from 'rxjs-watcher';
 
 @Component({
 	selector: 'mc-lobby',
@@ -30,35 +31,39 @@ export class LobbyComponent implements OnInit {
 		this.player = this.createForm.get('player').value;
 		this.connection
 			.createPeer('Host', this.room)
-			.pipe(take(1))
-			.subscribe(
-				(id) => {
-					if (id === 'joinRoom') {
-						this.joinRoom();
-					} else {
+			.pipe(take(1), watch('Create Room', 10))
+			.subscribe((res) => {
+				if (res === 'unavailable-id') {
+					this.joinRoom();
+				} else {
+					if (res === this.room) {
 						this.router.navigate(['host', { name: this.room, player: 'Host' }]);
+					} else {
+						this.error = res;
 					}
-				},
-				(error: any) => {
-					this.error = error;
 				}
-			);
+			});
 	}
 
 	joinRoom() {
 		// Validate if room exist
-		this.connection.connection$.subscribe((data: ConnData) => {
-			if (data.type === ConnDataType.HANDSHAKE) {
-				this.router.navigate([
-					'player',
-					{
-						name: this.room,
-						player: this.player,
-					},
-				]);
-			}
-		});
-
-		this.connection.createConnection(this.room, this.player);
+		this.connection
+			.createConnection(this.room, this.player)
+			.subscribe((res: ConnData) => {
+				switch (res.type) {
+					case ConnDataType.HANDSHAKE:
+						this.router.navigate([
+							'player',
+							{
+								name: this.room,
+								player: this.player,
+							},
+						]);
+						break;
+					case ConnDataType.ERROR:
+						this.error = res.data;
+						break;
+				}
+			});
 	}
 }
