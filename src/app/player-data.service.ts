@@ -2,6 +2,7 @@ import { Card } from './classes/card';
 import { BehaviorSubject } from 'rxjs';
 import { Player } from './classes/player';
 import { Injectable } from '@angular/core';
+import { transferArrayItem, moveItemInArray } from '@angular/cdk/drag-drop';
 
 @Injectable({
 	providedIn: 'root',
@@ -9,9 +10,9 @@ import { Injectable } from '@angular/core';
 export class PlayerDataService {
 	private player: Player;
 
-	public handCards: BehaviorSubject<Card[]> = new BehaviorSubject([]);
-	public bankCards: BehaviorSubject<Card[]> = new BehaviorSubject([]);
-	public playCards: BehaviorSubject<Card[]> = new BehaviorSubject([]);
+	public readonly handCards: BehaviorSubject<Card[]> = new BehaviorSubject([]);
+	public readonly bankCards: BehaviorSubject<Card[]> = new BehaviorSubject([]);
+	public readonly playCards: BehaviorSubject<Card[]> = new BehaviorSubject([]);
 
 	set playerCards(player: Player) {
 		this.player = player;
@@ -26,8 +27,19 @@ export class PlayerDataService {
 		const index = this.player.handCards.findIndex((card: Card) => {
 			return card.id === id;
 		});
-		const moneyCard = this.player.handCards.splice(index, 1)[0];
-		this.player.bankCards.push(moneyCard);
+
+		transferArrayItem(
+			this.player.handCards,
+			this.player.bankCards,
+			index,
+			this.player.bankCards.length
+		);
+
+		this.playerCards = this.player;
+	}
+
+	moveHand(previousIndex: number, currentIndex: number) {
+		moveItemInArray(this.player.handCards, previousIndex, currentIndex);
 
 		this.playerCards = this.player;
 	}
@@ -36,8 +48,13 @@ export class PlayerDataService {
 		const index = this.player.handCards.findIndex((card: Card) => {
 			return card.id === id;
 		});
-		const playCard = this.player.handCards.splice(index, 1)[0];
-		this.player.playCards.push(playCard);
+
+		transferArrayItem(
+			this.player.handCards,
+			this.player.playCards,
+			index,
+			this.player.playCards.length
+		);
 
 		this.playerCards = this.player;
 	}

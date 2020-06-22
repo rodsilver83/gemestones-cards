@@ -1,3 +1,4 @@
+import { PlayerDataService } from './../player-data.service';
 import { Player } from './../classes/player';
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -22,7 +23,8 @@ export class RoomPlayerComponent implements OnInit {
 	constructor(
 		private route: ActivatedRoute,
 		private conn: ConnectionService,
-		private cd: ChangeDetectorRef
+		private cd: ChangeDetectorRef,
+		private playerDataService: PlayerDataService
 	) {}
 
 	ngOnInit() {
@@ -44,7 +46,7 @@ export class RoomPlayerComponent implements OnInit {
 					// this.player.handCards = data.data;
 					this.players.set(data.data.name, data.data);
 					if (this.player.name === data.data.name) {
-						this.player = data.data;
+						this.playerDataService.playerCards = data.data;
 					}
 					break;
 				case ConnDataType.STAUS:

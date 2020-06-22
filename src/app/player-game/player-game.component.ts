@@ -1,3 +1,4 @@
+import { Card } from './../classes/card';
 import { PlayerDataService } from './../player-data.service';
 import { moveItemInArray, CdkDragDrop } from '@angular/cdk/drag-drop';
 import { Player } from './../classes/player';
@@ -17,11 +18,7 @@ export class PlayerGameComponent implements OnInit {
 		console.log(this.playerDataService.handCards);
 	}
 
-	dropHand(event: CdkDragDrop<string[]>) {
-		moveItemInArray(
-			this.player.handCards,
-			event.previousIndex,
-			event.currentIndex
-		);
+	dropHand(event: CdkDragDrop<Card[]>) {
+		this.playerDataService.moveHand(event.previousIndex, event.currentIndex);
 	}
 }

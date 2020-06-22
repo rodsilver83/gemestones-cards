@@ -1,7 +1,7 @@
 <div
 	class="card__wrapper"
 	[class.card__wrapper_clicked]="clicked"
-	(click)="clicked = !clicked"
+	(click)="toggleWrapper()"
 >
 	<div class="card__tooltip box has-background-info-light">
 		<span class="icon is-small" (click)="toggleInfo($event)">

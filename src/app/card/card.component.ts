@@ -2,7 +2,13 @@ import { PlayerDataService } from './../player-data.service';
 import { PropertyWildCard } from './../classes/property-wild-card';
 import { PropertyCard } from './../classes/property-card';
 import { CardColorsService } from './../services/card-colors.service';
-import { Component, OnInit, Input } from '@angular/core';
+import {
+	Component,
+	OnInit,
+	Input,
+	ChangeDetectorRef,
+	HostListener,
+} from '@angular/core';
 import { Card, CardType } from '../classes/card';
 
 @Component({
@@ -20,7 +26,8 @@ export class CardComponent implements OnInit {
 
 	constructor(
 		private cardColor: CardColorsService,
-		private playerService: PlayerDataService
+		private playerService: PlayerDataService,
+		private cd: ChangeDetectorRef
 	) {}
 
 	ngOnInit() {}
@@ -61,9 +68,16 @@ export class CardComponent implements OnInit {
 
 	moveMoney() {
 		this.playerService.moveMoney(this.config.id);
+		this.cd.detectChanges();
 	}
 
 	moveTable() {
 		this.playerService.moveTable(this.config.id);
+		this.cd.detectChanges();
+	}
+
+	toggleWrapper() {
+		this.clicked = !this.clicked;
+		this.cd.detectChanges();
 	}
 }
