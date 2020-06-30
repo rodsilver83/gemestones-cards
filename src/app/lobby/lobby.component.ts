@@ -24,7 +24,9 @@ export class LobbyComponent implements OnInit {
 
 	constructor(private connection: ConnectionService, private router: Router) {}
 
-	ngOnInit() {}
+	ngOnInit() {
+		console.log(this.createForm);
+	}
 
 	createRoom() {
 		this.room = this.createForm.get('room').value;
