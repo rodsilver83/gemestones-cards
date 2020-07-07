@@ -1,10 +1,11 @@
+import { PlayerDataService } from './../services/player-data.service';
 import { Player } from './../classes/player';
 import { CardColorsService } from './../services/card-colors.service';
 import { Component, OnInit, Input, ChangeDetectorRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subject } from 'rxjs';
 import { FormControl } from '@angular/forms';
-import { ConnectionService } from '../connection.service';
+import { ConnectionService } from '../services/connection.service';
 import { ConnData, ConnDataType } from '../classes/conn-data';
 
 class Message {
@@ -20,7 +21,6 @@ class Message {
 })
 export class ChatComponent implements OnInit {
 	@Input() public roomName: string;
-	@Input() public playerName: string;
 
 	public sendMsg = new FormControl('');
 	public messages$: Subject<Message[]>;
@@ -31,7 +31,8 @@ export class ChatComponent implements OnInit {
 	constructor(
 		private conn: ConnectionService,
 		private cd: ChangeDetectorRef,
-		private colorService: CardColorsService
+		private colorService: CardColorsService,
+		private playerDataService: PlayerDataService
 	) {}
 
 	ngOnInit(): void {
@@ -92,9 +93,9 @@ export class ChatComponent implements OnInit {
 		const msg = this.sendMsg.value;
 		this.conn.sendMessage(msg);
 
-		if (this.playerName === 'Host') {
+		if (this.playerDataService.playerName === 'Host') {
 			this.updateMsg({
-				player: this.playerName,
+				player: this.playerDataService.playerName,
 				text: msg,
 			});
 		}

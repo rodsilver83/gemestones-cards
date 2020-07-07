@@ -2,13 +2,13 @@
 	<div class="tile is-ancestor">
 		<div class="tile is-parent is-vertical is-3 table__control-panel">
 			<div class="tile is-child">
-				<mc-control-panel [statusMsg]="statusMsg" [actionCard]="actionCard">
+				<mc-control-panel>
 					<ng-content host-panel select="[host-panel]"></ng-content>
 				</mc-control-panel>
 			</div>
 
 			<div class="tile is-child">
-				<mc-chat [playerName]="player.name"></mc-chat>
+				<mc-chat></mc-chat>
 			</div>
 		</div>
 

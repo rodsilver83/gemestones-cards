@@ -1,9 +1,9 @@
 <div class="box has-background-primary control-panel">
 	<div
 		class="notification is-warning is-size-7 px-3 py-3"
-		[class.is-hidden]="!statusMsg"
+		[class.is-hidden]="!(gamePlayersService.status$ | async)"
 	>
-		{{ statusMsg }}
+		{{ gamePlayersService.status$ | async }}
 	</div>
 	<div class="tile is-ancestor">
 		<div class="tile is-parent">
@@ -28,7 +28,7 @@
 					Pile
 				</h2>
 				<mc-deck-card
-					[card]="actionCard"
+					[card]="pileCard"
 					[scale]="1"
 					class="card_pile"
 				></mc-deck-card>

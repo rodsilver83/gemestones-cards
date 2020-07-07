@@ -1,3 +1,5 @@
+import { GamePlayersService } from './../services/game-players.service';
+import { DeckService } from './../services/deck.service';
 import { Card } from './../classes/card';
 import { Component, OnInit, Input } from '@angular/core';
 
@@ -7,10 +9,20 @@ import { Component, OnInit, Input } from '@angular/core';
 	styleUrls: ['./control-panel.component.scss'],
 })
 export class ControlPanelComponent implements OnInit {
-	@Input() public statusMsg: string;
-	@Input() public actionCard: Card;
+	public pileCard: Card;
 
-	constructor() {}
+	constructor(
+		private deckService: DeckService,
+		public gamePlayersService: GamePlayersService
+	) {}
 
-	ngOnInit(): void {}
+	ngOnInit() {
+		this.deckService.pileTopCard$.subscribe((card: Card) => {
+			this.pileCard = card;
+		});
+
+		this.gamePlayersService.status$.subscribe((msg: string) => {
+			console.log('MSG: ', msg);
+		});
+	}
 }

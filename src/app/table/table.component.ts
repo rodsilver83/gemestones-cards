@@ -1,6 +1,6 @@
-import { Card } from './../classes/card';
+import { PlayerDataService } from './../services/player-data.service';
+import { GamePlayersService } from './../services/game-players.service';
 import { Component, Input } from '@angular/core';
-import { Player } from '../classes/player';
 
 @Component({
 	selector: 'mc-table',
@@ -8,8 +8,8 @@ import { Player } from '../classes/player';
 	styleUrls: ['./table.component.scss'],
 })
 export class TableComponent {
-	@Input() public player: Player;
-	@Input() public players: Player[];
-	@Input() public statusMsg: string;
-	@Input() public actionCard: Card;
+	constructor(
+		private gameService: GamePlayersService,
+		private PlayerDataService: PlayerDataService
+	) {}
 }

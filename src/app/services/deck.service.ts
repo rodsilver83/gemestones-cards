@@ -1,17 +1,13 @@
+import { MoneyCard } from './../classes/money-card';
 import { CardType } from './../classes/card';
-import { Injectable, OnInit } from '@angular/core';
-import {
-	HttpClient,
-	HttpHeaders,
-	HttpErrorResponse,
-} from '@angular/common/http';
-import { Observable, throwError, Observer, Subject } from 'rxjs';
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { throwError, Subject, BehaviorSubject } from 'rxjs';
 import { catchError, map, take } from 'rxjs/operators';
 import { Card } from '../classes/card';
 import { ActionCard } from '../classes/action-card';
 import { PropertyCard } from '../classes/property-card';
 import { WildCard } from '../classes/wild-card';
-import { MoneyCard } from '../money-card/money-card.component';
 import { RentCard } from '../classes/rent-card';
 import { PropertyWildCard } from '../classes/property-wild-card';
 import * as DECK from '../../assets/deck.json';
@@ -22,14 +18,17 @@ import * as DECK from '../../assets/deck.json';
 export class DeckService {
 	private jsonURL = 'https://monopolycards-20516.firebaseio.com/Deck.json';
 	private deckCards: Card[] = [];
+	private pileCards: Card[] = [];
 	public deckCards$: Subject<boolean>;
 	public drawCards$: Subject<Card[]>;
+	public pileTopCard$: BehaviorSubject<Card>;
 
 	private useLocalDeckJson = true;
 
 	constructor(private http: HttpClient) {
 		this.deckCards$ = new Subject<boolean>();
 		this.drawCards$ = new Subject<Card[]>();
+		this.pileTopCard$ = new BehaviorSubject<Card>(null);
 	}
 
 	getDeck() {
@@ -114,20 +113,6 @@ export class DeckService {
 		return throwError(error);
 	}
 
-	// draw(count: number): Subject<Card[]> {
-	// 	this.deckCards$.pipe(take(1)).subscribe(() => {
-	// 		const cards = this.drawFromDeck(count);
-	// 		if (cards) {
-	// 			console.log('*DeckDraw:', cards);
-	// 			this.drawCards$.next(cards);
-	// 		} else {
-	// 			this.drawCards$.error('Not enough cards');
-	// 		}
-	// 	});
-	// 	this.getDeck();
-	// 	return this.drawCards$;
-	// }
-
 	drawFromDeck(count: number): Card[] {
 		if (this.deckCards.length < count) {
 			return null;
@@ -137,5 +122,10 @@ export class DeckService {
 			draw.push(this.deckCards.shift());
 		}
 		return draw;
+	}
+
+	putCardInPile(card: Card) {
+		this.pileCards.push(card);
+		this.pileTopCard$.next(card);
 	}
 }

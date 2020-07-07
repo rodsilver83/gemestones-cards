@@ -1,7 +1,7 @@
 import { ConnData, ConnDataType } from './../classes/conn-data';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ConnectionService } from '../connection.service';
+import { ConnectionService } from '../services/connection.service';
 import { take } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { watch } from 'rxjs-watcher';
@@ -24,9 +24,7 @@ export class LobbyComponent implements OnInit {
 
 	constructor(private connection: ConnectionService, private router: Router) {}
 
-	ngOnInit() {
-		console.log(this.createForm);
-	}
+	ngOnInit() {}
 
 	createRoom() {
 		this.room = this.createForm.get('room').value;
@@ -41,7 +39,7 @@ export class LobbyComponent implements OnInit {
 					if (res === this.room) {
 						this.router.navigate(['host', { name: this.room, player: 'Host' }]);
 					} else {
-						this.error = res;
+						this.showError(res);
 					}
 				}
 			});
@@ -63,9 +61,19 @@ export class LobbyComponent implements OnInit {
 						]);
 						break;
 					case ConnDataType.ERROR:
-						this.error = res.data;
+						this.showError(res.data);
 						break;
 				}
 			});
+	}
+
+	showError(error: any) {
+		switch (error.trim()) {
+			case 'network':
+				this.error = "Can't connect to the servers, please try again later.";
+				break;
+			default:
+				this.error = error.error;
+		}
 	}
 }

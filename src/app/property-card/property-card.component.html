@@ -17,8 +17,9 @@
 			class="property-card__rent-row property-card__rent-row_width"
 			*ngFor="let rent of config?.rents"
 		>
-			<span class="property-card__card" [style.border-color]="bgColor">
+			<span class="property-card__card">
 				{{ rent.houses }}
+				<i class="fas fa-gem"></i>
 			</span>
 			<span class="property-card__rent-value">$ {{ rent.rent }} </span>
 		</div>

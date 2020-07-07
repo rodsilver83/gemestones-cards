@@ -1,5 +1,5 @@
 import { Card } from './../classes/card';
-import { PlayerDataService } from './../player-data.service';
+import { PlayerDataService } from '../services/player-data.service';
 import { moveItemInArray, CdkDragDrop } from '@angular/cdk/drag-drop';
 import { Player } from './../classes/player';
 import { Component, OnInit, Input } from '@angular/core';
@@ -10,13 +10,9 @@ import { Component, OnInit, Input } from '@angular/core';
 	styleUrls: ['./player-game.component.scss'],
 })
 export class PlayerGameComponent implements OnInit {
-	@Input() public player: Player;
-
 	constructor(public readonly playerDataService: PlayerDataService) {}
 
-	ngOnInit(): void {
-		console.log(this.playerDataService.handCards);
-	}
+	ngOnInit(): void {}
 
 	dropHand(event: CdkDragDrop<Card[]>) {
 		this.playerDataService.moveHand(event.previousIndex, event.currentIndex);

@@ -1,14 +1,8 @@
-import { PlayerDataService } from './../player-data.service';
+import { Component, OnInit, Input, ChangeDetectorRef } from '@angular/core';
+import { PlayerDataService } from '../services/player-data.service';
 import { PropertyWildCard } from './../classes/property-wild-card';
 import { PropertyCard } from './../classes/property-card';
 import { CardColorsService } from './../services/card-colors.service';
-import {
-	Component,
-	OnInit,
-	Input,
-	ChangeDetectorRef,
-	HostListener,
-} from '@angular/core';
 import { Card, CardType } from '../classes/card';
 
 @Component({
@@ -76,8 +70,8 @@ export class CardComponent implements OnInit {
 		this.cd.detectChanges();
 	}
 
-	toggleWrapper() {
-		this.clicked = !this.clicked;
+	movePile() {
+		this.playerService.movePile(this.config.id);
 		this.cd.detectChanges();
 	}
 }

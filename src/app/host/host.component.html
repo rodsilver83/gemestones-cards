@@ -1,15 +1,10 @@
-<mc-table
-	[player]="player"
-	[players]="otherPlayers"
-	[statusMsg]="statusMsg"
-	[actionCard]="actionCard"
->
+<mc-table>
 	<button
 		host-panel
 		class="button is-link is-fullwidth"
 		type="button"
 		(click)="startGame()"
-		[disabled]="!deckReady"
+		[disabled]="!(gamePlayersService.deckReady$ | async)"
 	>
 		Start Game
 	</button>

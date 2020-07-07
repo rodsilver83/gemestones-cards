@@ -25,6 +25,7 @@ import { WildCardComponent } from './wild-card/wild-card.component';
 import { registerLocaleData } from '@angular/common';
 
 import localeMx from '@angular/common/locales/es-MX';
+import { PlayerMiniTableComponent } from './player-mini-table/player-mini-table.component';
 
 registerLocaleData(localeMx);
 
@@ -47,6 +48,7 @@ registerLocaleData(localeMx);
 		RoomPlayerComponent,
 		TableComponent,
 		WildCardComponent,
+		PlayerMiniTableComponent,
 	],
 	imports: [
 		AppRoutingModule,

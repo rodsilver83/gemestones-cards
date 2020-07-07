@@ -30,23 +30,14 @@ $flip-card-transition-time: 0.6s;
 	cursor: pointer;
 
 	&:hover {
-		transform: scale(1.5);
+		transform: scale(2);
 		.card {
 			z-index: 10000;
 		}
-	}
 
-	&.card__wrapper_clicked {
-		&:hover {
-			transform: scale(2.5);
-			.card {
-				z-index: 10000;
-			}
-
-			> .card__tooltip {
-				left: -28px;
-				z-index: 10;
-			}
+		> .card__tooltip {
+			left: -28px;
+			z-index: 10;
 		}
 	}
 }

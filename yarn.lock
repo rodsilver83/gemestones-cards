@@ -5503,6 +5503,11 @@ lie@~3.3.0:
   dependencies:
     immediate "~3.0.5"
 
+lint-html-with-css@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/lint-html-with-css/-/lint-html-with-css-0.0.2.tgz#f5d8f1e857f9d40bc533a502b220ab5c90d721d4"
+  integrity sha512-xyl1sT2rkee4aSlgwU76yIkjvLGgOKw+h3y40xrBErPrn4bT9T5o4dlI5Qy6un1Nrj/y1CtlCE/INhlxK9Wqxw==
+
 loader-runner@^2.4.0:
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/loader-runner/-/loader-runner-2.4.0.tgz#ed47066bfe534d7e84c4c7b9998c2a75607d9357"

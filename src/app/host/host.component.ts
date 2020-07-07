@@ -1,11 +1,11 @@
-import { PlayerDataService } from './../player-data.service';
+import { GamePlayersService } from './../services/game-players.service';
+import { PlayerDataService } from '../services/player-data.service';
 import { Player } from './../classes/player';
 import { ConnData } from './../classes/conn-data';
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ConnectionService } from '../connection.service';
+import { ConnectionService } from '../services/connection.service';
 import { DeckService } from '../services/deck.service';
-import { Card } from '../classes/card';
 import { ConnDataType } from '../classes/conn-data';
 import { take } from 'rxjs/operators';
 
@@ -17,33 +17,23 @@ import { take } from 'rxjs/operators';
 export class HostComponent implements OnInit {
 	public player: Player;
 	public roomName: string;
-	public actionCard: Card;
 	public statusMsg = 'Shuffling  Cards...';
 	public deckReady = false;
-
-	private players = new Map<string, Player>();
-
-	get otherPlayers(): Player[] {
-		const players = [];
-		this.players.forEach((v, k) => {
-			if (k !== this.player.name) {
-				players.push(v);
-			}
-		});
-		return players;
-	}
 
 	constructor(
 		private route: ActivatedRoute,
 		private conn: ConnectionService,
 		private cd: ChangeDetectorRef,
 		private deckService: DeckService,
-		private playerDataService: PlayerDataService
+		private playerDataService: PlayerDataService,
+		public gamePlayersService: GamePlayersService
 	) {}
 
 	ngOnInit() {
-		this.player = new Player({ name: 'Host' });
-		this.players.set(this.player.name, this.player);
+		this.gamePlayersService.setStatusMessage(
+			'Waiting for Host to start the game.'
+		);
+		this.gamePlayersService.addNewLocalPlayer('Host');
 
 		this.route.params.subscribe((params) => {
 			this.roomName = params.name;
@@ -51,26 +41,20 @@ export class HostComponent implements OnInit {
 			// this.hostId = params.hostId;
 			this.stablishConnection();
 		});
-
-		this.deckService.deckCards$.pipe(take(1)).subscribe((ready) => {
-			this.statusMsg = 'Waiting for Host to start the game.';
-			this.deckReady = ready;
-			this.drawCard(); // Test
-			this.startGame(); // just to test
-		});
-		this.deckService.getDeck();
 	}
 
 	drawCard() {
 		const card = this.deckService.drawFromDeck(1);
-		this.actionCard = card[0];
+		const pileCard = card[0];
+		this.deckService.putCardInPile(pileCard);
 		this.cd.detectChanges();
 	}
 
 	stablishConnection() {
 		// HOST
+		console.log('LOG:', this.playerDataService.playerName);
 		this.conn
-			.createPeer(this.player.name, this.roomName)
+			.createPeer(this.playerDataService.playerName, this.roomName)
 			.pipe(take(1))
 			.subscribe(() => {});
 
@@ -81,9 +65,9 @@ export class HostComponent implements OnInit {
 					this.conn.sendDataClients(
 						ConnDataType.STAUS,
 						'Waiting for HOST to start the Game.',
-						this.player.name
+						this.playerDataService.playerName
 					);
-					this.players.set(data.player, new Player({ name: data.player }));
+					this.gamePlayersService.addNewPlayer(data.player);
 					break;
 				case ConnDataType.MSG:
 					this.conn.sendDataClients(ConnDataType.MSG, data.data, data.player);
@@ -93,17 +77,9 @@ export class HostComponent implements OnInit {
 	}
 
 	startGame() {
-		this.players.forEach((player: Player) => {
-			this.drawCards(player);
+		this.gamePlayersService.startNewGame();
+		this.gamePlayersService.allPlayers.forEach((player: Player) => {
+			this.conn.sendDataClients(ConnDataType.DEAL, player);
 		});
-		this.cd.detectChanges();
-		this.playerDataService.playerCards = this.player;
-	}
-
-	drawCards(player: Player) {
-		// Values to test
-		const cards = this.deckService.drawFromDeck(7);
-		player.handCards = cards;
-		this.conn.sendDataClients(ConnDataType.DEAL, player);
 	}
 }

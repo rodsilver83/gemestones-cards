@@ -1,8 +1,4 @@
-<div
-	class="card__wrapper"
-	[class.card__wrapper_clicked]="clicked"
-	(click)="toggleWrapper()"
->
+<div class="card__wrapper">
 	<div class="card__tooltip box has-background-info-light">
 		<span class="icon is-small" (click)="toggleInfo($event)">
 			<i class="fas fa-info-circle"></i>
@@ -32,6 +28,7 @@
 		</span>
 		<span
 			class="icon is-small"
+			(click)="movePile()"
 			*ngIf="config?.type === CardType.ACTION || config?.type === CardType.RENT"
 		>
 			<i class="fas fa-inbox"></i>

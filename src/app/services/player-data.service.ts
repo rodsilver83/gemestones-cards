@@ -1,6 +1,7 @@
-import { Card } from './classes/card';
+import { DeckService } from './deck.service';
+import { Card } from '../classes/card';
 import { BehaviorSubject } from 'rxjs';
-import { Player } from './classes/player';
+import { Player } from '../classes/player';
 import { Injectable } from '@angular/core';
 import { transferArrayItem, moveItemInArray } from '@angular/cdk/drag-drop';
 
@@ -21,7 +22,11 @@ export class PlayerDataService {
 		this.playCards.next(player.playCards);
 	}
 
-	constructor() {}
+	get playerName(): string {
+		return this.player?.name;
+	}
+
+	constructor(private deckService: DeckService) {}
 
 	moveMoney(id: number) {
 		const index = this.player.handCards.findIndex((card: Card) => {
@@ -55,6 +60,18 @@ export class PlayerDataService {
 			index,
 			this.player.playCards.length
 		);
+
+		this.playerCards = this.player;
+	}
+
+	movePile(id: number) {
+		const index = this.player.handCards.findIndex((card: Card) => {
+			return card.id === id;
+		});
+
+		const pileCard = this.player.handCards.splice(index, 1);
+
+		this.deckService.putCardInPile(pileCard[0]);
 
 		this.playerCards = this.player;
 	}

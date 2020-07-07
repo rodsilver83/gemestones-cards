@@ -37,6 +37,12 @@ $set10-color: #231f20;
 	position: relative;
 }
 
+.flex-column {
+	display: flex;
+	height: 100%;
+	flex-direction: column;
+}
+
 .box {
 	box-shadow: none;
 }

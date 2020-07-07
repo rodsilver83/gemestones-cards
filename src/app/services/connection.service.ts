@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import Peer, { DataConnection } from 'peerjs';
 import { Subject } from 'rxjs';
 import { take } from 'rxjs/operators';
-import { ConnData, ConnDataType } from './classes/conn-data';
+import { ConnData, ConnDataType } from '../classes/conn-data';
 
 @Injectable({
 	providedIn: 'root',
@@ -44,8 +44,7 @@ export class ConnectionService {
 				});
 			});
 
-			this.peer.on('error', (err) => {
-				console.log('error:', err);
+			this.peer.on('error', (err: any) => {
 				this.peer = null;
 				this.peer$.next(err.type);
 			});
@@ -60,7 +59,7 @@ export class ConnectionService {
 	createConnection(connId: string, player: string): Subject<ConnData> {
 		this.createPeer(player, player)
 			.pipe(take(1))
-			.subscribe((res) => {
+			.subscribe((res: any) => {
 				if (res === player) {
 					this.clientConnection = this.peer.connect(connId);
 
@@ -73,12 +72,11 @@ export class ConnectionService {
 					});
 
 					this.clientConnection.on('error', (err) => {
-						console.log('error:', err);
 						this.clientConnection = null;
 						this.connection$.next({
 							peer: player,
 							type: ConnDataType.ERROR,
-							data: err,
+							data: err.type,
 							player: player,
 						});
 					});
@@ -86,7 +84,7 @@ export class ConnectionService {
 					this.connection$.next({
 						peer: player,
 						type: ConnDataType.ERROR,
-						data: res,
+						data: res.type,
 						player: player,
 					});
 				}
