@@ -1,4 +1,4 @@
-# MonopolyCards
+# Gemstones Cards
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.18.
 
@@ -36,5 +36,5 @@ $ npm install peer -g
 Run the server:
 $ peerjs --port 9000 --key peerjs --path /myapp
 
-  Started PeerServer on ::, port: 9000, path: /myapp (v. 0.3.2)
+Started PeerServer on ::, port: 9000, path: /myapp (v. 0.3.2)
 Check it: http://127.0.0.1:9000/myapp It should returns JSON with name, description and website fields.

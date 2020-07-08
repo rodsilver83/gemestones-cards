@@ -52,7 +52,6 @@ export class HostComponent implements OnInit {
 
 	stablishConnection() {
 		// HOST
-		console.log('LOG:', this.playerDataService.playerName);
 		this.conn
 			.createPeer(this.playerDataService.playerName, this.roomName)
 			.pipe(take(1))
@@ -68,6 +67,7 @@ export class HostComponent implements OnInit {
 						this.playerDataService.playerName
 					);
 					this.gamePlayersService.addNewPlayer(data.player);
+					this.startGame(); // For Test Only
 					break;
 				case ConnDataType.MSG:
 					this.conn.sendDataClients(ConnDataType.MSG, data.data, data.player);

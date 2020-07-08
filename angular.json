@@ -3,7 +3,7 @@
 	"version": 1,
 	"newProjectRoot": "projects",
 	"projects": {
-		"monopoly-cards": {
+		"gemstones-cards": {
 			"projectType": "application",
 			"i18n": {
 				"locales": {
@@ -69,21 +69,21 @@
 				"serve": {
 					"builder": "@angular-devkit/build-angular:dev-server",
 					"options": {
-						"browserTarget": "monopoly-cards:build"
+						"browserTarget": "gemstones-cards:build"
 					},
 					"configurations": {
 						"es": {
-							"browserTarget": "monopoly-cards:build:es"
+							"browserTarget": "gemstones-cards:build:es"
 						},
 						"production": {
-							"browserTarget": "monopoly-cards:build:production"
+							"browserTarget": "gemstones-cards:build:production"
 						}
 					}
 				},
 				"extract-i18n": {
 					"builder": "@angular-devkit/build-angular:extract-i18n",
 					"options": {
-						"browserTarget": "monopoly-cards:build"
+						"browserTarget": "gemstones-cards:build"
 					}
 				},
 				"test": {
@@ -113,16 +113,16 @@
 					"builder": "@angular-devkit/build-angular:protractor",
 					"options": {
 						"protractorConfig": "e2e/protractor.conf.js",
-						"devServerTarget": "monopoly-cards:serve"
+						"devServerTarget": "gemstones-cards:serve"
 					},
 					"configurations": {
 						"production": {
-							"devServerTarget": "monopoly-cards:serve:production"
+							"devServerTarget": "gemstones-cards:serve:production"
 						}
 					}
 				}
 			}
 		}
 	},
-	"defaultProject": "monopoly-cards"
+	"defaultProject": "gemstones-cards"
 }

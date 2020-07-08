@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ElementRef } from '@angular/core';
 import { DeckService } from '../services/deck.service';
 import { Card } from '../classes/card';
 
@@ -8,8 +8,7 @@ import { Card } from '../classes/card';
 	styleUrls: ['./deck-card.component.scss'],
 })
 export class DeckCardComponent {
-	@Input() public scale = 1;
 	@Input() public card: Card;
 
-	constructor(private deckService: DeckService) {}
+	constructor(private deckService: DeckService, public el: ElementRef) {}
 }

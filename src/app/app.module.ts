@@ -26,6 +26,7 @@ import { registerLocaleData } from '@angular/common';
 
 import localeMx from '@angular/common/locales/es-MX';
 import { PlayerMiniTableComponent } from './player-mini-table/player-mini-table.component';
+import { ResizeDeckDirective } from './resize-deck.directive';
 
 registerLocaleData(localeMx);
 
@@ -49,6 +50,7 @@ registerLocaleData(localeMx);
 		TableComponent,
 		WildCardComponent,
 		PlayerMiniTableComponent,
+		ResizeDeckDirective,
 	],
 	imports: [
 		AppRoutingModule,

@@ -11,15 +11,15 @@ import { transferArrayItem, moveItemInArray } from '@angular/cdk/drag-drop';
 export class PlayerDataService {
 	private player: Player;
 
-	public readonly handCards: BehaviorSubject<Card[]> = new BehaviorSubject([]);
-	public readonly bankCards: BehaviorSubject<Card[]> = new BehaviorSubject([]);
-	public readonly playCards: BehaviorSubject<Card[]> = new BehaviorSubject([]);
+	public readonly handCards$: BehaviorSubject<Card[]> = new BehaviorSubject([]);
+	public readonly bankCards$: BehaviorSubject<Card[]> = new BehaviorSubject([]);
+	public readonly playCards$: BehaviorSubject<Card[]> = new BehaviorSubject([]);
 
 	set playerCards(player: Player) {
 		this.player = player;
-		this.handCards.next(player.handCards);
-		this.bankCards.next(player.bankCards);
-		this.playCards.next(player.playCards);
+		this.handCards$.next(player.handCards);
+		this.bankCards$.next(player.bankCards);
+		this.playCards$.next(player.playCards);
 	}
 
 	get playerName(): string {
@@ -45,6 +45,12 @@ export class PlayerDataService {
 
 	moveHand(previousIndex: number, currentIndex: number) {
 		moveItemInArray(this.player.handCards, previousIndex, currentIndex);
+
+		this.playerCards = this.player;
+	}
+
+	moveBank(previousIndex: number, currentIndex: number) {
+		moveItemInArray(this.player.bankCards, previousIndex, currentIndex);
 
 		this.playerCards = this.player;
 	}

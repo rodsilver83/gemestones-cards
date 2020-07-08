@@ -3,7 +3,6 @@ import { Player } from './../classes/player';
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ConnectionService } from '../services/connection.service';
-import { Subject } from 'rxjs';
 import { FormControl } from '@angular/forms';
 import { ConnData, ConnDataType } from '../classes/conn-data';
 

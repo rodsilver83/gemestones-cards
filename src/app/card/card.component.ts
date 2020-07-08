@@ -1,4 +1,10 @@
-import { Component, OnInit, Input, ChangeDetectorRef } from '@angular/core';
+import {
+	Component,
+	OnInit,
+	Input,
+	ChangeDetectorRef,
+	HostListener,
+} from '@angular/core';
 import { PlayerDataService } from '../services/player-data.service';
 import { PropertyWildCard } from './../classes/property-wild-card';
 import { PropertyCard } from './../classes/property-card';
@@ -14,8 +20,14 @@ export class CardComponent implements OnInit {
 	@Input() public config: Card;
 	@Input() public valueRotate = false;
 
+	@HostListener('mouseleave', ['$event']) onmouseout(event: MouseEvent) {
+		this.toggleCardClick = false;
+		this.cd.detectChanges();
+	}
+
 	public showInfo = false;
 	public clicked = false;
+	public toggleCardClick = false;
 	public readonly CardType = CardType;
 
 	constructor(
@@ -29,6 +41,7 @@ export class CardComponent implements OnInit {
 	toggleInfo(event: Event) {
 		event.stopImmediatePropagation();
 		this.showInfo = !this.showInfo;
+		this.cd.detectChanges();
 	}
 
 	valueColor(top: boolean): string {
@@ -72,6 +85,11 @@ export class CardComponent implements OnInit {
 
 	movePile() {
 		this.playerService.movePile(this.config.id);
+		this.cd.detectChanges();
+	}
+
+	toggleCard() {
+		this.toggleCardClick = !this.toggleCardClick;
 		this.cd.detectChanges();
 	}
 }

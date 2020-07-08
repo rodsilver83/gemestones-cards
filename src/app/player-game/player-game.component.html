@@ -1,8 +1,8 @@
 <div class="message is-info is-fullheight">
 	<h2 class="message-header subtitle mb-0">Cards</h2>
 	<section class="message-body">
-		<div class="box">
-			<h2 class="subtitle">Hand</h2>
+		<div class="box" #handList>
+			<h2 class="subtitle"><i class="fas fa-hand-paper"></i> Hand</h2>
 			<div
 				class="pg__deck-list mb-3"
 				cdkDropList
@@ -10,11 +10,14 @@
 				(cdkDropListDropped)="dropHand($event)"
 			>
 				<mc-deck-card
+					#handCards
+					class="pg__hand-card"
+					[class.pg__hand-card_hidden]="calculatingHandWidth"
 					[card]="card"
 					cdkDragLockAxis="x"
 					cdkDrag
 					cdkDragBoundary=".pg__deck-list"
-					*ngFor="let card of playerDataService.handCards | async"
+					*ngFor="let card of playerDataService.handCards$ | async"
 				></mc-deck-card>
 			</div>
 		</div>
@@ -22,13 +25,13 @@
 		<div class="tile is-ancestor">
 			<div class="tile is-parent">
 				<div class="tile is-child">
-					<div class="box">
-						<h2 class="subtitle">Table</h2>
+					<div class="box flex-column">
+						<h2 class="subtitle"><i class="fas fa-th-large"></i> Table</h2>
 						<div class="flex-center mb-3">
 							<mc-deck-card
 								[card]="card"
 								cdkDrag
-								*ngFor="let card of playerDataService.playCards | async"
+								*ngFor="let card of playerDataService.playCards$ | async"
 							></mc-deck-card>
 						</div>
 					</div>
@@ -36,13 +39,25 @@
 			</div>
 			<div class="tile is-parent">
 				<div class="tile is-child">
-					<div class="box">
-						<h2 class="subtitle">Bank</h2>
-						<div class="flex-center mb-3">
+					<div class="box flex-column">
+						<h2 class="subtitle"><i class="fas fa-piggy-bank"></i> Bank</h2>
+						<div
+							#bankList
+							class="flex-center mb-3 pg__bank"
+							cdkDropList
+							cdkDropListOrientation="horizontal"
+							(cdkDropListDropped)="dropBank($event)"
+						>
 							<mc-deck-card
+								#bankCards
+								*ngFor="
+									let card of playerDataService.bankCards$ | async;
+									index as i
+								"
 								[card]="card"
+								cdkDragLockAxis="x"
 								cdkDrag
-								*ngFor="let card of playerDataService.bankCards | async"
+								cdkDragBoundary=".pg__bank"
 							></mc-deck-card>
 						</div>
 					</div>

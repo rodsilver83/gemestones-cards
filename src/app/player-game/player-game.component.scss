@@ -2,4 +2,15 @@
 
 .pg__deck-list {
 	@extend .flex-center;
+	width: 100%;
+}
+
+.pg__bank {
+	min-height: 120px;
+	@extend .flex-center;
+	max-width: 200px;
+}
+
+.pg__hand-card_hidden {
+	display: none;
 }

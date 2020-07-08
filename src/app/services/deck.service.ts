@@ -16,7 +16,7 @@ import * as DECK from '../../assets/deck.json';
 	providedIn: 'root',
 })
 export class DeckService {
-	private jsonURL = 'https://monopolycards-20516.firebaseio.com/Deck.json';
+	private jsonURL = '';
 	private deckCards: Card[] = [];
 	private pileCards: Card[] = [];
 	public deckCards$: Subject<boolean>;
@@ -32,11 +32,14 @@ export class DeckService {
 	}
 
 	getDeck() {
-		if (this.useLocalDeckJson) {
+		// We are loading localy always, until we add a json firebase service
+		if (this.useLocalDeckJson || true) {
 			this.initDeck(DECK.Deck);
 			this.suffleDeck();
 			this.deckCards$.next(true);
 		}
+
+		// To load deck from firebase service
 		if (this.deckCards.length === 0) {
 			this.http
 				.get<any>(this.jsonURL)

@@ -1,4 +1,8 @@
-<div class="card__wrapper">
+<div
+	class="card__wrapper"
+	(click)="toggleCard()"
+	[class.card__wrapper_clicked]="toggleCardClick"
+>
 	<div class="card__tooltip box has-background-info-light">
 		<span class="icon is-small" (click)="toggleInfo($event)">
 			<i class="fas fa-info-circle"></i>
@@ -12,7 +16,7 @@
 				config?.type !== CardType.PROPERTYWILD
 			"
 		>
-			<i class="fas fa-money-check-alt"></i>
+			<i class="fas fa-piggy-bank"></i>
 		</span>
 
 		<span

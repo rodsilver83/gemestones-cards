@@ -1,7 +1,7 @@
 import { GamePlayersService } from './../services/game-players.service';
 import { DeckService } from './../services/deck.service';
 import { Card } from './../classes/card';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ChangeDetectorRef } from '@angular/core';
 
 @Component({
 	selector: 'mc-control-panel',
@@ -13,16 +13,18 @@ export class ControlPanelComponent implements OnInit {
 
 	constructor(
 		private deckService: DeckService,
-		public gamePlayersService: GamePlayersService
+		public gamePlayersService: GamePlayersService,
+		private cd: ChangeDetectorRef
 	) {}
 
 	ngOnInit() {
 		this.deckService.pileTopCard$.subscribe((card: Card) => {
 			this.pileCard = card;
+			this.cd.detectChanges();
 		});
 
 		this.gamePlayersService.status$.subscribe((msg: string) => {
-			console.log('MSG: ', msg);
+			this.cd.detectChanges();
 		});
 	}
 }
