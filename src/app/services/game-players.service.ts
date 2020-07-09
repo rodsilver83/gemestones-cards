@@ -13,6 +13,7 @@ export class GamePlayersService {
 	public status$ = new BehaviorSubject<string>('');
 	public deckReady$ = new BehaviorSubject<boolean>(false);
 	public otherPlayers$ = new BehaviorSubject<Player[]>([]);
+	public move$ = new BehaviorSubject<Player>(null);
 
 	private _otherPlayers = new Map<string, Player>();
 	private localPlayer: Player;
@@ -74,6 +75,7 @@ export class GamePlayersService {
 		if (this._otherPlayers.has(player.name)) {
 			this._otherPlayers.set(player.name, player);
 			this.otherPlayers$.next(this.otherPlayers);
+			this.move$.next(player);
 		}
 	}
 

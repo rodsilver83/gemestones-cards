@@ -1,28 +1,34 @@
-<div class="box mx-2 mini__container">
-	<h6 class="has-text-centered">{{ player.name }}</h6>
-	<hr />
+<div class="box mini__container">
+	<h6>{{ player.name }}</h6>
 
-	<h6><i class="fas fa-layer-group"></i></h6>
-	<div class="mini__sets-container">
-		<div *ngFor="let set of player.sets" class="mini__set-container">
-			<mc-deck-card
-				class="mini__set-card"
-				[card]="card"
-				*ngFor="let card of set"
-			></mc-deck-card>
+	<div class="mini__table">
+		<div class="mini__sets-wrapper">
+			<h6 class="mini__title">
+				<i class="fas fa-layer-group"></i> {{ player.sets.length }}
+			</h6>
+			<div class="mini__sets-container">
+				<div *ngFor="let set of player.sets" class="mini__set-container">
+					<mc-deck-card
+						class="mini__set-card"
+						[card]="card"
+						*ngFor="let card of set"
+					></mc-deck-card>
+				</div>
+			</div>
 		</div>
-	</div>
 
-	<hr />
-
-	<h6><i class="fas fa-piggy-bank"></i></h6>
-	<div class="mini__bank-list-container">
-		<div class="mini__bank-list">
-			<mc-deck-card
-				class="mini__bank-card"
-				*ngFor="let card of player.bankCards"
-				[card]="card"
-			></mc-deck-card>
+		<div class="mini__bank-list-container">
+			<h6 class="mini__title">
+				<i class="fas fa-piggy-bank"></i> ${{ totalMoney }}
+			</h6>
+			<div class="mini__bank-list">
+				<mc-deck-card
+					#bankCards
+					class="mini__bank-card"
+					*ngFor="let card of player.bankCards"
+					[card]="card"
+				></mc-deck-card>
+			</div>
 		</div>
 	</div>
 </div>

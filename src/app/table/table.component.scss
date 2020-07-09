@@ -8,15 +8,15 @@
 }
 
 .table__control-panel {
-	min-width: 350px;
+	max-width: 350px;
 }
 
 .table__control-panel-container {
 	max-height: 1px;
 }
 
-.table__players-list {
-	flex-grow: 0;
+.table__players {
+	max-width: calc(100vw - 390px);
 }
 
 .container {
@@ -25,5 +25,5 @@
 }
 
 .table__bank-container {
-	max-width: 250px;
+	max-width: 350px;
 }

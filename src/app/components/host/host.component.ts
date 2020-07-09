@@ -81,7 +81,7 @@ export class HostComponent implements OnInit {
 					this.conn.sendDataClients(ConnDataType.MSG, data.data, data.player);
 					break;
 				case ConnDataType.MOVE:
-					// this.conn.sendDataClients(ConnDataType.MSG, data.data, data.player);
+					this.conn.sendDataClients(ConnDataType.MOVE, data.data, data.player);
 					this.gamePlayersService.updatePlayerCards(data.data);
 					break;
 			}

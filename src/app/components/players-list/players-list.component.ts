@@ -1,3 +1,4 @@
+import { PlayerDataService } from './../../services/player-data.service';
 import { GamePlayersService } from './../../services/game-players.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -7,7 +8,10 @@ import { Component, OnInit } from '@angular/core';
 	styleUrls: ['./players-list.component.scss'],
 })
 export class PlayersListComponent implements OnInit {
-	constructor(public gamePlayersService: GamePlayersService) {}
+	constructor(
+		public gamePlayersService: GamePlayersService,
+		public playerDataService: PlayerDataService
+	) {}
 
 	ngOnInit(): void {}
 }

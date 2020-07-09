@@ -1,7 +1,11 @@
 @import '../../../styles';
 
 .players__container {
-	@extend .flex-column;
+	@extend .flex-center;
+	overflow-x: auto;
+	width: 100%;
+	justify-content: start;
+	padding: 20px;
 }
 
 .players__list {

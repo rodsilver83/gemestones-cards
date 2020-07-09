@@ -17,6 +17,7 @@ export class SetsDeckComponent implements OnInit {
 		public readonly playerDataService: PlayerDataService,
 		private readonly cd: ChangeDetectorRef
 	) {}
+
 	ngOnInit(): void {
 		this.playerDataService.sets$.subscribe((cards: Card[][]) => {
 			this.cd.detectChanges();

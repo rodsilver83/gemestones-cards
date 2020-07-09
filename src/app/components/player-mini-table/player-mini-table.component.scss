@@ -1,57 +1,73 @@
 @import '../../../styles';
 
+.mini__title {
+	font-size: 80%;
+	white-space: nowrap;
+}
+
 .mini__container {
 	height: 100%;
+	margin-right: 20px;
 }
 
 .mini__set-card {
-	height: 12px;
+	height: 6px;
 	pointer-events: none;
-	transform: translateY(-10px) scale(0.5);
+	transform: translateY(-10px) scale(0.25);
+}
+
+.mini__set-container {
+	display: flex;
+	flex-direction: column;
+	height: 30px;
+	width: 25px;
+	margin-top: 15px;
+}
+
+.mini__sets-wrapper {
+	display: flex;
+	flex-direction: column;
+}
+
+.mini__sets-container {
+	display: flex;
+	width: 80px;
+	flex-wrap: wrap;
+	&:empty {
+		height: 0;
+	}
 }
 
 .mini__bank-card {
 	width: 15px;
-	height: 60px;
+	height: 40px;
 	pointer-events: none;
-	transform: translateY(-10px) scale(0.5);
-}
-
-.mini__set-container {
-	@extend .flex-column;
-	height: 75px;
-	width: 50px;
-	margin-top: 10px;
-}
-
-.mini__sets-container {
-	@extend .flex-center;
-	width: 150px;
-	flex-wrap: wrap;
-	overflow: auto;
-	height: 85px;
-	&:empty {
-		height: 0;
-	}
+	transform: translateY(-10px) scale(0.25);
 }
 
 .mini__bank-list-container {
-	@extend .flex-center;
-	height: auto;
+	display: flex;
+	flex-direction: column;
+	border-left: 1px solid #333333;
+	padding-left: 2px;
 }
 
 .mini__bank-list {
-	@extend .flex-center;
-	max-width: 150px;
-	flex-wrap: wrap;
-	align-self: center;
+	display: flex;
+	align-items: center;
 	justify-content: start;
-	align-items: start;
-	overflow: auto;
-	height: 65px;
-	padding: 0 15px;
+	width: 35px;
+	align-self: stretch;
+	flex-grow: 1;
+	flex-wrap: wrap;
+	padding-left: 15px;
 
 	&:empty {
 		height: 0;
 	}
+}
+
+.mini__table {
+	display: flex;
+	border-top: 1px solid #333333;
 }

@@ -3,7 +3,7 @@
 .bank__list {
 	@extend .flex-center;
 	min-height: 120px;
-	max-width: 100px;
+	width: calc(100% - 75px);
 	flex-wrap: wrap;
 	align-self: center;
 	justify-content: start;

@@ -1,3 +1,4 @@
+import { DeckCardComponent } from './../deck-card/deck-card.component';
 import { CdkDragDrop } from '@angular/cdk/drag-drop';
 import {
 	Component,
@@ -9,7 +10,6 @@ import {
 	HostListener,
 	ChangeDetectorRef,
 } from '@angular/core';
-import { DeckCardComponent } from '../deck-card/deck-card.component';
 import { Card } from 'src/app/classes/card';
 import { PlayerDataService } from 'src/app/services/player-data.service';
 
@@ -25,7 +25,7 @@ export class BankDeckComponent implements OnInit {
 	@HostListener('window:resize') public onResize() {
 		if (this.bankCards?.length > 0) {
 			const listWidth = this.bankList.nativeElement.clientWidth;
-			const cardWidth = listWidth / Math.min(this.bankCards.length, 5);
+			const cardWidth = listWidth / Math.min(this.bankCards.length, 10);
 			this.bankCards.forEach((card) => {
 				card.el.nativeElement.style.width = cardWidth + 'px';
 			});
@@ -33,8 +33,13 @@ export class BankDeckComponent implements OnInit {
 		}
 	}
 
-	public calculatingHandWidth = true;
+	get totalMoney(): number {
+		return this.bankCards?.reduce((prevValue, deckCard: DeckCardComponent) => {
+			return prevValue + deckCard.card.value;
+		}, 0);
+	}
 
+	public calculatingHandWidth = true;
 	public playCardsSets = <Card[]>[];
 
 	constructor(
