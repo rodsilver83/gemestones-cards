@@ -13,3 +13,12 @@
 	justify-content: start;
 	align-items: stretch;
 }
+
+.players__modal-mini {
+	z-index: 2000;
+	transform: scale(3);
+	// position: fixed;
+	> .mini__container {
+		margin-right: 0;
+	}
+}

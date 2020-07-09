@@ -1,13 +1,28 @@
-<div class="message is-info">
+<div class="message is-info mb-0">
 	<h2 class="message-header subtitle mb-0">Players</h2>
 	<section class="message-body px-0 py-0">
 		<div class="players__container">
 			<div class="players__list">
 				<mc-player-mini-table
 					*ngFor="let player of gamePlayersService.otherPlayers$ | async"
+					(click)="openModal(player)"
 					[player]="player"
 				></mc-player-mini-table>
 			</div>
 		</div>
 	</section>
+</div>
+
+<div class="modal is-clipped" [class.is-active]="modalActive && playerModal">
+	<div class="modal-background" (click)="closeModal()"></div>
+	<mc-player-mini-table
+		*ngIf="playerModal"
+		class="players__modal-mini"
+		[player]="playerModal"
+	></mc-player-mini-table>
+	<button
+		(click)="closeModal()"
+		class="modal-close is-large"
+		aria-label="close"
+	></button>
 </div>
