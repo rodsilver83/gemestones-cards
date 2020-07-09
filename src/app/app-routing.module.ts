@@ -1,9 +1,8 @@
-import { HostComponent } from './host/host.component';
-import { TableComponent } from './table/table.component';
-import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { LobbyComponent } from './lobby/lobby.component';
-import { RoomPlayerComponent } from './room-player/room-player.component';
+import { LobbyComponent } from './components/lobby/lobby.component';
+import { HostComponent } from './components/host/host.component';
+import { RoomPlayerComponent } from './components/room-player/room-player.component';
+import { NgModule } from '@angular/core';
 
 const routes: Routes = [
 	{

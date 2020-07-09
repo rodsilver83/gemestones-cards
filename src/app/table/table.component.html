@@ -18,7 +18,24 @@
 			</div>
 
 			<div class="tile is-child">
-				<mc-player-game></mc-player-game>
+				<div class="message is-info is-fullheight">
+					<h2 class="message-header subtitle mb-0">Cards</h2>
+					<section class="message-body">
+						<mc-hand-deck></mc-hand-deck>
+						<div class="tile is-ancestor">
+							<div class="tile is-parent">
+								<div class="tile is-child">
+									<mc-sets-deck></mc-sets-deck>
+								</div>
+							</div>
+							<div class="tile is-parent table__bank-container">
+								<div class="tile is-child">
+									<mc-bank-deck></mc-bank-deck>
+								</div>
+							</div>
+						</div>
+					</section>
+				</div>
 			</div>
 		</div>
 	</div>

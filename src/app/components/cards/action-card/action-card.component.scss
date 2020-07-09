@@ -1,0 +1,35 @@
+@import '../../../../styles.scss';
+
+.action-card__action {
+	border: 1px solid #333;
+	width: 130px * $scale;
+	height: 130px * $scale;
+	border-radius: 20%;
+	background-color: #eee;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.action-card__main {
+	font-weight: bold;
+	margin: 5px * $scale;
+}
+
+.action-card__title {
+	width: 85%;
+	text-align: center;
+	font-weight: bold;
+	text-transform: uppercase;
+	font-size: 1.2rem * $scale;
+
+	&.action-card__title_small {
+		font-size: 0.8rem * $scale;
+	}
+}
+
+.action-card__icon {
+	margin-bottom: 10px * $scale;
+	font-size: 2em;
+}

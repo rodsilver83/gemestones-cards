@@ -1,0 +1,14 @@
+@import '../../../styles';
+
+.hand__wrapper {
+	margin-bottom: 20px;
+}
+
+.hand__deck-list {
+	@extend .flex-center;
+	width: 100%;
+}
+
+.hand__card_hidden {
+	display: none;
+}

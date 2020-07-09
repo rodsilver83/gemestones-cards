@@ -14,12 +14,14 @@ export class PlayerDataService {
 	public readonly handCards$: BehaviorSubject<Card[]> = new BehaviorSubject([]);
 	public readonly bankCards$: BehaviorSubject<Card[]> = new BehaviorSubject([]);
 	public readonly playCards$: BehaviorSubject<Card[]> = new BehaviorSubject([]);
+	public readonly sets$: BehaviorSubject<Card[][]> = new BehaviorSubject([]);
 
 	set playerCards(player: Player) {
 		this.player = player;
 		this.handCards$.next(player.handCards);
 		this.bankCards$.next(player.bankCards);
 		this.playCards$.next(player.playCards);
+		this.sets$.next(player.sets);
 	}
 
 	get playerName(): string {
@@ -60,11 +62,13 @@ export class PlayerDataService {
 			return card.id === id;
 		});
 
+		this.player.sets.push([]);
+
 		transferArrayItem(
 			this.player.handCards,
-			this.player.playCards,
+			this.player.sets[this.player.sets.length - 1],
 			index,
-			this.player.playCards.length
+			0
 		);
 
 		this.playerCards = this.player;

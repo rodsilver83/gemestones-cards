@@ -1,0 +1,19 @@
+<div class="box flex-column">
+	<h2 class="subtitle"><i class="fas fa-piggy-bank"></i> Bank</h2>
+	<div
+		#bankList
+		class="flex-center mb-3 bank__list"
+		cdkDropList
+		cdkDropListOrientation="horizontal"
+		(cdkDropListDropped)="dropBank($event)"
+	>
+		<mc-deck-card
+			#bankCards
+			*ngFor="let card of playerDataService.bankCards$ | async; index as i"
+			[card]="card"
+			cdkDragLockAxis="x"
+			cdkDrag
+			cdkDragBoundary=".pg__bank"
+		></mc-deck-card>
+	</div>
+</div>

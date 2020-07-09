@@ -1,34 +1,30 @@
-import { ActionCardComponent } from './action-card/action-card.component';
+import { registerLocaleData } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { ActionCardComponent } from './components/cards/action-card/action-card.component';
 import { AppComponent } from './app.component';
+import { CardComponent } from './components/cards/card/card.component';
+import { ChatComponent } from './components/chat/chat.component';
+import { ControlPanelComponent } from './components/control-panel/control-panel.component';
+import { DeckCardComponent } from './components/deck-card/deck-card.component';
+import { HostComponent } from './components/host/host.component';
+import { LobbyComponent } from './components/lobby/lobby.component';
+import { MoneyCardComponent } from './components/cards/money-card/money-card.component';
+import { PlayersListComponent } from './components/players-list/players-list.component';
+import { PropertyCardComponent } from './components/cards/property-card/property-card.component';
+import { PropertyWildCardComponent } from './components/cards/property-wild-card/property-wild-card.component';
+import { RentCardComponent } from './components/cards/rent-card/rent-card.component';
+import { RoomPlayerComponent } from './components/room-player/room-player.component';
+import { TableComponent } from './table/table.component';
+import { WildCardComponent } from './components/cards/wild-card/wild-card.component';
+import { PlayerMiniTableComponent } from './components/player-mini-table/player-mini-table.component';
+import { HandDeckComponent } from './components/hand-deck/hand-deck.component';
+import { BankDeckComponent } from './components/bank-deck/bank-deck.component';
+import { SetsDeckComponent } from './sets-deck/sets-deck.component';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
-import { CardComponent } from './card/card.component';
-import { ChatComponent } from './chat/chat.component';
-import { ControlPanelComponent } from './control-panel/control-panel.component';
-import { DeckCardComponent } from './deck-card/deck-card.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HostComponent } from './host/host.component';
 import { HttpClientModule } from '@angular/common/http';
-import { LobbyComponent } from './lobby/lobby.component';
-import { MoneyCardComponent } from './money-card/money-card.component';
-import { NgModule } from '@angular/core';
-import { PlayerGameComponent } from './player-game/player-game.component';
-import { PlayersListComponent } from './players-list/players-list.component';
-import { PropertyCardComponent } from './property-card/property-card.component';
-import { PropertyWildCardComponent } from './property-wild-card/property-wild-card.component';
-import { RentCardComponent } from './rent-card/rent-card.component';
-import { RoomPlayerComponent } from './room-player/room-player.component';
-import { TableComponent } from './table/table.component';
-import { WildCardComponent } from './wild-card/wild-card.component';
-
-import { registerLocaleData } from '@angular/common';
-
-import localeMx from '@angular/common/locales/es-MX';
-import { PlayerMiniTableComponent } from './player-mini-table/player-mini-table.component';
-import { ResizeDeckDirective } from './resize-deck.directive';
-
-registerLocaleData(localeMx);
 
 @NgModule({
 	declarations: [
@@ -41,7 +37,6 @@ registerLocaleData(localeMx);
 		HostComponent,
 		LobbyComponent,
 		MoneyCardComponent,
-		PlayerGameComponent,
 		PlayersListComponent,
 		PropertyCardComponent,
 		PropertyWildCardComponent,
@@ -50,7 +45,9 @@ registerLocaleData(localeMx);
 		TableComponent,
 		WildCardComponent,
 		PlayerMiniTableComponent,
-		ResizeDeckDirective,
+		HandDeckComponent,
+		BankDeckComponent,
+		SetsDeckComponent,
 	],
 	imports: [
 		AppRoutingModule,

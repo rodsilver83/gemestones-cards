@@ -1,0 +1,20 @@
+<div class="box hand__wrapper" #handList>
+	<h2 class="subtitle"><i class="fas fa-hand-paper"></i> Hand</h2>
+	<div
+		class="hand__deck-list mb-3"
+		cdkDropList
+		cdkDropListOrientation="horizontal"
+		(cdkDropListDropped)="dropHand($event)"
+	>
+		<mc-deck-card
+			#handCards
+			class="hand__card"
+			[class.hand__card_hidden]="calculatingHandWidth"
+			[card]="card"
+			cdkDragLockAxis="x"
+			cdkDrag
+			cdkDragBoundary=".hand__deck-list"
+			*ngFor="let card of playerDataService.handCards$ | async"
+		></mc-deck-card>
+	</div>
+</div>
