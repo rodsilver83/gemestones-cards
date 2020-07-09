@@ -1,3 +1,4 @@
+import { Card } from './../classes/card';
 import { BehaviorSubject } from 'rxjs';
 import { DeckService } from './deck.service';
 import { PlayerDataService } from './player-data.service';
@@ -11,6 +12,7 @@ import { take, timeout } from 'rxjs/operators';
 export class GamePlayersService {
 	public status$ = new BehaviorSubject<string>('');
 	public deckReady$ = new BehaviorSubject<boolean>(false);
+	public otherPlayers$ = new BehaviorSubject<Player[]>([]);
 
 	private _otherPlayers = new Map<string, Player>();
 	private localPlayer: Player;
@@ -27,7 +29,7 @@ export class GamePlayersService {
 		this.deckService.getDeck();
 	}
 
-	get otherPlayers(): Player[] {
+	private get otherPlayers(): Player[] {
 		const players = [];
 		this._otherPlayers.forEach((v, k) => {
 			players.push(v);
@@ -41,13 +43,18 @@ export class GamePlayersService {
 		return players;
 	}
 
-	addNewPlayer(name: string) {
-		const player = new Player({ name: name });
-		this._otherPlayers.set(player.name, player);
+	addNewPlayer(newPlayer: Player) {
+		this._otherPlayers.set(newPlayer.name, newPlayer);
+		this.otherPlayers$.next(this.allPlayers); // Change to Other players, this is for testing
 	}
 
-	addNewLocalPlayer(name: string) {
-		this.localPlayer = new Player({ name: name });
+	addNewLocalPlayer(player: Player) {
+		this.localPlayer = player;
+		this.playerDataService.playerCards = player;
+	}
+
+	setLocalPlayerCards(cards: Card[]) {
+		this.localPlayer.handCards = cards;
 		this.playerDataService.playerCards = this.localPlayer;
 	}
 

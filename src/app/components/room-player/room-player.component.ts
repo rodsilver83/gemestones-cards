@@ -14,9 +14,6 @@ import { ConnData, ConnDataType } from 'src/app/classes/conn-data';
 })
 export class RoomPlayerComponent implements OnInit {
 	private roomName: string;
-	public player: Player;
-
-	public players = new Map<string, Player>();
 
 	constructor(
 		private route: ActivatedRoute,
@@ -27,10 +24,10 @@ export class RoomPlayerComponent implements OnInit {
 	) {}
 
 	ngOnInit() {
-		this.player = new Player();
+		this.playerDataService.localPlayer = new Player();
 
 		this.route.params.subscribe((params) => {
-			this.player.name = params.player;
+			this.playerDataService.localPlayer.name = params.player;
 			this.roomName = params.name;
 			this.stablishConnection();
 		});
@@ -43,13 +40,19 @@ export class RoomPlayerComponent implements OnInit {
 			switch (data.type) {
 				case ConnDataType.DEAL:
 					// this.player.handCards = data.data;
-					this.players.set(data.data.name, data.data);
-					if (this.player.name === data.data.name) {
-						this.playerDataService.playerCards = data.data;
-					}
 					break;
 				case ConnDataType.STAUS:
 					this.gamePlayersService.setStatusMessage(data.data);
+					break;
+				case ConnDataType.START:
+					this.gamePlayersService.setStatusMessage('The Game begins.');
+					data.data.forEach((player: Player) => {
+						if (this.playerDataService.playerName === player.name) {
+							this.gamePlayersService.addNewLocalPlayer(player);
+						} else {
+							this.gamePlayersService.addNewPlayer(player);
+						}
+					});
 					break;
 			}
 			this.cd.detectChanges();
@@ -58,6 +61,9 @@ export class RoomPlayerComponent implements OnInit {
 
 	stablishConnection() {
 		// PLAYER
-		this.conn.createConnection(this.roomName, this.player.name);
+		this.conn.createConnection(
+			this.roomName,
+			this.playerDataService.playerName
+		);
 	}
 }

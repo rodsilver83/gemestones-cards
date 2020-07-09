@@ -10,6 +10,6 @@ import { Component, Input } from '@angular/core';
 export class TableComponent {
 	constructor(
 		private gameService: GamePlayersService,
-		private PlayerDataService: PlayerDataService
+		public playerDataService: PlayerDataService
 	) {}
 }

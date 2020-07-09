@@ -12,5 +12,6 @@ export enum ConnDataType {
 	INFO,
 	HANDSHAKE,
 	STAUS,
+	START,
 	ERROR,
 }

@@ -4,6 +4,7 @@ import {
 	Input,
 	ChangeDetectorRef,
 	HostListener,
+	HostBinding,
 } from '@angular/core';
 import { Card, CardType } from 'src/app/classes/card';
 import { CardColorsService } from 'src/app/services/card-colors.service';
@@ -19,6 +20,7 @@ import { PropertyWildCard } from 'src/app/classes/property-wild-card';
 export class CardComponent implements OnInit {
 	@Input() public config: Card;
 	@Input() public valueRotate = false;
+	// @Input() public scale = 0.5;
 
 	@HostListener('mouseleave', ['$event']) onmouseout(event: MouseEvent) {
 		this.toggleCardClick = false;

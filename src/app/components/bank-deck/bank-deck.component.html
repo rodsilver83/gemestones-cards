@@ -9,7 +9,7 @@
 	>
 		<mc-deck-card
 			#bankCards
-			*ngFor="let card of playerDataService.bankCards$ | async; index as i"
+			*ngFor="let card of playerDataService.bankCards$ | async"
 			[card]="card"
 			cdkDragLockAxis="x"
 			cdkDrag

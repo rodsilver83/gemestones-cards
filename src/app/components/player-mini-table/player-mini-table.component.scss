@@ -1,0 +1,57 @@
+@import '../../../styles';
+
+.mini__container {
+	height: 100%;
+}
+
+.mini__set-card {
+	height: 12px;
+	pointer-events: none;
+	transform: translateY(-10px) scale(0.5);
+}
+
+.mini__bank-card {
+	width: 15px;
+	height: 60px;
+	pointer-events: none;
+	transform: translateY(-10px) scale(0.5);
+}
+
+.mini__set-container {
+	@extend .flex-column;
+	height: 75px;
+	width: 50px;
+	margin-top: 10px;
+}
+
+.mini__sets-container {
+	@extend .flex-center;
+	width: 150px;
+	flex-wrap: wrap;
+	overflow: auto;
+	height: 85px;
+	&:empty {
+		height: 0;
+	}
+}
+
+.mini__bank-list-container {
+	@extend .flex-center;
+	height: auto;
+}
+
+.mini__bank-list {
+	@extend .flex-center;
+	max-width: 150px;
+	flex-wrap: wrap;
+	align-self: center;
+	justify-content: start;
+	align-items: start;
+	overflow: auto;
+	height: 65px;
+	padding: 0 15px;
+
+	&:empty {
+		height: 0;
+	}
+}

@@ -1,4 +1,4 @@
-import { Component, Input, ElementRef } from '@angular/core';
+import { Component, Input, ElementRef, HostBinding } from '@angular/core';
 import { DeckService } from '../../services/deck.service';
 import { Card } from '../../classes/card';
 

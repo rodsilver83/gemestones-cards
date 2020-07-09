@@ -1,7 +1,11 @@
 <mc-card [config]="config">
 	<div class="wild__container flex-column">
 		<div class="wild__rainbow" [style.background]="rainbowBg"></div>
-		<div class="wild__title">{{ config?.title }}</div>
+		<div class="wild__title">
+			<i class="fas fa-gem"></i>
+			{{ config?.title }}
+			<i class="fas fa-gem"></i>
+		</div>
 		<div class="wild__rainbow" [style.background]="rainbowBg"></div>
 	</div>
 </mc-card>

@@ -32,10 +32,10 @@ export class HostComponent implements OnInit {
 		this.gamePlayersService.setStatusMessage(
 			'Waiting for Host to start the game.'
 		);
-		this.gamePlayersService.addNewLocalPlayer('Host');
 
 		this.route.params.subscribe((params) => {
 			this.roomName = params.name;
+			this.gamePlayersService.addNewLocalPlayer(new Player({ name: 'Host' }));
 			// this.player.name = params.player;
 			// this.hostId = params.hostId;
 			this.stablishConnection();
@@ -65,7 +65,9 @@ export class HostComponent implements OnInit {
 						'Waiting for HOST to start the Game.',
 						this.playerDataService.playerName
 					);
-					this.gamePlayersService.addNewPlayer(data.player);
+					this.gamePlayersService.addNewPlayer(
+						new Player({ name: data.player })
+					);
 					this.startGame(); // For Test Only
 					break;
 				case ConnDataType.MSG:
@@ -80,5 +82,10 @@ export class HostComponent implements OnInit {
 		this.gamePlayersService.allPlayers.forEach((player: Player) => {
 			this.conn.sendDataClients(ConnDataType.DEAL, player);
 		});
+
+		this.conn.sendDataClients(
+			ConnDataType.START,
+			this.gamePlayersService.allPlayers
+		);
 	}
 }

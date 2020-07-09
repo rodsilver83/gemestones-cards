@@ -1,3 +1,11 @@
-.players-list {
-	height: 200px;
+@import '../../../styles';
+
+.players__container {
+	@extend .flex-column;
+}
+
+.players__list {
+	@extend .flex-center;
+	justify-content: start;
+	align-items: stretch;
 }

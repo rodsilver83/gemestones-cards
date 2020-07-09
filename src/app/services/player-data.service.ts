@@ -28,6 +28,14 @@ export class PlayerDataService {
 		return this.player?.name;
 	}
 
+	set localPlayer(player: Player) {
+		this.player = player;
+	}
+
+	get localPlayer(): Player {
+		return this.player;
+	}
+
 	constructor(private deckService: DeckService) {}
 
 	moveMoney(id: number) {
