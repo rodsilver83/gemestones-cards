@@ -33,13 +33,17 @@ export class RoomPlayerComponent implements OnInit {
 		});
 
 		this.initConnection();
+
+		this.playerDataService.bankCards$.subscribe(() => {
+			this.conn.sendData(ConnDataType.MOVE, this.playerDataService.localPlayer);
+		});
 	}
 
 	initConnection() {
 		this.conn.connection$.subscribe((data: ConnData) => {
 			switch (data.type) {
 				case ConnDataType.DEAL:
-					// this.player.handCards = data.data;
+					this.gamePlayersService.updatePlayerCards(data.data);
 					break;
 				case ConnDataType.STAUS:
 					this.gamePlayersService.setStatusMessage(data.data);

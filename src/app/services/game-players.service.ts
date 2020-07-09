@@ -45,7 +45,7 @@ export class GamePlayersService {
 
 	addNewPlayer(newPlayer: Player) {
 		this._otherPlayers.set(newPlayer.name, newPlayer);
-		this.otherPlayers$.next(this.allPlayers); // Change to Other players, this is for testing
+		this.otherPlayers$.next(this.otherPlayers); // Change to Other players, this is for testing
 	}
 
 	addNewLocalPlayer(player: Player) {
@@ -68,6 +68,13 @@ export class GamePlayersService {
 		});
 		this.drawCards(this.localPlayer);
 		this.playerDataService.playerCards = this.localPlayer;
+	}
+
+	updatePlayerCards(player: Player) {
+		if (this._otherPlayers.has(player.name)) {
+			this._otherPlayers.set(player.name, player);
+			this.otherPlayers$.next(this.otherPlayers);
+		}
 	}
 
 	drawCards(player: Player) {

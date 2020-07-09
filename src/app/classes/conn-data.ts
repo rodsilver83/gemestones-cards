@@ -8,6 +8,7 @@ export class ConnData {
 export enum ConnDataType {
 	MSG,
 	DEAL,
+	MOVE,
 	DRAW,
 	INFO,
 	HANDSHAKE,

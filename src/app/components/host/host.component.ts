@@ -40,6 +40,13 @@ export class HostComponent implements OnInit {
 			// this.hostId = params.hostId;
 			this.stablishConnection();
 		});
+
+		this.playerDataService.bankCards$.subscribe(() => {
+			this.conn.sendDataClients(
+				ConnDataType.DEAL,
+				this.playerDataService.localPlayer
+			);
+		});
 	}
 
 	drawCard() {
@@ -73,16 +80,17 @@ export class HostComponent implements OnInit {
 				case ConnDataType.MSG:
 					this.conn.sendDataClients(ConnDataType.MSG, data.data, data.player);
 					break;
+				case ConnDataType.MOVE:
+					// this.conn.sendDataClients(ConnDataType.MSG, data.data, data.player);
+					this.gamePlayersService.updatePlayerCards(data.data);
+					break;
 			}
+			this.cd.detectChanges();
 		});
 	}
 
 	startGame() {
 		this.gamePlayersService.startNewGame();
-		this.gamePlayersService.allPlayers.forEach((player: Player) => {
-			this.conn.sendDataClients(ConnDataType.DEAL, player);
-		});
-
 		this.conn.sendDataClients(
 			ConnDataType.START,
 			this.gamePlayersService.allPlayers
