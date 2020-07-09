@@ -1,3 +1,4 @@
+import { GamePlayersService } from './../../services/game-players.service';
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Player } from 'src/app/classes/player';
@@ -12,10 +13,8 @@ import { ConnData, ConnDataType } from 'src/app/classes/conn-data';
 	styleUrls: ['./room-player.component.scss'],
 })
 export class RoomPlayerComponent implements OnInit {
-	public sendMsg = new FormControl('');
-	public roomName: string;
+	private roomName: string;
 	public player: Player;
-	public statusMsg: string;
 
 	public players = new Map<string, Player>();
 
@@ -23,7 +22,8 @@ export class RoomPlayerComponent implements OnInit {
 		private route: ActivatedRoute,
 		private conn: ConnectionService,
 		private cd: ChangeDetectorRef,
-		private playerDataService: PlayerDataService
+		private playerDataService: PlayerDataService,
+		private gamePlayersService: GamePlayersService
 	) {}
 
 	ngOnInit() {
@@ -49,7 +49,7 @@ export class RoomPlayerComponent implements OnInit {
 					}
 					break;
 				case ConnDataType.STAUS:
-					this.statusMsg = data.data;
+					this.gamePlayersService.setStatusMessage(data.data);
 					break;
 			}
 			this.cd.detectChanges();

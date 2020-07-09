@@ -1,13 +1,14 @@
 <div class="box has-background-primary control-panel">
-	<div
-		class="notification is-warning is-size-7 px-3 py-3"
-		[class.is-hidden]="!(gamePlayersService.status$ | async)"
-	>
-		{{ gamePlayersService.status$ | async }}
-	</div>
 	<div class="tile is-ancestor">
 		<div class="tile is-parent">
 			<div class="tile is-child is-vertical buttons_container">
+				<div
+					class="notification is-warning is-size-7 px-3 py-3 my-0"
+					[class.is-hidden]="!(gamePlayersService.status$ | async)"
+				>
+					{{ gamePlayersService.status$ | async }}
+				</div>
+
 				<button class="button is-link is-fullwidth" type="button">
 					Help
 				</button>
@@ -22,7 +23,7 @@
 
 		<div class="tile is-parent">
 			<div
-				class="tile is-vertical is-child box has-background-link-light flex-center"
+				class="control-panel__pile tile is-vertical is-child box has-background-link-light flex-center"
 			>
 				<h2 class="subtitle mb-3">
 					<i class="fas fa-inbox"></i>

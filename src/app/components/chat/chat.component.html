@@ -1,10 +1,10 @@
-<div class="message is-info flex-column">
+<div class="message is-dark flex-column">
 	<h2 class="message-header subtitle mb-0" i18n="@@chat_title">
 		Messages
 	</h2>
 
 	<div class="message-body flex-column">
-		<div class="box chat__board">
+		<div class="box chat__board" #chatBoard>
 			<p class="mb-1" *ngFor="let msg of messages$ | async">
 				<span class="tag is-info" [style.backgroundColor]="msg.bgColor">
 					{{ msg.player }}
@@ -18,7 +18,7 @@
 		<!--TODO add formControl-->
 		<form class="is-flex">
 			<input
-				class="input is-danger"
+				class="input is-dark"
 				type="text"
 				placeholder="Type Here"
 				(keyup.enter)="send()"

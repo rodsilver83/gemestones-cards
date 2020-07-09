@@ -59,10 +59,9 @@ export class HandDeckComponent
 	}
 
 	ngOnInit(): void {
-		// this.playerDataService.handCards$.subscribe((cards: Card[]) => {
-		// 	this.onResize();
-		// 	// this.cd.detectChanges();
-		// });
+		this.playerDataService.handCards$.subscribe((cards: Card[]) => {
+			this.cd.detectChanges();
+		});
 	}
 
 	dropHand(event: CdkDragDrop<Card[]>) {

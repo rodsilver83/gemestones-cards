@@ -1,4 +1,11 @@
-import { Component, OnInit, Input, ChangeDetectorRef } from '@angular/core';
+import {
+	Component,
+	OnInit,
+	Input,
+	ChangeDetectorRef,
+	ViewChild,
+	ElementRef,
+} from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Subject } from 'rxjs';
 import { ConnectionService } from 'src/app/services/connection.service';
@@ -19,6 +26,8 @@ class Message {
 })
 export class ChatComponent implements OnInit {
 	@Input() public roomName: string;
+
+	@ViewChild('chatBoard') private chatBoard: ElementRef;
 
 	public sendMsg = new FormControl('');
 	public messages$: Subject<Message[]>;
@@ -85,6 +94,7 @@ export class ChatComponent implements OnInit {
 		this.messages.push(msg);
 		this.messages$.next(this.messages);
 		this.cd.detectChanges();
+		this.chatBoard.nativeElement.scrollTop = this.chatBoard.nativeElement.scrollHeight;
 	}
 
 	send() {

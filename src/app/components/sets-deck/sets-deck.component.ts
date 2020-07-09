@@ -1,3 +1,4 @@
+import { Card } from './../../classes/card';
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { PlayerDataService } from '../../services/player-data.service';
 import {
@@ -16,7 +17,11 @@ export class SetsDeckComponent implements OnInit {
 		public readonly playerDataService: PlayerDataService,
 		private readonly cd: ChangeDetectorRef
 	) {}
-	ngOnInit(): void {}
+	ngOnInit(): void {
+		this.playerDataService.sets$.subscribe((cards: Card[][]) => {
+			this.cd.detectChanges();
+		});
+	}
 
 	drop(event: CdkDragDrop<string[]>) {
 		if (event.previousContainer === event.container) {
