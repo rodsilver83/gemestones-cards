@@ -19,7 +19,7 @@ import { WildCardComponent } from './components/cards/wild-card/wild-card.compon
 import { PlayerMiniTableComponent } from './components/player-mini-table/player-mini-table.component';
 import { HandDeckComponent } from './components/hand-deck/hand-deck.component';
 import { BankDeckComponent } from './components/bank-deck/bank-deck.component';
-import { SetsDeckComponent } from './sets-deck/sets-deck.component';
+import { SetsDeckComponent } from './components/sets-deck/sets-deck.component';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { DragDropModule } from '@angular/cdk/drag-drop';

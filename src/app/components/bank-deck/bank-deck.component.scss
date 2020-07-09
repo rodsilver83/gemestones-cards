@@ -1,10 +1,11 @@
 @import '../../../styles';
 
 .bank__list {
-	min-height: 120px;
 	@extend .flex-center;
+	min-height: 120px;
 	max-width: 100px;
 	flex-wrap: wrap;
 	align-self: center;
 	justify-content: start;
+	align-items: start;
 }

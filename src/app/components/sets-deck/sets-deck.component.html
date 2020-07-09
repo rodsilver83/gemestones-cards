@@ -1,0 +1,20 @@
+<div class="box flex-column sets__table">
+	<h2 class="subtitle"><i class="fas fa-th-large"></i> Table</h2>
+	<div class="sets__container" cdkDropListGroup>
+		<div
+			*ngFor="let set of playerDataService.sets$ | async"
+			class="set__container"
+			cdkDropList
+			[cdkDropListData]="set"
+			(cdkDropListDropped)="drop($event)"
+		>
+			<mc-deck-card
+				class="set__card"
+				[card]="card"
+				cdkDrag
+				cdkDragBoundary=".sets__table"
+				*ngFor="let card of set"
+			></mc-deck-card>
+		</div>
+	</div>
+</div>

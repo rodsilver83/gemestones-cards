@@ -1,0 +1,16 @@
+@import '../../../styles';
+
+.set__card {
+	height: 25px;
+}
+
+.sets__container {
+	@extend .flex-center;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+.set__container {
+	@extend .flex-column;
+	height: 170px;
+}

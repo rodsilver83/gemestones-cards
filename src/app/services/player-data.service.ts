@@ -85,4 +85,12 @@ export class PlayerDataService {
 
 		this.playerCards = this.player;
 	}
+
+	deleteEmptySets() {
+		this.player.sets = this.player.sets.filter((set: Card[]) => {
+			return set.length > 0;
+		});
+
+		this.playerCards = this.player;
+	}
 }
