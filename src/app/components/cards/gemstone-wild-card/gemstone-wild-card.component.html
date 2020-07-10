@@ -1,54 +1,54 @@
-<mc-card [config]="config" [valueRotate]="true">
+<gs-card [config]="config" [valueRotate]="true">
 	<div class="property_sideA">
 		<div
-			class="property-wild-card__main"
+			class="gemstone-wild-card__main"
 			[style.background-color]="bgColor(config?.propertyA)"
 			[style.color]="config?.propertyA?.textColor"
 		>
 			{{ config.propertyA?.name }}
 		</div>
 
-		<div class="property-wild-card__rent">
-			<div class="property-wild-card__rent-row">
-				<span class="property-wild-card__rent-title">RENTA</span>
+		<div class="gemstone-wild-card__rent">
+			<div class="gemstone-wild-card__rent-row">
+				<span class="gemstone-wild-card__rent-title">RENTA</span>
 			</div>
 
 			<div
-				class="property-wild-card__rent-row"
+				class="gemstone-wild-card__rent-row"
 				*ngFor="let rent of config?.propertyA?.rents"
 			>
 				<span class="mx-1"
 					>{{ rent.houses }}
 					<i class="fas fa-gem"></i>
 				</span>
-				<span class="property-wild-card__rent-value">$ {{ rent.rent }} </span>
+				<span class="gemstone-wild-card__rent-value">$ {{ rent.rent }} </span>
 			</div>
 		</div>
 	</div>
 
 	<div class="property_sideB">
 		<div
-			class="property-wild-card__main"
+			class="gemstone-wild-card__main"
 			[style.background-color]="bgColor(config?.propertyB)"
 			[style.color]="config?.propertyB?.textColor"
 		>
 			{{ config.propertyB?.name }}
 		</div>
-		<div class="property-wild-card__rent">
-			<div class="property-wild-card__rent-row">
-				<span class="property-wild-card__rent-title">RENTA</span>
+		<div class="gemstone-wild-card__rent">
+			<div class="gemstone-wild-card__rent-row">
+				<span class="gemstone-wild-card__rent-title">RENTA</span>
 			</div>
 
 			<div
-				class="property-wild-card__rent-row"
+				class="gemstone-wild-card__rent-row"
 				*ngFor="let rent of config?.propertyB?.rents"
 			>
 				<span class="mx-1"
 					>{{ rent.houses }}
 					<i class="fas fa-gem"></i>
 				</span>
-				<span class="property-wild-card__rent-value">$ {{ rent.rent }} </span>
+				<span class="gemstone-wild-card__rent-value">$ {{ rent.rent }} </span>
 			</div>
 		</div>
 	</div>
-</mc-card>
+</gs-card>

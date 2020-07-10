@@ -3,7 +3,7 @@ import { GamePlayersService } from './../services/game-players.service';
 import { Component, Input } from '@angular/core';
 
 @Component({
-	selector: 'mc-table',
+	selector: 'gs-table',
 	templateUrl: './table.component.html',
 	styleUrls: ['./table.component.scss'],
 })

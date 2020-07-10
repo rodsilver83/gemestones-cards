@@ -14,7 +14,7 @@ import { Card } from 'src/app/classes/card';
 import { PlayerDataService } from 'src/app/services/player-data.service';
 
 @Component({
-	selector: 'mc-bank-deck',
+	selector: 'gs-bank-deck',
 	templateUrl: './bank-deck.component.html',
 	styleUrls: ['./bank-deck.component.scss'],
 })
@@ -35,7 +35,7 @@ export class BankDeckComponent implements OnInit {
 
 	get totalMoney(): number {
 		return this.bankCards?.reduce((prevValue, deckCard: DeckCardComponent) => {
-			return prevValue + deckCard.card.value;
+			return prevValue + deckCard.config.value;
 		}, 0);
 	}
 

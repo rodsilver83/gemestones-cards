@@ -6,15 +6,15 @@
 		cdkDropListOrientation="horizontal"
 		(cdkDropListDropped)="dropHand($event)"
 	>
-		<mc-deck-card
+		<gs-deck-card
 			#handCards
 			class="hand__card"
 			[class.hand__card_hidden]="calculatingHandWidth"
-			[card]="card"
+			[config]="card"
 			cdkDragLockAxis="x"
 			cdkDrag
 			cdkDragBoundary=".hand__deck-list"
 			*ngFor="let card of playerDataService.handCards$ | async"
-		></mc-deck-card>
+		></gs-deck-card>
 	</div>
 </div>

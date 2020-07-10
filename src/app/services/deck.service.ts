@@ -6,10 +6,10 @@ import { throwError, Subject, BehaviorSubject } from 'rxjs';
 import { catchError, map, take } from 'rxjs/operators';
 import { Card } from '../classes/card';
 import { ActionCard } from '../classes/action-card';
-import { PropertyCard } from '../classes/property-card';
+import { GemstoneCard } from '../classes/gemstone-card';
 import { WildCard } from '../classes/wild-card';
 import { RentCard } from '../classes/rent-card';
-import { PropertyWildCard } from '../classes/property-wild-card';
+import { GemstoneWildCard } from '../classes/gemstone-wild-card';
 import * as DECK from '../../assets/deck.json';
 
 @Injectable({
@@ -67,8 +67,8 @@ export class DeckService {
 					case CardType.ACTION:
 						this.deckCards.push(new ActionCard(item.config as ActionCard));
 						break;
-					case CardType.PROPERTY: {
-						const card = new PropertyCard(item.config as PropertyCard);
+					case CardType.GEMSTONE: {
+						const card = new GemstoneCard(item.config as GemstoneCard);
 						card.desc = `Cada carta muestra cuántas ropiedades necesitas de ese color para completar un GRUPO	COMPLETO.`;
 						this.deckCards.push(card);
 						break;
@@ -82,10 +82,10 @@ export class DeckService {
 					case CardType.RENT:
 						this.deckCards.push(new RentCard(item.config as RentCard));
 						break;
-					case CardType.PROPERTYWILD: {
-						const card = new PropertyWildCard(item.config as PropertyWildCard);
+					case CardType.GEMSTONEWILD: {
+						const card = new GemstoneWildCard(item.config as GemstoneWildCard);
 						card.desc = `Cada carta muestra cuántas ropiedades necesitas de ese color para completar un GRUPO	COMPLETO.`;
-						this.deckCards.push(new PropertyWildCard(card));
+						this.deckCards.push(new GemstoneWildCard(card));
 						break;
 					}
 				}

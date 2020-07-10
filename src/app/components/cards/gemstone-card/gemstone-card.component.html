@@ -1,0 +1,27 @@
+<gs-card [config]="config">
+	<div
+		class="gemstone-card__main"
+		[style.background-color]="bgColor"
+		[style.color]="config?.textColor"
+	>
+		<span class="gemstone-card__title">
+			{{ config?.name }}
+		</span>
+	</div>
+	<div class="gemstone-card__rent">
+		<div class="gemstone-card__rent-row gemstone-card__rent-row_width">
+			<span class="gemstone-card__rent-title">RENT</span>
+		</div>
+
+		<div
+			class="gemstone-card__rent-row gemstone-card__rent-row_width"
+			*ngFor="let rent of config?.rents"
+		>
+			<span class="mx-1">
+				{{ rent.houses }}
+				<i class="fas fa-gem"></i>
+			</span>
+			<span class="gemstone-card__rent-value">$ {{ rent.rent }} </span>
+		</div>
+	</div>
+</gs-card>

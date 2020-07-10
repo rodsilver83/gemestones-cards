@@ -11,7 +11,7 @@
 			}
 		},
 		{
-			"type": "PROPERTYWILD",
+			"type": "GEMSTONEWILD",
 			"quantity": 1,
 			"config": {
 				"value": 4,
@@ -54,7 +54,7 @@
 			}
 		},
 		{
-			"type": "PROPERTYWILD",
+			"type": "GEMSTONEWILD",
 			"quantity": 1,
 			"config": {
 				"value": 1,
@@ -97,7 +97,7 @@
 			}
 		},
 		{
-			"type": "PROPERTYWILD",
+			"type": "GEMSTONEWILD",
 			"quantity": 2,
 			"config": {
 				"value": 2,
@@ -144,7 +144,7 @@
 			}
 		},
 		{
-			"type": "PROPERTYWILD",
+			"type": "GEMSTONEWILD",
 			"quantity": 1,
 			"config": {
 				"value": 2,
@@ -195,7 +195,7 @@
 			}
 		},
 		{
-			"type": "PROPERTYWILD",
+			"type": "GEMSTONEWILD",
 			"quantity": 1,
 			"config": {
 				"value": 2,
@@ -246,7 +246,7 @@
 			}
 		},
 		{
-			"type": "PROPERTYWILD",
+			"type": "GEMSTONEWILD",
 			"quantity": 1,
 			"config": {
 				"value": 2,
@@ -293,7 +293,7 @@
 			}
 		},
 		{
-			"type": "PROPERTYWILD",
+			"type": "GEMSTONEWILD",
 			"quantity": 2,
 			"config": {
 				"value": 2,
@@ -581,7 +581,7 @@
 			}
 		},
 		{
-			"type": "PROPERTY",
+			"type": "GEMSTONE",
 			"quantity": 1,
 			"config": {
 				"set": 1,
@@ -601,7 +601,7 @@
 			}
 		},
 		{
-			"type": "PROPERTY",
+			"type": "GEMSTONE",
 			"quantity": 1,
 			"config": {
 				"set": 1,
@@ -621,7 +621,7 @@
 			}
 		},
 		{
-			"type": "PROPERTY",
+			"type": "GEMSTONE",
 			"quantity": 1,
 			"config": {
 				"set": 2,
@@ -645,7 +645,7 @@
 			}
 		},
 		{
-			"type": "PROPERTY",
+			"type": "GEMSTONE",
 			"quantity": 1,
 			"config": {
 				"set": 2,
@@ -669,7 +669,7 @@
 			}
 		},
 		{
-			"type": "PROPERTY",
+			"type": "GEMSTONE",
 			"quantity": 1,
 			"config": {
 				"set": 2,
@@ -693,7 +693,7 @@
 			}
 		},
 		{
-			"type": "PROPERTY",
+			"type": "GEMSTONE",
 			"quantity": 1,
 			"config": {
 				"set": 3,
@@ -717,7 +717,7 @@
 			}
 		},
 		{
-			"type": "PROPERTY",
+			"type": "GEMSTONE",
 			"quantity": 1,
 			"config": {
 				"set": 3,
@@ -741,7 +741,7 @@
 			}
 		},
 		{
-			"type": "PROPERTY",
+			"type": "GEMSTONE",
 			"quantity": 1,
 			"config": {
 				"set": 3,
@@ -765,7 +765,7 @@
 			}
 		},
 		{
-			"type": "PROPERTY",
+			"type": "GEMSTONE",
 			"quantity": 1,
 			"config": {
 				"set": 4,
@@ -789,7 +789,7 @@
 			}
 		},
 		{
-			"type": "PROPERTY",
+			"type": "GEMSTONE",
 			"quantity": 1,
 			"config": {
 				"set": 4,
@@ -813,7 +813,7 @@
 			}
 		},
 		{
-			"type": "PROPERTY",
+			"type": "GEMSTONE",
 			"quantity": 1,
 			"config": {
 				"set": 4,
@@ -837,7 +837,7 @@
 			}
 		},
 		{
-			"type": "PROPERTY",
+			"type": "GEMSTONE",
 			"quantity": 1,
 			"config": {
 				"set": 5,
@@ -861,7 +861,7 @@
 			}
 		},
 		{
-			"type": "PROPERTY",
+			"type": "GEMSTONE",
 			"quantity": 1,
 			"config": {
 				"set": 5,
@@ -885,7 +885,7 @@
 			}
 		},
 		{
-			"type": "PROPERTY",
+			"type": "GEMSTONE",
 			"quantity": 1,
 			"config": {
 				"set": 5,
@@ -909,7 +909,7 @@
 			}
 		},
 		{
-			"type": "PROPERTY",
+			"type": "GEMSTONE",
 			"quantity": 1,
 			"config": {
 				"set": 6,
@@ -933,7 +933,7 @@
 			}
 		},
 		{
-			"type": "PROPERTY",
+			"type": "GEMSTONE",
 			"quantity": 1,
 			"config": {
 				"set": 6,
@@ -957,7 +957,7 @@
 			}
 		},
 		{
-			"type": "PROPERTY",
+			"type": "GEMSTONE",
 			"quantity": 1,
 			"config": {
 				"set": 6,
@@ -981,7 +981,7 @@
 			}
 		},
 		{
-			"type": "PROPERTY",
+			"type": "GEMSTONE",
 			"quantity": 1,
 			"config": {
 				"set": 7,
@@ -1005,7 +1005,7 @@
 			}
 		},
 		{
-			"type": "PROPERTY",
+			"type": "GEMSTONE",
 			"quantity": 1,
 			"config": {
 				"set": 7,
@@ -1029,7 +1029,7 @@
 			}
 		},
 		{
-			"type": "PROPERTY",
+			"type": "GEMSTONE",
 			"quantity": 1,
 			"config": {
 				"set": 7,
@@ -1053,7 +1053,7 @@
 			}
 		},
 		{
-			"type": "PROPERTY",
+			"type": "GEMSTONE",
 			"quantity": 1,
 			"config": {
 				"set": 8,
@@ -1073,7 +1073,7 @@
 			}
 		},
 		{
-			"type": "PROPERTY",
+			"type": "GEMSTONE",
 			"quantity": 1,
 			"config": {
 				"set": 8,
@@ -1093,7 +1093,7 @@
 			}
 		},
 		{
-			"type": "PROPERTY",
+			"type": "GEMSTONE",
 			"quantity": 1,
 			"config": {
 				"set": 9,
@@ -1113,7 +1113,7 @@
 			}
 		},
 		{
-			"type": "PROPERTY",
+			"type": "GEMSTONE",
 			"quantity": 1,
 			"config": {
 				"set": 9,
@@ -1133,7 +1133,7 @@
 			}
 		},
 		{
-			"type": "PROPERTY",
+			"type": "GEMSTONE",
 			"quantity": 1,
 			"config": {
 				"set": 10,
@@ -1161,7 +1161,7 @@
 			}
 		},
 		{
-			"type": "PROPERTY",
+			"type": "GEMSTONE",
 			"quantity": 1,
 			"config": {
 				"set": 10,
@@ -1189,7 +1189,7 @@
 			}
 		},
 		{
-			"type": "PROPERTY",
+			"type": "GEMSTONE",
 			"quantity": 1,
 			"config": {
 				"set": 10,
@@ -1217,7 +1217,7 @@
 			}
 		},
 		{
-			"type": "PROPERTY",
+			"type": "GEMSTONE",
 			"quantity": 1,
 			"config": {
 				"set": 10,

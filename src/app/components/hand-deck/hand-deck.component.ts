@@ -16,7 +16,7 @@ import { DeckCardComponent } from '../deck-card/deck-card.component';
 import { PlayerDataService } from '../../services/player-data.service';
 
 @Component({
-	selector: 'mc-hand-deck',
+	selector: 'gs-hand-deck',
 	templateUrl: './hand-deck.component.html',
 	styleUrls: ['./hand-deck.component.scss'],
 })

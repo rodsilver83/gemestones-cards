@@ -7,7 +7,7 @@
 .sets__container {
 	@extend .flex-center;
 	flex-wrap: wrap;
-	justify-content: space-around;
+	justify-content: space-evenly;
 }
 
 .set__container {

@@ -9,7 +9,7 @@ import { take } from 'rxjs/operators';
 import { ConnData, ConnDataType } from 'src/app/classes/conn-data';
 
 @Component({
-	selector: 'mc-host',
+	selector: 'gs-host',
 	templateUrl: './host.component.html',
 	styleUrls: ['./host.component.scss'],
 })

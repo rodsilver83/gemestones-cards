@@ -1,19 +1,18 @@
+import { CardColorsService } from './../../../services/card-colors.service';
+import { Card, CardType, CardPlace } from 'src/app/classes/card';
 import {
 	Component,
 	OnInit,
 	Input,
 	ChangeDetectorRef,
 	HostListener,
-	HostBinding,
 } from '@angular/core';
-import { Card, CardType } from 'src/app/classes/card';
-import { CardColorsService } from 'src/app/services/card-colors.service';
 import { PlayerDataService } from 'src/app/services/player-data.service';
-import { PropertyCard } from 'src/app/classes/property-card';
-import { PropertyWildCard } from 'src/app/classes/property-wild-card';
+import { GemstoneCard } from 'src/app/classes/gemstone-card';
+import { GemstoneWildCard } from 'src/app/classes/gemstone-wild-card';
 
 @Component({
-	selector: 'mc-card',
+	selector: 'gs-card',
 	templateUrl: './card.component.html',
 	styleUrls: ['./card.component.scss'],
 })
@@ -31,7 +30,23 @@ export class CardComponent implements OnInit {
 	public showInfo = false;
 	public clicked = false;
 	public toggleCardClick = false;
+	public toggleCardRotate = false;
 	public readonly CardType = CardType;
+
+	get isInHand(): boolean {
+		return this.config?.place === CardPlace.HAND;
+	}
+
+	get isInSets(): boolean {
+		return this.config?.place === CardPlace.SETS;
+	}
+
+	get isCardRotated(): boolean {
+		return (
+			this.config.type === CardType.GEMSTONEWILD &&
+			(this.config as GemstoneWildCard).isRotated
+		);
+	}
 
 	constructor(
 		private cardColor: CardColorsService,
@@ -48,11 +63,11 @@ export class CardComponent implements OnInit {
 	}
 
 	valueColor(top: boolean): string {
-		if (this.config.type === CardType.PROPERTY) {
-			return this.cardColor.getColor((this.config as PropertyCard).set);
+		if (this.config.type === CardType.GEMSTONE) {
+			return this.cardColor.getColor((this.config as GemstoneCard).set);
 		} else {
-			if (this.config.type === CardType.PROPERTYWILD) {
-				const property = this.config as PropertyWildCard;
+			if (this.config.type === CardType.GEMSTONEWILD) {
+				const property = this.config as GemstoneWildCard;
 				if (top) {
 					return this.cardColor.getColor(property.propertyA.set);
 				} else {
@@ -65,14 +80,14 @@ export class CardComponent implements OnInit {
 	}
 
 	valueTextColor(top: boolean): string {
-		if (this.config.type === CardType.PROPERTYWILD) {
+		if (this.config.type === CardType.GEMSTONEWILD) {
 			return top
-				? (this.config as PropertyWildCard).propertyA.textColor
-				: (this.config as PropertyWildCard).propertyB.textColor;
+				? (this.config as GemstoneWildCard).propertyA.textColor
+				: (this.config as GemstoneWildCard).propertyB.textColor;
 		}
 
-		if (this.config.type === CardType.PROPERTY) {
-			return (this.config as PropertyCard).textColor;
+		if (this.config.type === CardType.GEMSTONE) {
+			return (this.config as GemstoneCard).textColor;
 		}
 	}
 
@@ -93,6 +108,14 @@ export class CardComponent implements OnInit {
 
 	toggleCard() {
 		this.toggleCardClick = !this.toggleCardClick;
+		this.cd.detectChanges();
+	}
+
+	// Action only valid for GemstoneWildCard
+	rotateCard(event: MouseEvent) {
+		event.stopImmediatePropagation();
+		this.toggleCardRotate = !this.toggleCardRotate;
+		(this.config as GemstoneWildCard).switchActiveGemstone();
 		this.cd.detectChanges();
 	}
 }

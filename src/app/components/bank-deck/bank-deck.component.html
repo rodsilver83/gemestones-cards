@@ -9,13 +9,13 @@
 		cdkDropListOrientation="horizontal"
 		(cdkDropListDropped)="dropBank($event)"
 	>
-		<mc-deck-card
+		<gs-deck-card
 			#bankCards
 			*ngFor="let card of playerDataService.bankCards$ | async"
-			[card]="card"
+			[config]="card"
 			cdkDragLockAxis="x"
 			cdkDrag
 			cdkDragBoundary=".pg__bank"
-		></mc-deck-card>
+		></gs-deck-card>
 	</div>
 </div>

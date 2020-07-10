@@ -4,7 +4,7 @@ import { CardColorsService } from '../../../services/card-colors.service';
 import { RentCard } from '../../../classes/rent-card';
 
 @Component({
-	selector: 'mc-rent-card',
+	selector: 'gs-rent-card',
 	templateUrl: './rent-card.component.html',
 	styleUrls: ['./rent-card.component.scss'],
 })

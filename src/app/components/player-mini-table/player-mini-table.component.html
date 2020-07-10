@@ -8,11 +8,11 @@
 			</h6>
 			<div class="mini__sets-container">
 				<div *ngFor="let set of player.sets" class="mini__set-container">
-					<mc-deck-card
+					<gs-deck-card
 						class="mini__set-card"
-						[card]="card"
+						[config]="card"
 						*ngFor="let card of set"
-					></mc-deck-card>
+					></gs-deck-card>
 				</div>
 			</div>
 		</div>
@@ -22,12 +22,12 @@
 				<i class="fas fa-piggy-bank"></i> ${{ totalMoney }}
 			</h6>
 			<div class="mini__bank-list">
-				<mc-deck-card
+				<gs-deck-card
 					#bankCards
 					class="mini__bank-card"
 					*ngFor="let card of player.bankCards"
-					[card]="card"
-				></mc-deck-card>
+					[config]="card"
+				></gs-deck-card>
 			</div>
 		</div>
 	</div>

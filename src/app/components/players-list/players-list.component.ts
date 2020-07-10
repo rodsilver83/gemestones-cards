@@ -4,7 +4,7 @@ import { GamePlayersService } from './../../services/game-players.service';
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 
 @Component({
-	selector: 'mc-players-list',
+	selector: 'gs-players-list',
 	templateUrl: './players-list.component.html',
 	styleUrls: ['./players-list.component.scss'],
 })

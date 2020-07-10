@@ -1,39 +1,43 @@
-<div class="deck-card" [ngSwitch]="card?.type">
-	<mc-rent-card class="deck-card__card" *ngSwitchCase="'RENT'" [config]="card">
-	</mc-rent-card>
+<div class="deck-card" [ngSwitch]="config?.type">
+	<gs-rent-card
+		class="deck-card__card"
+		*ngSwitchCase="'RENT'"
+		[config]="config"
+	>
+	</gs-rent-card>
 
-	<mc-money-card
+	<gs-money-card
 		class="deck-card__card"
 		*ngSwitchCase="'MONEY'"
-		[config]="card"
+		[config]="config"
 	>
-	</mc-money-card>
+	</gs-money-card>
 
-	<mc-wild-card
+	<gs-wild-card
 		class="deck-card__card"
 		*ngSwitchCase="'WILDCARD'"
-		[config]="card"
+		[config]="config"
 	>
-	</mc-wild-card>
+	</gs-wild-card>
 
-	<mc-action-card
+	<gs-action-card
 		class="deck-card__card"
 		*ngSwitchCase="'ACTION'"
-		[config]="card"
+		[config]="config"
 	>
-	</mc-action-card>
+	</gs-action-card>
 
-	<mc-property-wild-card
+	<gs-gemstone-wild-card
 		class="deck-card__card"
-		*ngSwitchCase="'PROPERTYWILD'"
-		[config]="card"
+		*ngSwitchCase="'GEMSTONEWILD'"
+		[config]="config"
 	>
-	</mc-property-wild-card>
+	</gs-gemstone-wild-card>
 
-	<mc-property-card
+	<gs-gemstone-card
 		class="deck-card__card"
-		*ngSwitchCase="'PROPERTY'"
-		[config]="card"
+		*ngSwitchCase="'GEMSTONE'"
+		[config]="config"
 	>
-	</mc-property-card>
+	</gs-gemstone-card>
 </div>

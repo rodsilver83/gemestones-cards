@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 import { watch } from 'rxjs-watcher';
 
 @Component({
-	selector: 'mc-lobby',
+	selector: 'gs-lobby',
 	templateUrl: './lobby.component.html',
 	styleUrls: ['./lobby.component.scss'],
 })

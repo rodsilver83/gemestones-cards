@@ -8,7 +8,7 @@ import { PlayerDataService } from 'src/app/services/player-data.service';
 import { ConnData, ConnDataType } from 'src/app/classes/conn-data';
 
 @Component({
-	selector: 'mc-room-player',
+	selector: 'gs-room-player',
 	templateUrl: './room-player.component.html',
 	styleUrls: ['./room-player.component.scss'],
 })

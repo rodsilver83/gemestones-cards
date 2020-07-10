@@ -3,11 +3,11 @@
 	<section class="message-body px-0 py-0">
 		<div class="players__container">
 			<div class="players__list">
-				<mc-player-mini-table
+				<gs-player-mini-table
 					*ngFor="let player of gamePlayersService.otherPlayers$ | async"
 					(click)="openModal(player)"
 					[player]="player"
-				></mc-player-mini-table>
+				></gs-player-mini-table>
 			</div>
 		</div>
 	</section>
@@ -15,11 +15,11 @@
 
 <div class="modal is-clipped" [class.is-active]="modalActive && playerModal">
 	<div class="modal-background" (click)="closeModal()"></div>
-	<mc-player-mini-table
+	<gs-player-mini-table
 		*ngIf="playerModal"
 		class="players__modal-mini"
 		[player]="playerModal"
-	></mc-player-mini-table>
+	></gs-player-mini-table>
 	<button
 		(click)="closeModal()"
 		class="modal-close is-large"

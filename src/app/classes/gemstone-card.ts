@@ -1,13 +1,12 @@
 import { Card, CardType } from './card';
 import { Rent } from './rent';
 
-export class PropertyCard extends Card {
+export class GemstoneCard extends Card {
 	public name = '';
 	public color = '';
 	public textColor = '';
-	public set = 0;
 	public rents = Array<Rent>();
-	public type = CardType.PROPERTY;
+	public type = CardType.GEMSTONE;
 
 	constructor(
 		...args: {

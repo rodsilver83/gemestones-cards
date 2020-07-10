@@ -3,12 +3,12 @@ import { DeckService } from '../../services/deck.service';
 import { Card } from '../../classes/card';
 
 @Component({
-	selector: 'mc-deck-card',
+	selector: 'gs-deck-card',
 	templateUrl: './deck-card.component.html',
 	styleUrls: ['./deck-card.component.scss'],
 })
 export class DeckCardComponent {
-	@Input() public card: Card;
+	@Input() public config: Card;
 
 	constructor(private deckService: DeckService, public el: ElementRef) {}
 }

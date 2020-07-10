@@ -1,6 +1,6 @@
 @import '../../../../styles.scss';
 
-.property-wild-card__main {
+.gemstone-wild-card__main {
 	font-weight: bold;
 	width: 100%;
 	text-align: center;
@@ -9,7 +9,7 @@
 	border-radius: 15px * $scale 15px * $scale 0 0;
 }
 
-.property-wild-card__rent {
+.gemstone-wild-card__rent {
 	width: 100%;
 	padding-top: 5px * $scale;
 	height: 100%;
@@ -17,14 +17,14 @@
 	padding: 8px * $scale;
 }
 
-.property-wild-card__rent-row {
+.gemstone-wild-card__rent-row {
 	display: flex;
 	align-items: center;
 	justify-content: flex-end;
 	margin-bottom: 5px * $scale;
 }
 
-.property-wild-card__card {
+.gemstone-wild-card__card {
 	position: relative;
 	margin-right: 20px * $scale;
 	border: 2px * $scale solid;
@@ -35,7 +35,7 @@
 	text-align: center;
 }
 
-.property-wild-card__rent-title {
+.gemstone-wild-card__rent-title {
 	text-align: center;
 	width: 40%;
 }
@@ -52,7 +52,7 @@
 	transform: rotate(180deg);
 }
 
-.property-wild-card__rent-value {
+.gemstone-wild-card__rent-value {
 	width: 30px * $scale;
 	line-height: 20px * $scale;
 }

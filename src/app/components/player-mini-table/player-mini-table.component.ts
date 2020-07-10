@@ -13,7 +13,7 @@ import {
 } from '@angular/core';
 
 @Component({
-	selector: 'mc-player-mini-table',
+	selector: 'gs-player-mini-table',
 	templateUrl: './player-mini-table.component.html',
 	styleUrls: ['./player-mini-table.component.scss'],
 })
@@ -35,7 +35,7 @@ export class PlayerMiniTableComponent implements OnInit {
 
 	get totalMoney(): number {
 		return this.bankCards?.reduce((prevValue, card: DeckCardComponent) => {
-			return prevValue + card.card.value;
+			return prevValue + card.config.value;
 		}, 0);
 	}
 

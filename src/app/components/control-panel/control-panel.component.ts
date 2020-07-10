@@ -4,7 +4,7 @@ import { Card } from '../../classes/card';
 import { Component, OnInit, Input, ChangeDetectorRef } from '@angular/core';
 
 @Component({
-	selector: 'mc-control-panel',
+	selector: 'gs-control-panel',
 	templateUrl: './control-panel.component.html',
 	styleUrls: ['./control-panel.component.scss'],
 })

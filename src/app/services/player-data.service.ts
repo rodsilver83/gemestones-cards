@@ -1,3 +1,5 @@
+import { GemstoneWildCard } from './../classes/gemstone-wild-card';
+import { CardType, CardPlace } from './../classes/card';
 import { DeckService } from './deck.service';
 import { Card } from '../classes/card';
 import { BehaviorSubject } from 'rxjs';
@@ -13,14 +15,23 @@ export class PlayerDataService {
 
 	public readonly handCards$: BehaviorSubject<Card[]> = new BehaviorSubject([]);
 	public readonly bankCards$: BehaviorSubject<Card[]> = new BehaviorSubject([]);
-	public readonly playCards$: BehaviorSubject<Card[]> = new BehaviorSubject([]);
 	public readonly sets$: BehaviorSubject<Card[][]> = new BehaviorSubject([]);
 
 	set playerCards(player: Player) {
 		this.player = player;
+		this.player.handCards.forEach((card: Card) => {
+			card.place = CardPlace.HAND;
+		});
 		this.handCards$.next(player.handCards);
+		this.player.bankCards.forEach((card: Card) => {
+			card.place = CardPlace.BANK;
+		});
 		this.bankCards$.next(player.bankCards);
-		this.playCards$.next(player.playCards);
+		this.player.sets.forEach((set: Card[]) => {
+			set.forEach((card: Card) => {
+				card.place = CardPlace.SETS;
+			});
+		});
 		this.sets$.next(player.sets);
 	}
 
@@ -69,14 +80,47 @@ export class PlayerDataService {
 		const index = this.player.handCards.findIndex((card: Card) => {
 			return card.id === id;
 		});
+		const card = this.player.handCards[index];
+		let setCard = 0;
+		switch (card.type) {
+			case CardType.GEMSTONE:
+				setCard = this.player.sets.findIndex((set: Card[]) => {
+					if (set[0].type === CardType.GEMSTONE) {
+						return card.set === set[0].set;
+					}
+					if (set[0].type === CardType.GEMSTONEWILD) {
+						return (set[0] as GemstoneWildCard).activeGemstoneSet === card.set;
+					}
+				});
+				break;
+			case CardType.GEMSTONEWILD:
+				setCard = this.player.sets.findIndex((set: Card[]) => {
+					if (set[0].type === CardType.GEMSTONE) {
+						return (card as GemstoneWildCard).activeGemstoneSet === set[0].set;
+					}
+					if (set[0].type === CardType.GEMSTONEWILD) {
+						return (
+							(set[0] as GemstoneWildCard).activeGemstoneSet ===
+							(card as GemstoneWildCard).activeGemstoneSet
+						);
+					}
+				});
+				break;
+			case CardType.WILDCARD:
+				setCard = 0;
+				break;
+		}
 
-		this.player.sets.push([]);
+		if (setCard === -1 || this.player.sets.length === 0) {
+			this.player.sets.push([]);
+			setCard = this.player.sets.length - 1;
+		}
 
 		transferArrayItem(
 			this.player.handCards,
-			this.player.sets[this.player.sets.length - 1],
+			this.player.sets[setCard],
 			index,
-			0
+			this.player.sets[setCard].length
 		);
 
 		this.playerCards = this.player;

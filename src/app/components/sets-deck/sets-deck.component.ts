@@ -8,7 +8,7 @@ import {
 } from '@angular/cdk/drag-drop';
 
 @Component({
-	selector: 'mc-sets-deck',
+	selector: 'gs-sets-deck',
 	templateUrl: './sets-deck.component.html',
 	styleUrls: ['./sets-deck.component.scss'],
 })

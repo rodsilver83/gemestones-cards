@@ -51,7 +51,8 @@ $set10-color: #231f20;
 }
 
 .cdk-drag-placeholder {
-	opacity: 0;
+	// opacity: 0;
+	z-index: 20000;
 }
 
 .cdk-drag-animating {

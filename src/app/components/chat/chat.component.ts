@@ -20,7 +20,7 @@ class Message {
 }
 
 @Component({
-	selector: 'mc-chat',
+	selector: 'gs-chat',
 	templateUrl: './chat.component.html',
 	styleUrls: ['./chat.component.scss'],
 })

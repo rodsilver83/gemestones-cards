@@ -1,6 +1,6 @@
 @import '../../../../styles.scss';
 
-.property-card__main {
+.gemstone-card__main {
 	font-size: 1rem * $scale;
 	font-weight: bold;
 	width: 100%;
@@ -14,12 +14,12 @@
 	border-radius: 15px * $scale 15px * $scale 0 0;
 }
 
-.property-card__icon {
+.gemstone-card__icon {
 	align-self: flex-end;
 	padding: 8px * $scale;
 }
 
-.property-card__rent {
+.gemstone-card__rent {
 	width: 100%;
 	padding-bottom: 15px * $scale;
 	height: 100%;
@@ -30,18 +30,18 @@
 	justify-content: space-evenly;
 }
 
-.property-card__rent-row {
+.gemstone-card__rent-row {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	padding: 0 40px * $scale;
 
-	&.property-card__rent-row_width {
+	&.gemstone-card__rent-row_width {
 		width: 100%;
 	}
 }
 
-.property-card__card {
+.gemstone-card__card {
 	// position: relative;
 	// margin-right: 20px * $scale;
 	// border: 2px * $scale solid;
@@ -52,12 +52,12 @@
 	text-align: center;
 }
 
-.property-card__rent-title {
+.gemstone-card__rent-title {
 	text-align: center;
 	width: 100%;
 }
 
-.property-card__rent-value {
+.gemstone-card__rent-value {
 	width: 30px * $scale;
 	line-height: 20px * $scale;
 }

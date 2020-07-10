@@ -4,13 +4,13 @@
 	@extend .flex-center;
 	overflow-x: auto;
 	width: 100%;
-	justify-content: start;
+	justify-content: flex-start;
 	padding: 20px;
 }
 
 .players__list {
 	@extend .flex-center;
-	justify-content: start;
+	justify-content: flex-start;
 	align-items: stretch;
 }
 

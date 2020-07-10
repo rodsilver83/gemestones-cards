@@ -11,13 +11,13 @@
 			[cdkDropListData]="set"
 			(cdkDropListDropped)="drop($event)"
 		>
-			<mc-deck-card
+			<gs-deck-card
 				class="set__card"
-				[card]="card"
+				[config]="card"
 				cdkDrag
 				cdkDragBoundary=".sets__table"
 				*ngFor="let card of set"
-			></mc-deck-card>
+			></gs-deck-card>
 		</div>
 	</div>
 </div>

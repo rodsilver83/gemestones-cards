@@ -4,7 +4,7 @@ import { CardColorsService } from '../../../services/card-colors.service';
 import { WildCard } from '../../../classes/wild-card';
 
 @Component({
-	selector: 'mc-wild-card',
+	selector: 'gs-wild-card',
 	templateUrl: './wild-card.component.html',
 	styleUrls: ['./wild-card.component.scss'],
 })

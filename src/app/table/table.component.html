@@ -2,19 +2,19 @@
 	<div class="tile is-ancestor">
 		<div class="tile is-parent is-vertical table__control-panel">
 			<div class="tile is-child table__control-panel-container">
-				<mc-control-panel>
+				<gs-control-panel>
 					<ng-content host-panel select="[host-panel]"></ng-content>
-				</mc-control-panel>
+				</gs-control-panel>
 			</div>
 
 			<div class="tile is-child">
-				<mc-chat></mc-chat>
+				<gs-chat></gs-chat>
 			</div>
 		</div>
 
 		<div class="tile is-parent is-vertical table__players">
 			<div class="tile is-child">
-				<mc-players-list></mc-players-list>
+				<gs-players-list></gs-players-list>
 			</div>
 
 			<div class="tile is-child">
@@ -23,16 +23,16 @@
 						Your game: {{ playerDataService.playerName }}
 					</h2>
 					<section class="message-body">
-						<mc-hand-deck></mc-hand-deck>
+						<gs-hand-deck></gs-hand-deck>
 						<div class="tile is-ancestor">
 							<div class="tile is-parent">
 								<div class="tile is-child">
-									<mc-sets-deck></mc-sets-deck>
+									<gs-sets-deck></gs-sets-deck>
 								</div>
 							</div>
 							<div class="tile is-parent table__bank-container">
 								<div class="tile is-child">
-									<mc-bank-deck></mc-bank-deck>
+									<gs-bank-deck></gs-bank-deck>
 								</div>
 							</div>
 						</div>
