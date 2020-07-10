@@ -17,7 +17,7 @@
 				"value": 4,
 				"propertyA": {
 					"set": 8,
-					"textColor": "#000000",
+					"textColor": "#fafafa",
 					"bgColor": "#FFFFFF",
 					"name": "COMODIN",
 					"rents": [
@@ -33,7 +33,7 @@
 				},
 				"propertyB": {
 					"set": 7,
-					"textColor": "#000000",
+					"textColor": "#fafafa",
 					"bgColor": "#FFFFFF",
 					"name": "COMODIN",
 					"rents": [
@@ -60,7 +60,7 @@
 				"value": 1,
 				"propertyA": {
 					"set": 2,
-					"textColor": "#000000",
+					"textColor": "#fafafa",
 					"bgColor": "#FFFFFF",
 					"name": "COMODIN",
 					"rents": [
@@ -80,7 +80,7 @@
 				},
 				"propertyB": {
 					"set": 1,
-					"textColor": "#FFFFFF",
+					"textColor": "#fafafa",
 					"bgColor": "#FFFFFF",
 					"name": "COMODIN",
 					"rents": [
@@ -103,7 +103,7 @@
 				"value": 2,
 				"propertyA": {
 					"set": 4,
-					"textColor": "#000000",
+					"textColor": "#fafafa",
 					"bgColor": "#FFFFFF",
 					"name": "COMODIN",
 					"rents": [
@@ -123,7 +123,7 @@
 				},
 				"propertyB": {
 					"set": 3,
-					"textColor": "#000000",
+					"textColor": "#fafafa",
 					"bgColor": "#FFFFFF",
 					"name": "COMODIN",
 					"rents": [
@@ -150,7 +150,7 @@
 				"value": 2,
 				"propertyA": {
 					"set": 7,
-					"textColor": "#FFFFFF",
+					"textColor": "#fafafa",
 					"bgColor": "#FFFFFF",
 					"name": "COMODIN",
 					"rents": [
@@ -170,7 +170,7 @@
 				},
 				"propertyB": {
 					"set": 10,
-					"textColor": "#FFFFFF",
+					"textColor": "#fafafa",
 					"bgColor": "#FFFFFF",
 					"name": "COMODIN",
 					"rents": [
@@ -201,7 +201,7 @@
 				"value": 2,
 				"propertyA": {
 					"set": 2,
-					"textColor": "#000000",
+					"textColor": "#fafafa",
 					"bgColor": "#FFFFFF",
 					"name": "COMODIN",
 					"rents": [
@@ -221,7 +221,7 @@
 				},
 				"propertyB": {
 					"set": 10,
-					"textColor": "#FFFFFF",
+					"textColor": "#fafafa",
 					"bgColor": "#FFFFFF",
 					"name": "COMODIN",
 					"rents": [
@@ -252,7 +252,7 @@
 				"value": 2,
 				"propertyA": {
 					"set": 9,
-					"textColor": "#000000",
+					"textColor": "#fafafa",
 					"bgColor": "#FFFFFF",
 					"name": "COMODIN",
 					"rents": [
@@ -268,7 +268,7 @@
 				},
 				"propertyB": {
 					"set": "10",
-					"textColor": "#FFFFFF",
+					"textColor": "#fafafa",
 					"bgColor": "#FFFFFF",
 					"name": "COMODIN",
 					"rents": [
@@ -299,7 +299,7 @@
 				"value": 2,
 				"propertyA": {
 					"set": 6,
-					"textColor": "#000000",
+					"textColor": "#fafafa",
 					"bgColor": "#FFFFFF",
 					"name": "COMODIN",
 					"rents": [
@@ -319,7 +319,7 @@
 				},
 				"propertyB": {
 					"set": 5,
-					"textColor": "#FFFFFF",
+					"textColor": "#fafafa",
 					"bgColor": "#FFFFFF",
 					"name": "COMODIN",
 					"rents": [
@@ -585,7 +585,7 @@
 			"quantity": 1,
 			"config": {
 				"set": 1,
-				"textColor": "#ffffff",
+				"textColor": "#fafafa",
 				"value": 1,
 				"name": "Mexico",
 				"rents": [
@@ -605,7 +605,7 @@
 			"quantity": 1,
 			"config": {
 				"set": 1,
-				"textColor": "#ffffff",
+				"textColor": "#fafafa",
 				"value": 1,
 				"name": "Las Vegas",
 				"rents": [
@@ -625,7 +625,7 @@
 			"quantity": 1,
 			"config": {
 				"set": 2,
-				"textColor": "#333333",
+				"textColor": "#fafafa",
 				"value": 1,
 				"name": "Sydney",
 				"rents": [
@@ -649,7 +649,7 @@
 			"quantity": 1,
 			"config": {
 				"set": 2,
-				"textColor": "#333333",
+				"textColor": "#fafafa",
 				"value": 1,
 				"name": "San Diego",
 				"rents": [
@@ -673,7 +673,7 @@
 			"quantity": 1,
 			"config": {
 				"set": 2,
-				"textColor": "#333333",
+				"textColor": "#fafafa",
 				"value": 1,
 				"name": "Hong Kong",
 				"rents": [
@@ -697,7 +697,7 @@
 			"quantity": 1,
 			"config": {
 				"set": 3,
-				"textColor": "#ffffff",
+				"textColor": "#fafafa",
 				"value": 1,
 				"name": "Doha",
 				"rents": [
@@ -721,7 +721,7 @@
 			"quantity": 1,
 			"config": {
 				"set": 3,
-				"textColor": "#ffffff",
+				"textColor": "#fafafa",
 				"value": 2,
 				"name": "Toronto",
 				"rents": [
@@ -745,7 +745,7 @@
 			"quantity": 1,
 			"config": {
 				"set": 3,
-				"textColor": "#ffffff",
+				"textColor": "#fafafa",
 				"value": 2,
 				"name": "Bijing",
 				"rents": [
@@ -769,7 +769,7 @@
 			"quantity": 1,
 			"config": {
 				"set": 4,
-				"textColor": "#333333",
+				"textColor": "#fafafa",
 				"value": 2,
 				"name": "Amsterdam",
 				"rents": [
@@ -793,7 +793,7 @@
 			"quantity": 1,
 			"config": {
 				"set": 4,
-				"textColor": "#333333",
+				"textColor": "#fafafa",
 				"value": 2,
 				"name": "Abu Dhabi",
 				"rents": [
@@ -817,7 +817,7 @@
 			"quantity": 1,
 			"config": {
 				"set": 4,
-				"textColor": "#333333",
+				"textColor": "#fafafa",
 				"value": 2,
 				"name": "Chicago",
 				"rents": [
@@ -841,7 +841,7 @@
 			"quantity": 1,
 			"config": {
 				"set": 5,
-				"textColor": "#ffffff",
+				"textColor": "#fafafa",
 				"value": 3,
 				"name": "Madrid",
 				"rents": [
@@ -865,7 +865,7 @@
 			"quantity": 1,
 			"config": {
 				"set": 5,
-				"textColor": "#ffffff",
+				"textColor": "#fafafa",
 				"value": 3,
 				"name": "Barcelona",
 				"rents": [
@@ -889,7 +889,7 @@
 			"quantity": 1,
 			"config": {
 				"set": 5,
-				"textColor": "#ffffff",
+				"textColor": "#fafafa",
 				"value": 3,
 				"name": "Roma",
 				"rents": [
@@ -913,7 +913,7 @@
 			"quantity": 1,
 			"config": {
 				"set": 6,
-				"textColor": "#333333",
+				"textColor": "#fafafa",
 				"value": 3,
 				"name": "Singapore",
 				"rents": [
@@ -937,7 +937,7 @@
 			"quantity": 1,
 			"config": {
 				"set": 6,
-				"textColor": "#333333",
+				"textColor": "#fafafa",
 				"value": 3,
 				"name": "Dubai",
 				"rents": [
@@ -961,7 +961,7 @@
 			"quantity": 1,
 			"config": {
 				"set": 6,
-				"textColor": "#333333",
+				"textColor": "#fafafa",
 				"value": 3,
 				"name": "Shanghai",
 				"rents": [
@@ -985,7 +985,7 @@
 			"quantity": 1,
 			"config": {
 				"set": 7,
-				"textColor": "#333333",
+				"textColor": "#fafafa",
 				"value": 4,
 				"name": "Tokyo",
 				"rents": [
@@ -1009,7 +1009,7 @@
 			"quantity": 1,
 			"config": {
 				"set": 7,
-				"textColor": "#333333",
+				"textColor": "#fafafa",
 				"value": 4,
 				"name": "Paris",
 				"rents": [
@@ -1033,7 +1033,7 @@
 			"quantity": 1,
 			"config": {
 				"set": 7,
-				"textColor": "#333333",
+				"textColor": "#fafafa",
 				"value": 4,
 				"name": "Moscow",
 				"rents": [
@@ -1057,7 +1057,7 @@
 			"quantity": 1,
 			"config": {
 				"set": 8,
-				"textColor": "#ffffff",
+				"textColor": "#fafafa",
 				"value": 4,
 				"name": "New York",
 				"rents": [
@@ -1077,7 +1077,7 @@
 			"quantity": 1,
 			"config": {
 				"set": 8,
-				"textColor": "#ffffff",
+				"textColor": "#fafafa",
 				"value": 4,
 				"name": "London",
 				"rents": [
@@ -1097,7 +1097,7 @@
 			"quantity": 1,
 			"config": {
 				"set": 9,
-				"textColor": "#333333",
+				"textColor": "#fafafa",
 				"value": 2,
 				"name": "Energia Solar",
 				"rents": [
@@ -1117,7 +1117,7 @@
 			"quantity": 1,
 			"config": {
 				"set": 9,
-				"textColor": "#333333",
+				"textColor": "#fafafa",
 				"value": 2,
 				"name": "Energia Eolica",
 				"rents": [
@@ -1137,7 +1137,7 @@
 			"quantity": 1,
 			"config": {
 				"set": 10,
-				"textColor": "#ffffff",
+				"textColor": "#fafafa",
 				"value": 2,
 				"name": "Delta Air",
 				"rents": [
@@ -1165,7 +1165,7 @@
 			"quantity": 1,
 			"config": {
 				"set": 10,
-				"textColor": "#ffffff",
+				"textColor": "#fafafa",
 				"value": 2,
 				"name": "Emirates Air",
 				"rents": [
@@ -1193,7 +1193,7 @@
 			"quantity": 1,
 			"config": {
 				"set": 10,
-				"textColor": "#ffffff",
+				"textColor": "#fafafa",
 				"value": 2,
 				"name": "Qantas Air",
 				"rents": [
@@ -1221,7 +1221,7 @@
 			"quantity": 1,
 			"config": {
 				"set": 10,
-				"textColor": "#ffffff",
+				"textColor": "#fafafa",
 				"value": 2,
 				"name": "Lufthansa Air",
 				"rents": [

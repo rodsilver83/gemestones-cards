@@ -1,4 +1,7 @@
-import { GemstoneWildCard } from './../classes/gemstone-wild-card';
+import {
+	GemstoneWildCard,
+	GemstoneWildOrientation,
+} from './../classes/gemstone-wild-card';
 import { CardType, CardPlace } from './../classes/card';
 import { DeckService } from './deck.service';
 import { Card } from '../classes/card';
@@ -89,19 +92,25 @@ export class PlayerDataService {
 						return card.set === set[0].set;
 					}
 					if (set[0].type === CardType.GEMSTONEWILD) {
-						return (set[0] as GemstoneWildCard).activeGemstoneSet === card.set;
+						return (
+							this.gemstoneWildActiveSet(set[0] as GemstoneWildCard) ===
+							card.set
+						);
 					}
 				});
 				break;
 			case CardType.GEMSTONEWILD:
 				setCard = this.player.sets.findIndex((set: Card[]) => {
 					if (set[0].type === CardType.GEMSTONE) {
-						return (card as GemstoneWildCard).activeGemstoneSet === set[0].set;
+						return (
+							this.gemstoneWildActiveSet(card as GemstoneWildCard) ===
+							set[0].set
+						);
 					}
 					if (set[0].type === CardType.GEMSTONEWILD) {
 						return (
-							(set[0] as GemstoneWildCard).activeGemstoneSet ===
-							(card as GemstoneWildCard).activeGemstoneSet
+							this.gemstoneWildActiveSet(set[0] as GemstoneWildCard) ===
+							this.gemstoneWildActiveSet(card as GemstoneWildCard)
 						);
 					}
 				});
@@ -124,6 +133,14 @@ export class PlayerDataService {
 		);
 
 		this.playerCards = this.player;
+	}
+
+	gemstoneWildActiveSet(card: GemstoneWildCard): number {
+		if (card.orientation === GemstoneWildOrientation.UP) {
+			return card.propertyA.set;
+		} else {
+			return card.propertyA.set;
+		}
 	}
 
 	movePile(id: number) {

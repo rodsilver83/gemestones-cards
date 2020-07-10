@@ -2,31 +2,30 @@ import { Injectable } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 
 @Injectable({
-  providedIn: 'root'
+	providedIn: 'root',
 })
 export class CardColorsService {
+	public set1 = '#955336';
+	public set2 = '#aae0f9';
+	public set3 = '#d73995';
+	public set4 = '#f7931e';
+	public set5 = '#d32f35';
+	public set6 = '#fff06c';
+	public set7 = '#30b45b';
+	public set8 = '#0072bb';
+	public set9 = '#cde7d0';
+	public set10 = '#231f20';
+	public white = '#fafafa';
+	public black = '#333333';
 
-  public set1 = '#955336';
-  public set2 = '#aae0f9';
-  public set3 = '#d73995';
-  public set4 = '#f7931e';
-  public set5 = '#d32f35';
-  public set6 = '#fff06c';
-  public set7 = '#30b45b';
-  public set8 = '#0072bb';
-  public set9 = '#cde7d0';
-  public set10 = '#231f20';
-  public white = '#fafafa';
-  public black = '#333333';
+	constructor(private sanitizer: DomSanitizer) {}
 
-  constructor(private sanitizer: DomSanitizer) { }
+	public getColor(set: number): string {
+		return this[`set${set}`];
+	}
 
-  public getColor(set: number): string {
-    return this[`set${set}`];
-  }
-
-  public getRainbowLinearGradient(direction: string) {
-    return this.sanitizer.bypassSecurityTrustStyle(`linear-gradient(
+	public getRainbowLinearGradient(direction: string) {
+		return this.sanitizer.bypassSecurityTrustStyle(`linear-gradient(
       to ${direction},
       ${this.set1} 0%,
       ${this.set1} 10%,
@@ -49,5 +48,5 @@ export class CardColorsService {
       ${this.set10} 90%,
       ${this.set10} 100%
     )`);
-  }
+	}
 }

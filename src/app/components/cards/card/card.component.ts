@@ -1,5 +1,8 @@
+import {
+	GemstoneWildOrientation,
+	GemstoneWildCard,
+} from './../../../classes/gemstone-wild-card';
 import { CardColorsService } from './../../../services/card-colors.service';
-import { Card, CardType, CardPlace } from 'src/app/classes/card';
 import {
 	Component,
 	OnInit,
@@ -7,9 +10,9 @@ import {
 	ChangeDetectorRef,
 	HostListener,
 } from '@angular/core';
+import { Card, CardType, CardPlace } from 'src/app/classes/card';
 import { PlayerDataService } from 'src/app/services/player-data.service';
 import { GemstoneCard } from 'src/app/classes/gemstone-card';
-import { GemstoneWildCard } from 'src/app/classes/gemstone-wild-card';
 
 @Component({
 	selector: 'gs-card',
@@ -19,7 +22,6 @@ import { GemstoneWildCard } from 'src/app/classes/gemstone-wild-card';
 export class CardComponent implements OnInit {
 	@Input() public config: Card;
 	@Input() public valueRotate = false;
-	// @Input() public scale = 0.5;
 
 	@HostListener('mouseleave', ['$event']) onmouseout(event: MouseEvent) {
 		this.toggleCardClick = false;
@@ -44,7 +46,8 @@ export class CardComponent implements OnInit {
 	get isCardRotated(): boolean {
 		return (
 			this.config.type === CardType.GEMSTONEWILD &&
-			(this.config as GemstoneWildCard).isRotated
+			(this.config as GemstoneWildCard).orientation ===
+				GemstoneWildOrientation.DOWN
 		);
 	}
 
@@ -115,7 +118,12 @@ export class CardComponent implements OnInit {
 	rotateCard(event: MouseEvent) {
 		event.stopImmediatePropagation();
 		this.toggleCardRotate = !this.toggleCardRotate;
-		(this.config as GemstoneWildCard).switchActiveGemstone();
+		const wildCard = this.config as GemstoneWildCard;
+		if (wildCard.orientation === GemstoneWildOrientation.UP) {
+			wildCard.orientation = GemstoneWildOrientation.DOWN;
+		} else {
+			wildCard.orientation = GemstoneWildOrientation.UP;
+		}
 		this.cd.detectChanges();
 	}
 }

@@ -1,6 +1,11 @@
 import { Card, CardType } from './card';
 import { Rent } from './rent';
 
+export enum GemstoneWildOrientation {
+	UP = 'UP',
+	DOWN = 'DOWN',
+}
+
 export class GemstoneWild {
 	public name = '';
 	public color = '';
@@ -10,19 +15,10 @@ export class GemstoneWild {
 }
 
 export class GemstoneWildCard extends Card {
-	public propertyA: GemstoneWild;
-	public propertyB: GemstoneWild;
+	public readonly propertyA: GemstoneWild;
+	public readonly propertyB: GemstoneWild;
 	public type = CardType.GEMSTONEWILD;
-
-	private activeGemstone: GemstoneWild;
-
-	get activeGemstoneSet(): number {
-		return this.activeGemstone.set;
-	}
-
-	get isRotated(): boolean {
-		return this.activeGemstone === this.propertyB;
-	}
+	public orientation: GemstoneWildOrientation;
 
 	constructor(
 		...args: {
@@ -35,12 +31,6 @@ export class GemstoneWildCard extends Card {
 	) {
 		super(...args);
 		Object.assign(this, ...args);
-		this.activeGemstone = this.propertyA;
-	}
-
-	public switchActiveGemstone() {
-		this.activeGemstone === this.propertyA
-			? (this.activeGemstone = this.propertyB)
-			: (this.activeGemstone = this.propertyA);
+		this.orientation = GemstoneWildOrientation.UP;
 	}
 }
