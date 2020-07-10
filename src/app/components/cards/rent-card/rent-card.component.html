@@ -1,7 +1,10 @@
 <gs-card [config]="config">
+	<p class="rent__title">{{ config?.title }}</p>
 	<div class="rent__container" [style.background]="backgroundColor">
-		<div class="rent__title">
-			RENT
+		<div class="rent__icon">
+			<span class="icon is-large">
+				<i class="fas fa-gem"></i>
+			</span>
 		</div>
 	</div>
 </gs-card>

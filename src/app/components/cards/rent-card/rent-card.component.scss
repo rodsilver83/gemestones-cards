@@ -4,22 +4,29 @@
 	border: 1px solid #333;
 	border-radius: 50%;
 	font-weight: bold;
-	width: 150px * $scale;
-	height: 150px * $scale;
+	width: 140px * $scale;
+	height: 140px * $scale;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 }
 
-.rent__title {
+.rent__icon {
 	border: 1px solid #333;
 	border-radius: 50%;
 	font-weight: bold;
-	width: 100px * $scale;
-	height: 100px * $scale;
+	width: 90px * $scale;
+	height: 90px * $scale;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	font-size: 1.5rem * $scale;
+	font-size: 3.5rem * $scale;
 	background: #eeeeee;
+	padding-top: 2px;
+}
+
+.rent__title {
+	font-size: $titleFontSize;
+	font-weight: bold;
+	margin: 2px;
 }

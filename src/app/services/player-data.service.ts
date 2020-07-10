@@ -135,6 +135,8 @@ export class PlayerDataService {
 		this.playerCards = this.player;
 	}
 
+	// JSON stringify looses functions and gettets in the prototype,
+	// when we use conn.send from perr.js
 	gemstoneWildActiveSet(card: GemstoneWildCard): number {
 		if (card.orientation === GemstoneWildOrientation.UP) {
 			return card.propertyA.set;

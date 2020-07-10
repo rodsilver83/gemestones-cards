@@ -13,11 +13,13 @@ export class RentCardComponent implements OnInit {
 
 	get backgroundColor() {
 		if (!this.config.wild) {
-			return this.sanitizer.bypassSecurityTrustStyle(`linear-gradient(to bottom,
-      ${this.cardColor.getColor(this.config.rentSet1)} 0%,
-      ${this.cardColor.getColor(this.config.rentSet1)} 50%,
-      ${this.cardColor.getColor(this.config.rentSet2)} 50%,
-      ${this.cardColor.getColor(this.config.rentSet2)} 100%)`);
+			return this.cardColor.getColor(this.config.rentSet1);
+			// Use for multiple colors
+			// return this.sanitizer.bypassSecurityTrustStyle(`linear-gradient(to bottom,
+			// ${this.cardColor.getColor(this.config.rentSet1)} 0%,
+			// ${this.cardColor.getColor(this.config.rentSet1)} 50%,
+			// ${this.cardColor.getColor(this.config.rentSet2)} 50%,
+			// ${this.cardColor.getColor(this.config.rentSet2)} 100%)`);
 		} else {
 			return this.cardColor.getRainbowLinearGradient('bottom');
 		}

@@ -433,9 +433,9 @@
 			"quantity": 2,
 			"config": {
 				"bgColor": "#d2ebef",
-				"title": "DOBLE RENTA",
+				"title": "DOBLE DUES",
 				"value": 1,
-				"desc": "Para jugarse con una carta de renta. Juegala al centro."
+				"desc": "Para jugarse con una carta de DUES. Juegala al centro."
 			}
 		},
 		{
@@ -510,7 +510,7 @@
 			"config": {
 				"bgColor": "#a6a6a7",
 				"value": 1,
-				"title": "RENTA",
+				"title": "DUES",
 				"wild": false,
 				"rentSet1": 7,
 				"rentSet2": 8,
@@ -523,7 +523,7 @@
 			"config": {
 				"bgColor": "#a6a6a7",
 				"value": 1,
-				"title": "RENTA",
+				"title": "DUES",
 				"wild": false,
 				"rentSet1": 1,
 				"rentSet2": 2,
@@ -536,7 +536,7 @@
 			"config": {
 				"bgColor": "#a6a6a7",
 				"value": 1,
-				"title": "RENTA",
+				"title": "DUES",
 				"wild": false,
 				"rentSet1": 3,
 				"rentSet2": 4,
@@ -549,7 +549,7 @@
 			"config": {
 				"bgColor": "#a6a6a7",
 				"value": 1,
-				"title": "RENTA",
+				"title": "DUES",
 				"wild": false,
 				"rentSet1": 5,
 				"rentSet2": 6,
@@ -562,7 +562,7 @@
 			"config": {
 				"bgColor": "#a6a6a7",
 				"value": 1,
-				"title": "RENTA",
+				"title": "DUES",
 				"wild": false,
 				"rentSet1": 9,
 				"rentSet2": 10,
@@ -576,7 +576,7 @@
 				"bgColor": "#a6a6a7",
 				"value": 3,
 				"wild": true,
-				"title": "RENTA",
+				"title": "FORTUNE",
 				"desc": "Cobra alquiler a otros jugadores por la propiedad que tu elijas."
 			}
 		},
