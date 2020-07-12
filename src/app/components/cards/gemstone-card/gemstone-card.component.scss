@@ -1,5 +1,19 @@
 @import '../../../../styles.scss';
 
+.gemstone-card__title {
+	display: flex;
+	justify-content: center;
+	line-height: 16px;
+
+	> .icon {
+		justify-self: flex-end;
+		position: absolute;
+		right: 0;
+		height: 16px;
+		font-size: 0.5rem;
+	}
+}
+
 .gemstone-card__main {
 	font-size: 1rem * $scale;
 	font-weight: bold;
@@ -42,12 +56,6 @@
 }
 
 .gemstone-card__card {
-	// position: relative;
-	// margin-right: 20px * $scale;
-	// border: 2px * $scale solid;
-	// border-radius: 5px * $scale;
-	// width: 20px * $scale;
-	// height: 25px * $scale;
 	line-height: 20px * $scale;
 	text-align: center;
 }
@@ -55,9 +63,11 @@
 .gemstone-card__rent-title {
 	text-align: center;
 	width: 100%;
+	font-size: 0.5rem;
 }
 
 .gemstone-card__rent-value {
+	@extend .flex-center;
 	width: 30px * $scale;
 	line-height: 20px * $scale;
 }

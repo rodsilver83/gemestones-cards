@@ -4,24 +4,36 @@
 		[style.background-color]="bgColor"
 		[style.color]="config?.textColor"
 	>
-		<span class="gemstone-card__title">
-			{{ config?.name }}
-		</span>
+		<div class="gemstone-card__title">
+			<span>
+				{{ config?.name }}
+			</span>
+			<span class="icon">
+				<i class="fas fa-gem"></i>
+			</span>
+		</div>
 	</div>
 	<div class="gemstone-card__rent">
 		<div class="gemstone-card__rent-row gemstone-card__rent-row_width">
-			<span class="gemstone-card__rent-title">RENT</span>
+			<span class="gemstone-card__rent-title">DUES</span>
 		</div>
 
 		<div
 			class="gemstone-card__rent-row gemstone-card__rent-row_width"
 			*ngFor="let rent of config?.rents"
 		>
-			<span class="mx-1">
-				{{ rent.houses }}
+			<span>
+				<span class="mx-1">
+					{{ rent.houses }}
+				</span>
 				<i class="fas fa-gem"></i>
 			</span>
-			<span class="gemstone-card__rent-value">$ {{ rent.rent }} </span>
+			<span class="gemstone-card__rent-value">
+				<span class="mx-1">
+					{{ rent.rent }}
+				</span>
+				<i class="fas fa-sun"></i>
+			</span>
 		</div>
 	</div>
 </gs-card>

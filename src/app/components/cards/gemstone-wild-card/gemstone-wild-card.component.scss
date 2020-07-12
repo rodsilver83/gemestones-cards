@@ -4,9 +4,16 @@
 	font-weight: bold;
 	width: 100%;
 	text-align: center;
-	line-height: 50px * $scale;
+	line-height: 16px;
 	box-sizing: content-box;
 	border-radius: 15px * $scale 15px * $scale 0 0;
+
+	> .icon {
+		position: absolute;
+		right: 0;
+		height: 16px;
+		font-size: 0.5rem;
+	}
 }
 
 .gemstone-wild-card__rent {
@@ -38,6 +45,7 @@
 .gemstone-wild-card__rent-title {
 	text-align: center;
 	width: 40%;
+	font-size: 0.5rem;
 }
 
 .property_sideA,

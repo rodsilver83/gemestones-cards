@@ -124,6 +124,11 @@ export class CardComponent implements OnInit {
 		} else {
 			wildCard.orientation = GemstoneWildOrientation.UP;
 		}
+
+		if (wildCard.place === CardPlace.SETS) {
+			this.playerService.wildCardChangeSet(wildCard);
+		}
+
 		this.cd.detectChanges();
 	}
 }

@@ -69,7 +69,6 @@ export class DeckService {
 						break;
 					case CardType.GEMSTONE: {
 						const card = new GemstoneCard(item.config as GemstoneCard);
-						card.desc = `Cada carta muestra cuántas ropiedades necesitas de ese color para completar un GRUPO	COMPLETO.`;
 						this.deckCards.push(card);
 						break;
 					}
@@ -84,7 +83,6 @@ export class DeckService {
 						break;
 					case CardType.GEMSTONEWILD: {
 						const card = new GemstoneWildCard(item.config as GemstoneWildCard);
-						card.desc = `Cada carta muestra cuántas ropiedades necesitas de ese color para completar un GRUPO	COMPLETO.`;
 						this.deckCards.push(new GemstoneWildCard(card));
 						break;
 					}

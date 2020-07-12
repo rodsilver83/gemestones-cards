@@ -6,7 +6,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class CardColorsService {
 	public set1 = '#955336';
-	public set2 = '#aae0f9';
+	public set2 = '#e0bfff';
 	public set3 = '#d73995';
 	public set4 = '#f7931e';
 	public set5 = '#d32f35';
@@ -24,13 +24,20 @@ export class CardColorsService {
 		return this[`set${set}`];
 	}
 
+	public getTextColor(set: number): string {
+		if ([2, 6, 9].includes(set)) {
+			return this.black;
+		}
+		return this.white;
+	}
+
 	public getRainbowLinearGradient(direction: string) {
 		return this.sanitizer.bypassSecurityTrustStyle(`linear-gradient(
       to ${direction},
-      ${this.set1} 0%,
-      ${this.set1} 10%,
+      ${this.set2} 0%,
       ${this.set2} 10%,
-      ${this.set2} 20%,
+      ${this.set1} 10%,
+      ${this.set1} 20%,
       ${this.set3} 20%,
       ${this.set3} 30%,
       ${this.set4} 30%,

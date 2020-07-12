@@ -35,6 +35,10 @@ export class PlayerDataService {
 				card.place = CardPlace.SETS;
 			});
 		});
+
+		this.player.sets = this.player.sets.filter((set: Card[]) => {
+			return set.length > 0;
+		});
 		this.sets$.next(player.sets);
 	}
 
@@ -84,6 +88,25 @@ export class PlayerDataService {
 			return card.id === id;
 		});
 		const card = this.player.handCards[index];
+		let setCard = this.findCardSet(card);
+
+		if (setCard === -1 || this.player.sets.length === 0) {
+			this.player.sets.push([]);
+			setCard = this.player.sets.length - 1;
+		}
+
+		transferArrayItem(
+			this.player.handCards,
+			this.player.sets[setCard],
+			index,
+			this.player.sets[setCard].length
+		);
+
+		this.playerCards = this.player;
+	}
+
+	// Returns the set index that matches the card set
+	private findCardSet(card: Card): number {
 		let setCard = 0;
 		switch (card.type) {
 			case CardType.GEMSTONE:
@@ -101,48 +124,70 @@ export class PlayerDataService {
 				break;
 			case CardType.GEMSTONEWILD:
 				setCard = this.player.sets.findIndex((set: Card[]) => {
-					if (set[0].type === CardType.GEMSTONE) {
-						return (
-							this.gemstoneWildActiveSet(card as GemstoneWildCard) ===
-							set[0].set
-						);
+					if (set[0].id !== card.id) {
+						if (set[0].type === CardType.GEMSTONE) {
+							return (
+								this.gemstoneWildActiveSet(card as GemstoneWildCard) ===
+								set[0].set
+							);
+						}
+						if (set[0].type === CardType.GEMSTONEWILD) {
+							return (
+								this.gemstoneWildActiveSet(set[0] as GemstoneWildCard) ===
+								this.gemstoneWildActiveSet(card as GemstoneWildCard)
+							);
+						}
 					}
-					if (set[0].type === CardType.GEMSTONEWILD) {
-						return (
-							this.gemstoneWildActiveSet(set[0] as GemstoneWildCard) ===
-							this.gemstoneWildActiveSet(card as GemstoneWildCard)
-						);
-					}
+					return false;
 				});
 				break;
 			case CardType.WILDCARD:
 				setCard = 0;
 				break;
 		}
-
-		if (setCard === -1 || this.player.sets.length === 0) {
-			this.player.sets.push([]);
-			setCard = this.player.sets.length - 1;
-		}
-
-		transferArrayItem(
-			this.player.handCards,
-			this.player.sets[setCard],
-			index,
-			this.player.sets[setCard].length
-		);
-
-		this.playerCards = this.player;
+		return setCard;
 	}
 
-	// JSON stringify looses functions and gettets in the prototype,
-	// when we use conn.send from perr.js
-	gemstoneWildActiveSet(card: GemstoneWildCard): number {
+	// JSON stringify looses functions, getters and setters in the prototype,
+	// when we use conn.send from peer.js
+	// so to detect the set we use the orientation here.
+	private gemstoneWildActiveSet(card: GemstoneWildCard): number {
 		if (card.orientation === GemstoneWildOrientation.UP) {
 			return card.propertyA.set;
 		} else {
-			return card.propertyA.set;
+			return card.propertyB.set;
 		}
+	}
+
+	// A wild card is in a set, and changes it value;
+	wildCardChangeSet(card: Card) {
+		// Find the card, and its set
+		let setIndex = -1,
+			cardIndex = -1;
+		setIndex = this.player.sets.findIndex((set: Card[]) => {
+			cardIndex = set.findIndex((c: Card) => {
+				return c.id === card.id;
+			});
+			if (cardIndex !== -1) {
+				return true;
+			}
+		});
+
+		let cardNewSet = this.findCardSet(card);
+
+		if (cardNewSet === -1 || this.player.sets.length === 0) {
+			this.player.sets.push([]);
+			cardNewSet = this.player.sets.length - 1;
+		}
+
+		transferArrayItem(
+			this.player.sets[setIndex],
+			this.player.sets[cardNewSet],
+			cardIndex,
+			this.player.sets[cardNewSet].length
+		);
+
+		this.playerCards = this.player;
 	}
 
 	movePile(id: number) {

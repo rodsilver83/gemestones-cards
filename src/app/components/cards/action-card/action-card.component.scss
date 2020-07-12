@@ -14,7 +14,7 @@
 
 .action-card__main {
 	font-weight: bold;
-	font-size: 1.5rem * $scale;
+	font-size: $titleFontSize;
 	margin: 5px * $scale;
 }
 
@@ -23,7 +23,7 @@
 	text-align: center;
 	font-weight: bold;
 	text-transform: uppercase;
-	font-size: $titleFontSize;
+	font-size: 1.2rem * $scale;
 
 	&.action-card__title_small {
 		font-size: 0.8rem * $scale;
