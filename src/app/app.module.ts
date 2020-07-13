@@ -24,6 +24,8 @@ import { RoomPlayerComponent } from './components/room-player/room-player.compon
 import { SetsDeckComponent } from './components/sets-deck/sets-deck.component';
 import { TableComponent } from './table/table.component';
 import { WildCardComponent } from './components/cards/wild-card/wild-card.component';
+import { HeaderComponent } from './components/header/header.component';
+import { RulesComponent } from './rules/rules.component';
 
 @NgModule({
 	declarations: [
@@ -47,6 +49,8 @@ import { WildCardComponent } from './components/cards/wild-card/wild-card.compon
 		HandDeckComponent,
 		BankDeckComponent,
 		SetsDeckComponent,
+		HeaderComponent,
+		RulesComponent,
 	],
 	imports: [
 		AppRoutingModule,

@@ -4,6 +4,7 @@
 	@extend .flex-column;
 	height: 100%;
 	min-width: 300px;
+	@include glowShadow(#00ffd9);
 }
 
 .control-panel__pile {

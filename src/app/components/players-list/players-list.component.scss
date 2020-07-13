@@ -1,5 +1,13 @@
 @import '../../../styles';
 
+$players-colors: #f14668;
+
+.players__wrappers {
+	@include glowShadow(lighten($players-colors, 10));
+	margin-bottom: 0;
+	height: 100%;
+}
+
 .players__container {
 	@extend .flex-center;
 	overflow-x: auto;

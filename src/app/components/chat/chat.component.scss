@@ -1,4 +1,24 @@
+@import '../../../styles';
+
+$chat-color: #ff7b00;
+
 .chat__board {
 	overflow: scroll;
 	flex: 1 0 200px;
+}
+
+.chat__wrapper {
+	@extend .flex-column;
+	@include glowShadow(lighten($chat-color, 10));
+
+	> .message-header {
+		background-color: $chat-color;
+	}
+	> .message-body {
+		background-color: lighten($chat-color, 40);
+	}
+
+	.input {
+		border-color: $chat-color;
+	}
 }
