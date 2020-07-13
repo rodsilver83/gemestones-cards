@@ -6,6 +6,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ConnectionService } from 'src/app/services/connection.service';
 import { PlayerDataService } from 'src/app/services/player-data.service';
 import { ConnData, ConnDataType } from 'src/app/classes/conn-data';
+import { Card } from 'src/app/classes/card';
 
 @Component({
 	selector: 'gs-room-player',
@@ -34,8 +35,12 @@ export class RoomPlayerComponent implements OnInit {
 
 		this.initConnection();
 
-		this.playerDataService.bankCards$.subscribe(() => {
+		this.playerDataService.moveCards$.subscribe(() => {
 			this.conn.sendData(ConnDataType.MOVE, this.playerDataService.localPlayer);
+		});
+
+		this.playerDataService.discarCard$.subscribe((card: Card) => {
+			this.conn.sendData(ConnDataType.DISCARD, card);
 		});
 	}
 

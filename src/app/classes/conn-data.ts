@@ -6,13 +6,14 @@ export class ConnData {
 }
 
 export enum ConnDataType {
-	MSG,
-	DEAL,
-	MOVE,
-	DRAW,
-	INFO,
-	HANDSHAKE,
-	STAUS,
-	START,
-	ERROR,
+	MSG = 'MSG',
+	DEAL = 'DEAL',
+	MOVE = 'MOVE',
+	DISCARD = 'DISCARD',
+	DRAW = 'DRAW',
+	INFO = 'INFO',
+	HANDSHAKE = 'HANDSHAKE',
+	STAUS = 'STATUS',
+	START = 'START',
+	ERROR = 'ERROR',
 }

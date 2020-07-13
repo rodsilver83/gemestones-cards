@@ -19,8 +19,10 @@ export class DeckService {
 	private jsonURL = '';
 	private deckCards: Card[] = [];
 	private pileCards: Card[] = [];
+	private discardCards: Card[] = [];
 	public deckCards$: Subject<boolean>;
 	public drawCards$: Subject<Card[]>;
+	public discardCards$: Subject<Card[]>;
 	public pileTopCard$: BehaviorSubject<Card>;
 
 	private useLocalDeckJson = true;
@@ -29,6 +31,7 @@ export class DeckService {
 		this.deckCards$ = new Subject<boolean>();
 		this.drawCards$ = new Subject<Card[]>();
 		this.pileTopCard$ = new BehaviorSubject<Card>(null);
+		this.discardCards$ = new Subject<Card[]>();
 	}
 
 	getDeck() {
@@ -116,7 +119,11 @@ export class DeckService {
 
 	drawFromDeck(count: number): Card[] {
 		if (this.deckCards.length < count) {
-			return null;
+			this.deckCards.concat(this.pileCards);
+			this.pileCards = [];
+		}
+		if (this.deckCards.length < count) {
+			count = this.deckCards.length;
 		}
 		const draw: Card[] = [];
 		for (let i = 0; i < count; i++) {
@@ -128,5 +135,9 @@ export class DeckService {
 	putCardInPile(card: Card) {
 		this.pileCards.push(card);
 		this.pileTopCard$.next(card);
+	}
+
+	discardCard(card: Card) {
+		this.deckCards.push(card);
 	}
 }

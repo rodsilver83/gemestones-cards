@@ -7,6 +7,7 @@ import { PlayerDataService } from 'src/app/services/player-data.service';
 import { GamePlayersService } from 'src/app/services/game-players.service';
 import { take } from 'rxjs/operators';
 import { ConnData, ConnDataType } from 'src/app/classes/conn-data';
+import { Card } from 'src/app/classes/card';
 
 @Component({
 	selector: 'gs-host',
@@ -47,6 +48,10 @@ export class HostComponent implements OnInit {
 				this.playerDataService.localPlayer
 			);
 		});
+
+		this.playerDataService.discarCard$.subscribe((card: Card) => {
+			this.deckService.discardCard(card);
+		});
 	}
 
 	drawCard() {
@@ -83,6 +88,9 @@ export class HostComponent implements OnInit {
 				case ConnDataType.MOVE:
 					this.conn.sendDataClients(ConnDataType.MOVE, data.data, data.player);
 					this.gamePlayersService.updatePlayerCards(data.data);
+					break;
+				case ConnDataType.DISCARD:
+					this.deckService.discardCard(data.data);
 					break;
 			}
 			this.cd.detectChanges();

@@ -5,7 +5,7 @@ import {
 import { CardType, CardPlace } from './../classes/card';
 import { DeckService } from './deck.service';
 import { Card } from '../classes/card';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
 import { Player } from '../classes/player';
 import { Injectable } from '@angular/core';
 import { transferArrayItem, moveItemInArray } from '@angular/cdk/drag-drop';
@@ -18,6 +18,8 @@ export class PlayerDataService {
 
 	public readonly handCards$: BehaviorSubject<Card[]> = new BehaviorSubject([]);
 	public readonly bankCards$: BehaviorSubject<Card[]> = new BehaviorSubject([]);
+	public readonly moveCards$: Subject<Player> = new Subject();
+	public readonly discarCard$: Subject<Card> = new Subject();
 	public readonly sets$: BehaviorSubject<Card[][]> = new BehaviorSubject([]);
 
 	set playerCards(player: Player) {
@@ -25,21 +27,20 @@ export class PlayerDataService {
 		this.player.handCards.forEach((card: Card) => {
 			card.place = CardPlace.HAND;
 		});
-		this.handCards$.next(player.handCards);
 		this.player.bankCards.forEach((card: Card) => {
 			card.place = CardPlace.BANK;
 		});
-		this.bankCards$.next(player.bankCards);
 		this.player.sets.forEach((set: Card[]) => {
 			set.forEach((card: Card) => {
 				card.place = CardPlace.SETS;
 			});
 		});
 
-		this.player.sets = this.player.sets.filter((set: Card[]) => {
-			return set.length > 0;
-		});
+		// We need to refactor this not every subject needs to be triggered.
+		this.bankCards$.next(player.bankCards);
+		this.handCards$.next(player.handCards);
 		this.sets$.next(player.sets);
+		this.moveCards$.next(this.localPlayer);
 	}
 
 	get playerName(): string {
@@ -101,6 +102,8 @@ export class PlayerDataService {
 			index,
 			this.player.sets[setCard].length
 		);
+
+		this.deleteEmptySets();
 
 		this.playerCards = this.player;
 	}
@@ -187,6 +190,8 @@ export class PlayerDataService {
 			this.player.sets[cardNewSet].length
 		);
 
+		this.deleteEmptySets();
+
 		this.playerCards = this.player;
 	}
 
@@ -207,6 +212,25 @@ export class PlayerDataService {
 			return set.length > 0;
 		});
 
+		this.playerCards = this.player;
+	}
+
+	discardCard(card: Card) {
+		if (card.place === CardPlace.HAND) {
+			this.player.handCards = this.player.handCards.filter((c: Card) => {
+				return c.id !== card.id;
+			});
+		}
+
+		if (card.place === CardPlace.SETS) {
+			this.player.sets = this.player.sets.filter((set: Card[]) => {
+				return set.filter((c: Card) => {
+					return c.id !== card.id;
+				});
+			});
+		}
+		card.place = CardPlace.DISCARD;
+		this.discarCard$.next(card);
 		this.playerCards = this.player;
 	}
 }

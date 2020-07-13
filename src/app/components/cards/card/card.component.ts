@@ -131,4 +131,9 @@ export class CardComponent implements OnInit {
 
 		this.cd.detectChanges();
 	}
+
+	discard() {
+		this.playerService.discardCard(this.config);
+		this.cd.detectChanges();
+	}
 }

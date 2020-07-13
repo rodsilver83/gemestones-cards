@@ -47,7 +47,7 @@
 		>
 			<i class="fas fa-inbox"></i>
 		</span>
-		<span class="icon is-small" *ngIf="isInHand">
+		<span (click)="discard()" class="icon is-small" *ngIf="isInHand">
 			<i class="fas fa-recycle"></i>
 		</span>
 	</div>
