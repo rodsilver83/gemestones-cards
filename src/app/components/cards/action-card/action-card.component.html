@@ -1,5 +1,5 @@
 <gs-card [config]="config">
-	<p class="action-card__main">SPELL</p>
+	<p class="action-card__main">{{ config?.name }}</p>
 	<div class="action-card__action">
 		<i
 			*ngIf="config?.icon"

@@ -3,6 +3,7 @@ import { Rent } from './rent';
 
 export class GemstoneCard extends Card {
 	public name = '';
+	public title = '';
 	public color = '';
 	public textColor = '';
 	public rents = Array<Rent>();
@@ -17,6 +18,7 @@ export class GemstoneCard extends Card {
 			set?: number;
 			iconColor?: string;
 			name: string;
+			title: string;
 			textColor?: string;
 			desc: string;
 			rents: Array<Rent>;

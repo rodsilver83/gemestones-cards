@@ -1,30 +1,123 @@
-<h1 class="has-text-centered has-text-white is-size-1">
-	Rules
+<h1 class="has-text-centered has-text-white is-size-1 my-6">
+	<i class="fas fa-gem"></i>
+	Gemstones
+	<i class="fas fa-gem"></i>
 </h1>
 <div class="tabs is-centered">
 	<ul>
 		<li>
-			<a [routerLink]="['./']" fragment="start" class="has-text-primary"
-				>Start game</a
-			>
+			<a [routerLink]="['./']" fragment="win" class="has-text-primary">
+				How to win
+			</a>
 		</li>
-		<li><a class="has-text-primary">Cards</a></li>
 		<li>
-			<a [routerLink]="['./']" fragment="turn" class="has-text-primary"
-				>Your turn</a
-			>
+			<a [routerLink]="['./']" fragment="board" class="has-text-primary">
+				Board
+			</a>
 		</li>
-		<li><a class="has-text-primary">How to win</a></li>
+		<li>
+			<a [routerLink]="['./']" fragment="game" class="has-text-primary">
+				Game
+			</a>
+		</li>
+		<li>
+			<a [routerLink]="['./']" fragment="turn" class="has-text-primary">
+				Your turn
+			</a>
+		</li>
+		<li>
+			<a [routerLink]="['./']" fragment="cards" class="has-text-primary">
+				Cards
+			</a>
+		</li>
 	</ul>
 </div>
-<div>
-	<h2 id="start" class="has-text-centered has-text-white is-size-1">
-		Start game
-	</h2>
-	<h2 id="cards" class="has-text-centered has-text-white is-size-1">
-		Cards
-	</h2>
-	<h2 id="turn" class="has-text-centered has-text-white is-size-1">
-		Your turn
-	</h2>
+<div class="content container">
+	<section id="win">
+		<h2 class="has-text-centered has-text-white is-size-2">
+			How to win
+		</h2>
+		<p>
+			There are 2 ways to win.
+		</p>
+		<ul class="rules__list">
+			<li>
+				<p>
+					Be the first player to get 100 in your energy (
+					<i class="fas fa-bolt"></i> ) stockpile before anyone else.
+				</p>
+			</li>
+			<li>
+				<p>
+					Be the first player to get 3 complete Gemestones sets (
+					<i class="fas fa-layer-group"></i> ).
+				</p>
+			</li>
+		</ul>
+	</section>
+	<hr />
+	<section id="board">
+		<h2 class="has-text-centered has-text-white is-size-2">
+			Board
+		</h2>
+		<figure class="image flex-center">
+			<img
+				class="rules__board-img"
+				src="../../assets/images/board.png"
+				alt="board image"
+			/>
+		</figure>
+		<h3 class="is-size-4 has-text-white">Sections</h3>
+		<ul>
+			<li>
+				<p>
+					<i class="fa fa-th"></i>
+					Cards: These are the cards in your hand, only visible to you. Any new
+					cards comming form the deck will be placed here. Once a card is in
+					play it can't go back to the cards in hand.
+				</p>
+			</li>
+			<li>
+				<p>
+					<i class="fas fa-layer-group"></i>
+					Sets: You can place cards from your hand to complete a set. Any
+					GEMSTONE or SET that you get from other players, will be palced here.
+				</p>
+			</li>
+			<li>
+				<p>
+					<i class="fas fa-bolt"></i>
+					Energy: Collect your ENERGY cards here, reach 100 to win. If your
+					energy stock pile is EMPTY, you will have to pay with GEMSTONES.
+					<i class="fas fa-gem"></i>
+				</p>
+			</li>
+		</ul>
+		<figure class="image">
+			<img src="../../assets/images/players.png" alt="players image" />
+		</figure>
+		<h3 class="is-size-4 has-text-white">Players</h3>
+		<p>
+			This is a list of the playerswhere you can see their GEMESTONES sets they
+			hace in play, and the energy acumulated. To see more detail click the
+			thumbnail to open a detail view of a player.
+		</p>
+	</section>
+	<hr />
+	<section id="game">
+		<h2 class="has-text-centered has-text-white is-size-2">
+			The game
+		</h2>
+		<p>Each player gets 5 cards to begin with.</p>
+	</section>
+	<section id="turn">
+		<h2 class="has-text-centered has-text-white is-size-2">
+			Your turn
+		</h2>
+	</section>
+	<section id="cards">
+		<h2 class="has-text-centered has-text-white is-size-2">
+			Cards
+		</h2>
+	</section>
 </div>

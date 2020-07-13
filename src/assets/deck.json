@@ -348,6 +348,7 @@
 			"config": {
 				"bgColor": "#C3CFCC",
 				"title": "TRIBUTE",
+				"name": "CHARM",
 				"icon": "fas fa-hand-holding",
 				"iconColor": "#231f20",
 				"value": 3,
@@ -360,6 +361,7 @@
 			"config": {
 				"bgColor": "#b2b2da",
 				"title": "VANISH",
+				"name": "CHARM",
 				"icon": "far fa-star-half",
 				"iconColor": "#011482",
 				"value": 5,
@@ -372,10 +374,11 @@
 			"config": {
 				"bgColor": "#C2D8EC",
 				"title": "SHIELD",
+				"name": "CHARM",
 				"icon": "fas fa-shield-alt",
 				"iconColor": "#011482",
 				"value": 4,
-				"desc": "Use it anytime when someone plays a SPELL against you, (this will cancel any SPELL)."
+				"desc": "Use it anytime when someone plays a CHARM against you, (this will cancel any CHARM)."
 			}
 		},
 		{
@@ -384,6 +387,7 @@
 			"config": {
 				"bgColor": "#C2D8EC",
 				"title": "COMPEL",
+				"name": "CHARM",
 				"icon": "fas fa-handshake",
 				"iconColor": "#011482",
 				"value": 3,
@@ -396,6 +400,7 @@
 			"config": {
 				"bgColor": "#C2D8EC",
 				"title": "INFLUENCE",
+				"name": "CHARM",
 				"icon": "fas fa-comments",
 				"iconColor": "#0072bb",
 				"small": true,
@@ -409,6 +414,7 @@
 			"config": {
 				"bgColor": "#d5ecba",
 				"title": "HARVEST",
+				"name": "CHARM",
 				"icon": "fa-hands",
 				"iconColor": "#30b45b",
 				"value": 2,
@@ -422,8 +428,9 @@
 			"config": {
 				"bgColor": "#d2ebef",
 				"title": "DOBLE DUES",
+				"name": "CHARM",
 				"value": 1,
-				"desc": "Play with DUES SPELL, collect double Dues."
+				"desc": "Play with DUES CHARM, collect double Dues."
 			}
 		},
 		{
@@ -432,6 +439,7 @@
 			"config": {
 				"bgColor": "#d2ebef",
 				"title": "ABUNDANCE",
+				"name": "CHARM",
 				"small": true,
 				"icon": "fa-clone",
 				"iconColor": "#0072bb",
@@ -445,6 +453,7 @@
 			"config": {
 				"bgColor": "#d2ebef",
 				"title": "ECHO",
+				"name": "CHARM",
 				"icon": "fa-angle-double-right",
 				"iconColor": "#0072bb",
 				"value": 1,
@@ -511,7 +520,7 @@
 			"config": {
 				"bgColor": "#cecece",
 				"value": 1,
-				"title": "DUES",
+				"title": "CHARGE",
 				"wild": false,
 				"rentSet1": 7,
 				"desc": "Collect money from other players, for your Gemstones that match the color of the card."
@@ -523,7 +532,7 @@
 			"config": {
 				"bgColor": "#cecece",
 				"value": 1,
-				"title": "DUES",
+				"title": "CHARGE",
 				"wild": false,
 				"rentSet1": 8,
 				"desc": "Collect money from other players, for your Gemstones that match the color of the card."
@@ -535,7 +544,7 @@
 			"config": {
 				"bgColor": "#cecece",
 				"value": 1,
-				"title": "DUES",
+				"title": "CHARGE",
 				"wild": false,
 				"rentSet1": 1,
 				"desc": "Collect money from other players, for your Gemstones that match the color of the card."
@@ -547,7 +556,7 @@
 			"config": {
 				"bgColor": "#cecece",
 				"value": 1,
-				"title": "DUES",
+				"title": "CHARGE",
 				"wild": false,
 				"rentSet1": 2,
 				"desc": "Collect money from other players, for your Gemstones that match the color of the card."
@@ -559,7 +568,7 @@
 			"config": {
 				"bgColor": "#cecece",
 				"value": 1,
-				"title": "DUES",
+				"title": "CHARGE",
 				"wild": false,
 				"rentSet1": 3,
 				"desc": "Collect money from other players, for your Gemstones that match the color of the card."
@@ -571,7 +580,7 @@
 			"config": {
 				"bgColor": "#cecece",
 				"value": 1,
-				"title": "DUES",
+				"title": "CHARGE",
 				"wild": false,
 				"rentSet1": 4,
 				"desc": "Collect money from other players, for your Gemstones that match the color of the card."
@@ -583,7 +592,7 @@
 			"config": {
 				"bgColor": "#cecece",
 				"value": 1,
-				"title": "DUES",
+				"title": "CHARGE",
 				"wild": false,
 				"rentSet1": 5,
 				"desc": "Collect money from other players, for your Gemstones that match the color of the card."
@@ -595,7 +604,7 @@
 			"config": {
 				"bgColor": "#cecece",
 				"value": 1,
-				"title": "DUES",
+				"title": "CHARGE",
 				"wild": false,
 				"rentSet1": 6,
 				"desc": "Collect money from other players, for your Gemstones that match the color of the card."
@@ -607,7 +616,7 @@
 			"config": {
 				"bgColor": "#cecece",
 				"value": 1,
-				"title": "DUES",
+				"title": "CHARGE",
 				"wild": false,
 				"rentSet1": 9,
 				"desc": "Collect money from other players, for your Gemstones that match the color of the card."
@@ -619,7 +628,7 @@
 			"config": {
 				"bgColor": "#cecece",
 				"value": 1,
-				"title": "DUES",
+				"title": "CHARGE",
 				"wild": false,
 				"rentSet1": 10,
 				"desc": "Collect money from other players, for your GEMSTONE SET that match the color of the card."
@@ -645,6 +654,7 @@
 				"textColor": "#fafafa",
 				"value": 1,
 				"name": "Tiger's Eye",
+				"title": "CHARGE",
 				"rents": [
 					{
 						"houses": 1,
@@ -670,6 +680,7 @@
 				"textColor": "#fafafa",
 				"value": 1,
 				"name": "Smoky",
+				"title": "CHARGE",
 				"rents": [
 					{
 						"houses": 1,
@@ -695,6 +706,7 @@
 				"textColor": "#fafafa",
 				"value": 1,
 				"name": "Agate",
+				"title": "CHARGE",
 				"rents": [
 					{
 						"houses": 1,
@@ -720,6 +732,7 @@
 				"textColor": "#333333",
 				"value": 1,
 				"name": "Amethyst",
+				"title": "CHARGE",
 				"rents": [
 					{
 						"houses": 1,
@@ -745,6 +758,7 @@
 				"textColor": "#333333",
 				"value": 1,
 				"name": "Charoite",
+				"title": "CHARGE",
 				"rents": [
 					{
 						"houses": 1,
@@ -770,6 +784,7 @@
 				"textColor": "#333333",
 				"value": 1,
 				"name": "Tanzanite",
+				"title": "CHARGE",
 				"rents": [
 					{
 						"houses": 1,
@@ -795,6 +810,7 @@
 				"textColor": "#fafafa",
 				"value": 1,
 				"name": "Kunzite",
+				"title": "CHARGE",
 				"rents": [
 					{
 						"houses": 1,
@@ -820,6 +836,7 @@
 				"textColor": "#fafafa",
 				"value": 2,
 				"name": "Morganite",
+				"title": "CHARGE",
 				"rents": [
 					{
 						"houses": 1,
@@ -845,6 +862,7 @@
 				"textColor": "#fafafa",
 				"value": 2,
 				"name": "Malaya",
+				"title": "CHARGE",
 				"rents": [
 					{
 						"houses": 1,
@@ -870,6 +888,7 @@
 				"textColor": "#333333",
 				"value": 2,
 				"name": "Citrine",
+				"title": "CHARGE",
 				"rents": [
 					{
 						"houses": 1,
@@ -895,6 +914,7 @@
 				"textColor": "#333333",
 				"value": 2,
 				"name": "Hessonite",
+				"title": "CHARGE",
 				"rents": [
 					{
 						"houses": 1,
@@ -920,6 +940,7 @@
 				"textColor": "#333333",
 				"value": 2,
 				"name": "Sunstone",
+				"title": "CHARGE",
 				"rents": [
 					{
 						"houses": 1,
@@ -945,6 +966,7 @@
 				"textColor": "#fafafa",
 				"value": 3,
 				"name": "Ruby",
+				"title": "CHARGE",
 				"rents": [
 					{
 						"houses": 1,
@@ -970,6 +992,7 @@
 				"textColor": "#fafafa",
 				"value": 3,
 				"name": "Almandine",
+				"title": "CHARGE",
 				"rents": [
 					{
 						"houses": 1,
@@ -995,6 +1018,7 @@
 				"textColor": "#fafafa",
 				"value": 3,
 				"name": "Andesine",
+				"title": "CHARGE",
 				"rents": [
 					{
 						"houses": 1,
@@ -1020,6 +1044,7 @@
 				"textColor": "#333333",
 				"value": 3,
 				"name": "Mali",
+				"title": "CHARGE",
 				"rents": [
 					{
 						"houses": 1,
@@ -1045,6 +1070,7 @@
 				"textColor": "#333333",
 				"value": 3,
 				"name": "Star",
+				"title": "CHARGE",
 				"rents": [
 					{
 						"houses": 1,
@@ -1070,6 +1096,7 @@
 				"textColor": "#333333",
 				"value": 3,
 				"name": "Cat's Eye",
+				"title": "CHARGE",
 				"rents": [
 					{
 						"houses": 1,
@@ -1095,6 +1122,7 @@
 				"textColor": "#333333",
 				"value": 4,
 				"name": "Emerald",
+				"title": "CHARGE",
 				"rents": [
 					{
 						"houses": 1,
@@ -1120,6 +1148,7 @@
 				"textColor": "#333333",
 				"value": 4,
 				"name": "Peridot",
+				"title": "CHARGE",
 				"rents": [
 					{
 						"houses": 1,
@@ -1145,6 +1174,7 @@
 				"textColor": "#333333",
 				"value": 4,
 				"name": "Prehnite",
+				"title": "CHARGE",
 				"rents": [
 					{
 						"houses": 1,
@@ -1170,6 +1200,7 @@
 				"textColor": "#fafafa",
 				"value": 4,
 				"name": "Iolite",
+				"title": "CHARGE",
 				"rents": [
 					{
 						"houses": 1,
@@ -1195,6 +1226,7 @@
 				"textColor": "#fafafa",
 				"value": 4,
 				"name": "Sapphire",
+				"title": "CHARGE",
 				"rents": [
 					{
 						"houses": 1,
@@ -1220,6 +1252,7 @@
 				"textColor": "#fafafa",
 				"value": 4,
 				"name": "Larimar",
+				"title": "CHARGE",
 				"rents": [
 					{
 						"houses": 1,
@@ -1245,6 +1278,7 @@
 				"textColor": "#333333",
 				"value": 2,
 				"name": "Hematite",
+				"title": "CHARGE",
 				"rents": [
 					{
 						"houses": 1,
@@ -1270,6 +1304,7 @@
 				"textColor": "#333333",
 				"value": 2,
 				"name": "Pearl",
+				"title": "CHARGE",
 				"rents": [
 					{
 						"houses": 1,
@@ -1295,6 +1330,7 @@
 				"textColor": "#333333",
 				"value": 2,
 				"name": "Pirite",
+				"title": "CHARGE",
 				"rents": [
 					{
 						"houses": 1,
@@ -1320,6 +1356,7 @@
 				"textColor": "#fafafa",
 				"value": 2,
 				"name": "Obsidian",
+				"title": "CHARGE",
 				"rents": [
 					{
 						"houses": 1,
@@ -1345,6 +1382,7 @@
 				"textColor": "#fafafa",
 				"value": 2,
 				"name": "Jasper",
+				"title": "CHARGE",
 				"rents": [
 					{
 						"houses": 1,
@@ -1370,6 +1408,7 @@
 				"textColor": "#fafafa",
 				"value": 2,
 				"name": "Scapolite",
+				"title": "CHARGE",
 				"rents": [
 					{
 						"houses": 1,

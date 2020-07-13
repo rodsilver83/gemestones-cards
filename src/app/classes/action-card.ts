@@ -2,6 +2,7 @@ import { Card, CardType } from './card';
 
 export class ActionCard extends Card {
 	public title = '';
+	public name = '';
 	public icon = '';
 	public iconColor = '';
 	public small = false;
@@ -15,6 +16,7 @@ export class ActionCard extends Card {
 			icon?: string;
 			iconColor?: string;
 			title?: string;
+			name?: string;
 			small?: boolean;
 		}[]
 	) {

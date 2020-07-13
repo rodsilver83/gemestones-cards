@@ -1,23 +1,17 @@
 <div class="box has-background-primary control-panel">
+	<div class="tile is-child">
+		<div
+			class="notification is-warning is-size-7 mb-5 px-3 py-3"
+			[class.is-hidden]="!(gamePlayersService.status$ | async)"
+		>
+			{{ gamePlayersService.status$ | async }}
+		</div>
+	</div>
+
 	<div class="tile is-ancestor">
 		<div class="tile is-parent">
-			<div class="tile is-child is-vertical buttons_container">
-				<div
-					class="notification is-warning is-size-7 px-3 py-3 my-0"
-					[class.is-hidden]="!(gamePlayersService.status$ | async)"
-				>
-					{{ gamePlayersService.status$ | async }}
-				</div>
-
-				<button class="button is-link is-fullwidth" type="button">
-					Help
-				</button>
-
+			<div class="tile is-child is-vertical">
 				<ng-content select="[host-panel]"></ng-content>
-
-				<button class="button is-link is-fullwidth" type="button">
-					Draw Card
-				</button>
 			</div>
 		</div>
 
