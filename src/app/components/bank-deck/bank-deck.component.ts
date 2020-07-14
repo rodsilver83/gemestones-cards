@@ -34,9 +34,12 @@ export class BankDeckComponent implements OnInit {
 	}
 
 	get totalMoney(): number {
-		return this.bankCards?.reduce((prevValue, deckCard: DeckCardComponent) => {
-			return prevValue + deckCard.config.value;
-		}, 0);
+		if (this.bankCards) {
+			return this.bankCards.reduce((prevValue, deckCard: DeckCardComponent) => {
+				return prevValue + deckCard.config.value;
+			}, 0);
+		}
+		return 0;
 	}
 
 	public calculatingHandWidth = true;

@@ -2,6 +2,11 @@
 	<h2 class="subtitle">
 		<i class="fas fa-layer-group"></i> Sets (
 		{{ (playerDataService.sets$ | async)?.length }} )
+		<progress
+			class="progress is-primary"
+			[value]="completeSets"
+			max="3"
+		></progress>
 	</h2>
 	<div class="sets__container" cdkDropListGroup>
 		<div

@@ -10,14 +10,16 @@ import {
 	ViewChildren,
 	QueryList,
 	HostListener,
+	OnChanges,
 } from '@angular/core';
+import { Card } from 'src/app/classes/card';
 
 @Component({
 	selector: 'gs-player-mini-table',
 	templateUrl: './player-mini-table.component.html',
 	styleUrls: ['./player-mini-table.component.scss'],
 })
-export class PlayerMiniTableComponent implements OnInit {
+export class PlayerMiniTableComponent implements OnInit, OnChanges {
 	@Input() public player: Player;
 
 	@ViewChildren('bankCards') public bankCards: QueryList<DeckCardComponent>;
@@ -33,23 +35,35 @@ export class PlayerMiniTableComponent implements OnInit {
 		}
 	}
 
+	get completeSets(): number {
+		if (this.player && this.player.sets) {
+			return this.player.sets.reduce((prev: number, set: Card[]) => {
+				return prev + (set.length === 3 ? 1 : 0);
+			}, 0);
+		}
+		return 0;
+	}
+
 	get totalMoney(): number {
-		return this.bankCards?.reduce((prevValue, card: DeckCardComponent) => {
-			return prevValue + card.config.value;
-		}, 0);
+		if (this.bankCards) {
+			return this.bankCards?.reduce((prevValue, card: DeckCardComponent) => {
+				return prevValue + card.config.value;
+			}, 0);
+		}
+		return 0;
 	}
 
 	constructor(
-		private playerDataService: PlayerDataService,
+		// private playerDataService: PlayerDataService,
 		private gamePlayersService: GamePlayersService,
 		private cd: ChangeDetectorRef
 	) {}
 
 	ngOnInit(): void {
-		this.playerDataService.bankCards$.subscribe(() => {
-			this.onResize();
-			this.cd.detectChanges();
-		});
+		// this.playerDataService.bankCards$.subscribe(() => {
+		// this.onResize();
+		// this.cd.detectChanges();
+		// });
 
 		this.gamePlayersService.move$.subscribe((player: Player) => {
 			if (this.player?.name === player?.name) {
@@ -57,5 +71,10 @@ export class PlayerMiniTableComponent implements OnInit {
 				this.cd.detectChanges();
 			}
 		});
+	}
+
+	ngOnChanges() {
+		this.onResize();
+		this.cd.detectChanges();
 	}
 }

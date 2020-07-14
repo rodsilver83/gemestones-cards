@@ -1,6 +1,11 @@
 <div class="box flex-column">
 	<h2 class="subtitle">
 		<i class="fas fa-bolt"></i> Energy ( {{ totalMoney }} )
+		<progress
+			class="progress is-warning"
+			[value]="totalMoney"
+			max="50"
+		></progress>
 	</h2>
 	<div
 		#bankList

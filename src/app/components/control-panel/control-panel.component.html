@@ -1,16 +1,23 @@
 <div class="box has-background-primary control-panel">
-	<div class="tile is-child">
+	<!-- <div class="tile is-child">
 		<div
 			class="notification is-warning is-size-7 mb-5 px-3 py-3"
 			[class.is-hidden]="!(gamePlayersService.status$ | async)"
 		>
 			{{ gamePlayersService.status$ | async }}
 		</div>
-	</div>
+	</div> -->
 
 	<div class="tile is-ancestor">
 		<div class="tile is-parent">
 			<div class="tile is-child is-vertical">
+				<div
+					class="notification is-warning is-size-7 px-3 py-3 mb-5"
+					[class.is-hidden]="!(gamePlayersService.status$ | async)"
+				>
+					{{ gamePlayersService.status$ | async }}
+				</div>
+
 				<ng-content select="[host-panel]"></ng-content>
 			</div>
 		</div>

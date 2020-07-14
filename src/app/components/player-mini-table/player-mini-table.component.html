@@ -5,6 +5,11 @@
 		<div class="mini__sets-wrapper">
 			<h6 class="mini__title">
 				<i class="fas fa-layer-group"></i> {{ player.sets.length }}
+				<progress
+					class="progress is-info"
+					[value]="completeSets"
+					max="3"
+				></progress>
 			</h6>
 			<div class="mini__sets-container">
 				<div *ngFor="let set of player.sets" class="mini__set-container">
@@ -18,7 +23,14 @@
 		</div>
 
 		<div class="mini__bank-list-container">
-			<h6 class="mini__title"><i class="fas fa-bolt"></i> {{ totalMoney }}</h6>
+			<h6 class="mini__title">
+				<i class="fas fa-bolt"></i> {{ totalMoney }}
+				<progress
+					class="progress is-warning"
+					[value]="totalMoney"
+					max="50"
+				></progress>
+			</h6>
 			<div class="mini__bank-list">
 				<gs-deck-card
 					#bankCards
