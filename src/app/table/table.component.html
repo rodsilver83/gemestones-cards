@@ -2,7 +2,7 @@
 	<div class="tile is-ancestor">
 		<div class="tile is-parent is-vertical table__control-panel">
 			<div class="tile is-child table__control-panel-container">
-				<gs-control-panel>
+				<gs-control-panel [isHost]="isHost">
 					<ng-content host-panel select="[host-panel]"></ng-content>
 				</gs-control-panel>
 			</div>

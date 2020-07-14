@@ -20,10 +20,25 @@
 
 				<ng-content select="[host-panel]"></ng-content>
 
-				<span>
+				<button
+					class="button is-link is-fullwidth is-small my-1"
+					type="button"
+					(click)="finishMyTurn()"
+					[disabled]="!isMyTurn"
+				>
+					End Turn
+				</button>
+
+				<mat-spinner
+					*ngIf="loading"
+					[diameter]="50"
+					color="accent"
+				></mat-spinner>
+
+				<span *ngIf="!loading && !isHost">
 					<i class="fas fa-gem"></i>
 				</span>
-				<p>
+				<p class="my-0" *ngIf="!isHost">
 					GEMSTONES
 				</p>
 			</div>

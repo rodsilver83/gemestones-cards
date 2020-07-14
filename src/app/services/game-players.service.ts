@@ -14,9 +14,12 @@ export class GamePlayersService {
 	public deckReady$ = new BehaviorSubject<boolean>(false);
 	public otherPlayers$ = new BehaviorSubject<Player[]>([]);
 	public move$ = new BehaviorSubject<Player>(null);
+	public turn$ = new BehaviorSubject<Player>(null);
 
 	private _otherPlayers = new Map<string, Player>();
 	private localPlayer: Player;
+
+	private currentTurnPlayerIndex = 0;
 
 	constructor(
 		private playerDataService: PlayerDataService,
@@ -89,5 +92,21 @@ export class GamePlayersService {
 		// Values to test
 		const cards = this.deckService.drawFromDeck(5);
 		player.handCards = cards;
+	}
+
+	selectFirstPlayer(): Player {
+		this.currentTurnPlayerIndex = Math.floor(
+			Math.random() * this.allPlayers.length
+		);
+		const turnPlayer = this.allPlayers[this.currentTurnPlayerIndex];
+		this.turn$.next(turnPlayer);
+		return turnPlayer;
+	}
+
+	nextTurn() {
+		this.currentTurnPlayerIndex =
+			++this.currentTurnPlayerIndex > this.allPlayers.length
+				? 0
+				: this.currentTurnPlayerIndex;
 	}
 }

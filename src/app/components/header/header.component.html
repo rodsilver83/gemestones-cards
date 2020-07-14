@@ -4,14 +4,28 @@
 			<span class="icon header__icon">
 				<i class="fas fa-gem"></i>
 			</span>
+
+			<a
+				role="button"
+				class="navbar-burger burger"
+				[class.is-active]="openMenu"
+				(click)="openMenu = !openMenu"
+				aria-label="menu"
+				aria-expanded="false"
+				data-target="navbarBasicExample"
+			>
+				<span aria-hidden="true"></span>
+				<span aria-hidden="true"></span>
+				<span aria-hidden="true"></span>
+			</a>
 		</div>
 
-		<div id="navbarBasicExample" class="navbar-menu">
+		<div
+			id="navbarBasicExample"
+			class="navbar-menu"
+			[class.is-active]="openMenu"
+		>
 			<div class="navbar-start">
-				<p class="navbar-item has-text-primary">
-					GEMESTONES
-				</p>
-
 				<a href="rules" target="_blank" class="navbar-item">
 					How to play
 				</a>

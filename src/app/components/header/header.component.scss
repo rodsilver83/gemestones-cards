@@ -1,3 +1,5 @@
+@import '../../../styles';
+
 .header {
 	position: sticky;
 	top: 0;
@@ -5,8 +7,5 @@
 }
 
 .header__icon {
-	font-size: 2rem;
-	height: 3.5rem;
-	width: 3.5rem;
-	color: #00feff;
+	@extend .gem-icon;
 }

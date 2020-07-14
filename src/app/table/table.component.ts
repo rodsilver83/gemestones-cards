@@ -8,6 +8,8 @@ import { Component, Input } from '@angular/core';
 	styleUrls: ['./table.component.scss'],
 })
 export class TableComponent {
+	@Input() public isHost = false;
+
 	constructor(
 		private gameService: GamePlayersService,
 		public playerDataService: PlayerDataService

@@ -1,7 +1,7 @@
-<gs-table>
+<gs-table [isHost]="true">
 	<button
 		host-panel
-		class="button is-link is-fullwidth is-small"
+		class="button is-link is-fullwidth is-small my-1"
 		type="button"
 		(click)="startGame()"
 		[disabled]="!(gamePlayersService.deckReady$ | async)"

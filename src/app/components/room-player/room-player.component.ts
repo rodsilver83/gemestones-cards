@@ -1,12 +1,12 @@
 import { GamePlayersService } from './../../services/game-players.service';
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
-import { FormControl } from '@angular/forms';
 import { Player } from 'src/app/classes/player';
 import { ActivatedRoute } from '@angular/router';
 import { ConnectionService } from 'src/app/services/connection.service';
 import { PlayerDataService } from 'src/app/services/player-data.service';
 import { ConnData, ConnDataType } from 'src/app/classes/conn-data';
 import { Card } from 'src/app/classes/card';
+import * as MESSAGES from '../../../assets/messages.json';
 
 @Component({
 	selector: 'gs-room-player',
@@ -57,10 +57,21 @@ export class RoomPlayerComponent implements OnInit {
 					this.gamePlayersService.updatePlayerCards(data.data);
 					break;
 				case ConnDataType.TURN:
-					this.gamePlayersService.updatePlayerCards(data.data);
+					if (this.playerDataService.playerName === data.player) {
+						this.gamePlayersService.setStatusMessage(
+							`${data.player} ${(MESSAGES as any).STATUS.YOURTURN}`
+						);
+						this.playerDataService.addTurnDrawCards(data.data);
+					} else {
+						this.gamePlayersService.setStatusMessage(
+							`${data.player} ${(MESSAGES as any).STATUS.ISPLAYING}`
+						);
+					}
 					break;
 				case ConnDataType.START:
-					this.gamePlayersService.setStatusMessage('The Game begins.');
+					this.gamePlayersService.setStatusMessage(
+						(MESSAGES as any).STATUS.GAMEBEGINS
+					);
 					data.data.forEach((player: Player) => {
 						if (this.playerDataService.playerName === player.name) {
 							this.gamePlayersService.addNewLocalPlayer(player);

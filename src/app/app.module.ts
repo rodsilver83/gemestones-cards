@@ -26,6 +26,9 @@ import { TableComponent } from './table/table.component';
 import { WildCardComponent } from './components/cards/wild-card/wild-card.component';
 import { HeaderComponent } from './components/header/header.component';
 import { RulesComponent } from './rules/rules.component';
+import { MainTitleComponent } from './main-title/main-title.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
 	declarations: [
@@ -51,6 +54,7 @@ import { RulesComponent } from './rules/rules.component';
 		SetsDeckComponent,
 		HeaderComponent,
 		RulesComponent,
+		MainTitleComponent,
 	],
 	imports: [
 		AppRoutingModule,
@@ -59,6 +63,8 @@ import { RulesComponent } from './rules/rules.component';
 		FormsModule,
 		HttpClientModule,
 		ReactiveFormsModule,
+		BrowserAnimationsModule,
+		MatProgressSpinnerModule,
 	],
 	providers: [],
 	bootstrap: [AppComponent],

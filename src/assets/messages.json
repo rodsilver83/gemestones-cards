@@ -1,0 +1,10 @@
+{
+	"STATUS": {
+		"YOURTURN": "is your TURN. You get 2 more cards.",
+		"ISPLAYING": "is playing.",
+		"GAMEBEGINS": "The Game begins.",
+		"WAITINGHOST": "Waiting for Host to start the game.",
+		"TURNPLAY": "is your TURN, play up to 3 cards, leave 7 cards or less in your hand.",
+		"PLAYERSTARTS": "will START the game."
+	}
+}

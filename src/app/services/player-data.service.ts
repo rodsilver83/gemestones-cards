@@ -232,4 +232,9 @@ export class PlayerDataService {
 		this.discarCard$.next(card);
 		this.playerCards = this.player;
 	}
+
+	addTurnDrawCards(cards: Card[]) {
+		this.player.handCards = this.player.handCards.concat(cards);
+		this.playerCards = this.player;
+	}
 }

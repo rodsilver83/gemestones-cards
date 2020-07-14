@@ -8,6 +8,7 @@ import { GamePlayersService } from 'src/app/services/game-players.service';
 import { take } from 'rxjs/operators';
 import { ConnData, ConnDataType } from 'src/app/classes/conn-data';
 import { Card } from 'src/app/classes/card';
+import * as MESSAGES from '../../../assets/messages.json';
 
 @Component({
 	selector: 'gs-host',
@@ -30,7 +31,7 @@ export class HostComponent implements OnInit {
 
 	ngOnInit() {
 		this.gamePlayersService.setStatusMessage(
-			'Waiting for Host to start the game.'
+			(MESSAGES as any).STATUS.WAITINGHOST
 		);
 
 		this.route.params.subscribe((params) => {
@@ -73,7 +74,7 @@ export class HostComponent implements OnInit {
 				case ConnDataType.HANDSHAKE:
 					this.conn.sendDataClients(
 						ConnDataType.STAUS,
-						'Waiting for HOST to start the Game.',
+						(MESSAGES as any).STATUS.WAITINGHOST,
 						this.playerDataService.playerName
 					);
 					this.gamePlayersService.addNewPlayer(
@@ -103,22 +104,29 @@ export class HostComponent implements OnInit {
 			this.gamePlayersService.allPlayers
 		);
 
-		const first = this.selectFirstPlayer();
-		this.sendStatusUpdate(`${first.name} will begin the game.`);
+		const first = this.gamePlayersService.selectFirstPlayer();
+		this.sendStatusUpdate(
+			`${first.name} ${(MESSAGES as any).STATUS.PLAYERSTARTS}`
+		);
 
-		setTimeout(() => {
-			const draw = this.deckService.drawFromDeck(2);
-			first.handCards = first.handCards.concat(draw);
-			this.gamePlayersService.updatePlayerCards(first);
-			this.conn.sendDataClients(ConnDataType.TURN, first);
-		}, 3000);
+		this.playerTurn(first);
 	}
 
-	selectFirstPlayer(): Player {
-		const random = Math.floor(
-			Math.random() * this.gamePlayersService.allPlayers.length
-		);
-		return this.gamePlayersService.allPlayers[random];
+	playerTurn(player: Player) {
+		setTimeout(() => {
+			const draw = this.deckService.drawFromDeck(2);
+			this.conn.sendDataClients(ConnDataType.TURN, draw, player.name);
+			if (player.name === this.playerDataService.playerName) {
+				this.playerDataService.addTurnDrawCards(draw);
+				this.gamePlayersService.setStatusMessage(
+					`${player.name} ${(MESSAGES as any).STATUS.TURNPLAY}`
+				);
+			} else {
+				this.gamePlayersService.setStatusMessage(
+					`${player.name} ${(MESSAGES as any).STATUS.ISPLAYING}`
+				);
+			}
+		}, 3000);
 	}
 
 	sendStatusUpdate(status: string) {
