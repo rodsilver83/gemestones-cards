@@ -10,15 +10,22 @@
 
 	<div class="tile is-ancestor">
 		<div class="tile is-parent">
-			<div class="tile is-child is-vertical">
+			<div class="tile is-child control-panel__gem">
 				<div
-					class="notification is-warning is-size-7 px-3 py-3 mb-5"
+					class="notification is-warning is-size-7 px-3 py-3 mb-0"
 					[class.is-hidden]="!(gamePlayersService.status$ | async)"
 				>
 					{{ gamePlayersService.status$ | async }}
 				</div>
 
 				<ng-content select="[host-panel]"></ng-content>
+
+				<span>
+					<i class="fas fa-gem"></i>
+				</span>
+				<p>
+					GEMSTONES
+				</p>
 			</div>
 		</div>
 

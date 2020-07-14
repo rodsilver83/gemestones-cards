@@ -15,7 +15,6 @@ import { Card } from 'src/app/classes/card';
 	styleUrls: ['./host.component.scss'],
 })
 export class HostComponent implements OnInit {
-	public player: Player;
 	public roomName: string;
 	public statusMsg = 'Shuffling  Cards...';
 	public deckReady = false;
@@ -36,9 +35,10 @@ export class HostComponent implements OnInit {
 
 		this.route.params.subscribe((params) => {
 			this.roomName = params.name;
-			this.gamePlayersService.addNewLocalPlayer(new Player({ name: 'Host' }));
-			// this.player.name = params.player;
-			// this.hostId = params.hostId;
+			this.playerDataService.localPlayer = new Player({ name: params.player });
+			this.gamePlayersService.addNewLocalPlayer(
+				new Player({ name: this.playerDataService.playerName })
+			);
 			this.stablishConnection();
 		});
 
@@ -71,7 +71,6 @@ export class HostComponent implements OnInit {
 		this.conn.connection$.subscribe((data: ConnData) => {
 			switch (data.type) {
 				case ConnDataType.HANDSHAKE:
-					this.conn.sendDataClients(ConnDataType.HANDSHAKE, data.player);
 					this.conn.sendDataClients(
 						ConnDataType.STAUS,
 						'Waiting for HOST to start the Game.',
@@ -80,7 +79,7 @@ export class HostComponent implements OnInit {
 					this.gamePlayersService.addNewPlayer(
 						new Player({ name: data.player })
 					);
-					this.startGame(); // For Test Only
+					this.conn.sendDataClients(ConnDataType.HANDSHAKE, data.player);
 					break;
 				case ConnDataType.MSG:
 					this.conn.sendDataClients(ConnDataType.MSG, data.data, data.player);
@@ -103,5 +102,27 @@ export class HostComponent implements OnInit {
 			ConnDataType.START,
 			this.gamePlayersService.allPlayers
 		);
+
+		const first = this.selectFirstPlayer();
+		this.sendStatusUpdate(`${first.name} will begin the game.`);
+
+		setTimeout(() => {
+			const draw = this.deckService.drawFromDeck(2);
+			first.handCards = first.handCards.concat(draw);
+			this.gamePlayersService.updatePlayerCards(first);
+			this.conn.sendDataClients(ConnDataType.TURN, first);
+		}, 3000);
+	}
+
+	selectFirstPlayer(): Player {
+		const random = Math.floor(
+			Math.random() * this.gamePlayersService.allPlayers.length
+		);
+		return this.gamePlayersService.allPlayers[random];
+	}
+
+	sendStatusUpdate(status: string) {
+		this.conn.sendDataClients(ConnDataType.STAUS, status);
+		this.gamePlayersService.setStatusMessage(status);
 	}
 }

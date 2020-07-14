@@ -77,9 +77,6 @@ export class ChatComponent implements OnInit {
 	}
 
 	addPlayerColor(player: string): string {
-		if (player === 'Host') {
-			return '#3298dc';
-		}
 		if (!this.playersColors.has(player)) {
 			const set = this.playersColors.size + 3;
 			const color = this.colorService.getColor(set);

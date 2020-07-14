@@ -45,8 +45,10 @@ export class GamePlayersService {
 	}
 
 	addNewPlayer(newPlayer: Player) {
-		this._otherPlayers.set(newPlayer.name, newPlayer);
-		this.otherPlayers$.next(this.otherPlayers); // Change to Other players, this is for testing
+		if (!this._otherPlayers.has(newPlayer.name)) {
+			this._otherPlayers.set(newPlayer.name, newPlayer);
+			this.otherPlayers$.next(this.otherPlayers); // Change to Other players, this is for testing
+		}
 	}
 
 	addNewLocalPlayer(player: Player) {
@@ -75,13 +77,17 @@ export class GamePlayersService {
 		if (this._otherPlayers.has(player.name)) {
 			this._otherPlayers.set(player.name, player);
 			this.otherPlayers$.next(this.otherPlayers);
-			this.move$.next(player);
+			// this.move$.next(player);
+		}
+		if (this.localPlayer?.name === player.name) {
+			this.localPlayer = player;
+			this.playerDataService.playerCards = player;
 		}
 	}
 
 	drawCards(player: Player) {
 		// Values to test
-		const cards = this.deckService.drawFromDeck(7);
+		const cards = this.deckService.drawFromDeck(5);
 		player.handCards = cards;
 	}
 }

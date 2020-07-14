@@ -25,7 +25,7 @@ export class BankDeckComponent implements OnInit {
 	@HostListener('window:resize') public onResize() {
 		if (this.bankCards?.length > 0) {
 			const listWidth = this.bankList.nativeElement.clientWidth;
-			const cardWidth = listWidth / Math.min(this.bankCards.length, 10);
+			const cardWidth = listWidth / Math.min(this.bankCards.length, 15);
 			this.bankCards.forEach((card) => {
 				card.el.nativeElement.style.width = cardWidth + 'px';
 			});

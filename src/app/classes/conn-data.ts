@@ -16,4 +16,5 @@ export enum ConnDataType {
 	STAUS = 'STATUS',
 	START = 'START',
 	ERROR = 'ERROR',
+	TURN = 'TURN',
 }

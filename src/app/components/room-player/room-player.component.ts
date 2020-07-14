@@ -56,6 +56,9 @@ export class RoomPlayerComponent implements OnInit {
 				case ConnDataType.MOVE:
 					this.gamePlayersService.updatePlayerCards(data.data);
 					break;
+				case ConnDataType.TURN:
+					this.gamePlayersService.updatePlayerCards(data.data);
+					break;
 				case ConnDataType.START:
 					this.gamePlayersService.setStatusMessage('The Game begins.');
 					data.data.forEach((player: Player) => {

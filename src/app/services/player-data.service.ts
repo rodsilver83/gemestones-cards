@@ -40,7 +40,6 @@ export class PlayerDataService {
 		this.bankCards$.next(player.bankCards);
 		this.handCards$.next(player.handCards);
 		this.sets$.next(player.sets);
-		this.moveCards$.next(this.localPlayer);
 	}
 
 	get playerName(): string {

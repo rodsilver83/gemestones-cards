@@ -30,14 +30,17 @@ export class LobbyComponent implements OnInit {
 		this.room = this.createForm.get('room').value;
 		this.player = this.createForm.get('player').value;
 		this.connection
-			.createPeer('Host', this.room)
+			.createPeer(this.player, this.room)
 			.pipe(take(1), watch('Create Room', 10))
 			.subscribe((res) => {
 				if (res === 'unavailable-id') {
 					this.joinRoom();
 				} else {
 					if (res === this.room) {
-						this.router.navigate(['host', { name: this.room, player: 'Host' }]);
+						this.router.navigate([
+							'host',
+							{ name: this.room, player: this.player },
+						]);
 					} else {
 						this.showError(res);
 					}
