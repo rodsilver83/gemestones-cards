@@ -14,6 +14,8 @@ import {
 } from '@angular/core';
 import { DeckCardComponent } from '../deck-card/deck-card.component';
 import { PlayerDataService } from '../../services/player-data.service';
+import { GamePlayersService } from 'src/app/services/game-players.service';
+import { Player } from 'src/app/classes/player';
 
 @Component({
 	selector: 'gs-hand-deck',
@@ -41,10 +43,13 @@ export class HandDeckComponent
 	}
 
 	public calculatingHandWidth = true;
+	public isMyTurn = false;
+
 	private lastListWidth = 0;
 
 	constructor(
 		public readonly playerDataService: PlayerDataService,
+		private readonly gameService: GamePlayersService,
 		private readonly cd: ChangeDetectorRef
 	) {}
 
@@ -60,6 +65,11 @@ export class HandDeckComponent
 
 	ngOnInit(): void {
 		this.playerDataService.handCards$.subscribe((cards: Card[]) => {
+			this.cd.detectChanges();
+		});
+
+		this.gameService.turn$.subscribe((player: Player) => {
+			this.isMyTurn = this.playerDataService.playerName === player?.name;
 			this.cd.detectChanges();
 		});
 	}

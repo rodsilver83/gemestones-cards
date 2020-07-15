@@ -1,6 +1,6 @@
 @import '../../styles';
 
-$table-color: #2370ff;
+$table-color: $board-color;
 
 .table__player {
 	@include glowShadow(lighten($table-color, 10));

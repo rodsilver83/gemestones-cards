@@ -2,6 +2,10 @@
 
 .hand__wrapper {
 	margin-bottom: 20px;
+
+	&.hand__wrapper_active {
+		border: 2px solid $board-color;
+	}
 }
 
 .hand__deck-list {

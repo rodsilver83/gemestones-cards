@@ -1,4 +1,8 @@
-<div class="box hand__wrapper" #handList>
+<div
+	class="box hand__wrapper"
+	[class.hand__wrapper_active]="isMyTurn"
+	#handList
+>
 	<h2 class="subtitle"><i class="fas fa-th"></i> Cards</h2>
 	<div
 		class="hand__deck-list mb-3"
